@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tobi Oredein — Brand Guide v2.2 (Butter Yellow)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    @page {
+      size: 11in 8.5in;
+      margin: 0;
+    }
+
+    :root {
+      /* NEW PALETTE — Butter Yellow + Pink Lemonade */
+      --jet: #24221B;
+      --silver: #E4DFD8;
+      --butter: #F2D04E;
+      --butter-light: #FFEFBC;
+      --pink: #FFB3B1;
+      --pink-soft: #FFE4E3;
+      --cherry: #9A0D02;
+
+      /* Functional */
+      --text-primary: var(--jet);
+      --text-secondary: #6B6860;
+      --text-inverse: var(--silver);
+      --background: var(--silver);
+
+      /* Typography */
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-elegant: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Spacing */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 2rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--silver);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Page Structure */
+    .page {
+      width: 11in;
+      min-height: 8.5in;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* ==========================================
+       PAGE 1: COVER — Fresh, Bold, Unexpected
+    ========================================== */
+    .cover {
+      background: var(--butter);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 100% 60% at 0% 100%, rgba(255, 179, 177, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 50% at 100% 0%, rgba(255, 239, 188, 0.5) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--jet);
+      opacity: 0.6;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .cover-name {
+      margin-bottom: var(--space-lg);
+    }
+
+    /* BOLDER Cormorant — Medium/Semibold instead of Light */
+    .cover-name .first {
+      display: block;
+      font-family: var(--font-elegant);
+      font-size: 7rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--jet);
+      line-height: 0.9;
+    }
+
+    .cover-name .last {
+      display: block;
+      font-family: var(--font-elegant);
+      font-size: 3rem;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.08em;
+      color: var(--jet);
+      line-height: 1.4;
+      margin-top: var(--space-sm);
+      opacity: 0.7;
+    }
+
+    .cover-tagline {
+      font-family: var(--font-elegant);
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--jet);
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 2px solid rgba(36, 34, 27, 0.2);
+      letter-spacing: 0.02em;
+    }
+
+    .cover-version {
+      position: absolute;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--jet);
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+    }
+
+    /* Decorative corner accents */
+    .cover-accent {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border: 2px solid var(--jet);
+      opacity: 0.15;
+    }
+
+    .cover-accent--tl {
+      top: var(--space-xl);
+      left: var(--space-xl);
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .cover-accent--br {
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      border-left: none;
+      border-top: none;
+    }
+
+    /* ==========================================
+       PAGE HEADERS
+    ========================================== */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-lg) var(--space-xl);
+      border-bottom: 1px solid rgba(36, 34, 27, 0.1);
+    }
+
+    .page-header--dark {
+      border-bottom-color: rgba(228, 223, 216, 0.15);
+    }
+
+    .page-section {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .page-brand {
+      font-family: var(--font-elegant);
+      font-size: 1rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--jet);
+    }
+
+    /* ==========================================
+       SECTION STYLES — Bolder Typography
+    ========================================== */
+    .section-content {
+      padding: var(--space-xl);
+    }
+
+    /* BOLDER section titles */
+    .section-title {
+      font-family: var(--font-elegant);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: var(--space-sm);
+      letter-spacing: 0.01em;
+      color: var(--jet);
+    }
+
+    .section-subtitle {
+      font-family: var(--font-elegant);
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--cherry);
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-intro {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      max-width: 55ch;
+      line-height: 1.8;
+    }
+
+    .subsection-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .subsection-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(36, 34, 27, 0.2) 0%, transparent 100%);
+    }
+
+    /* ==========================================
+       PAGE 2: BRAND ESSENCE
+    ========================================== */
+    .essence-page {
+      background: var(--pink-soft);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .essence-content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      padding: var(--space-xl);
+      gap: var(--space-xl);
+    }
+
+    .essence-quote {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .essence-quote blockquote {
+      font-family: var(--font-elegant);
+      font-size: 2.8rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--jet);
+      line-height: 1.25;
+      margin-bottom: var(--space-lg);
+      position: relative;
+      padding-left: var(--space-lg);
+    }
+
+    .essence-quote blockquote::before {
+      content: '"';
+      position: absolute;
+      left: -0.1em;
+      top: -0.2em;
+      font-family: var(--font-elegant);
+      font-size: 6rem;
+      font-weight: 600;
+      color: var(--cherry);
+      opacity: 0.25;
+      line-height: 1;
+    }
+
+    .essence-quote blockquote em {
+      font-style: normal;
+      color: var(--cherry);
+    }
+
+    .essence-quote cite {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-style: normal;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      padding-left: var(--space-lg);
+    }
+
+    .essence-pillars {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-lg);
+    }
+
+    .pillar {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(36, 34, 27, 0.1);
+    }
+
+    .pillar:last-child {
+      border-bottom: none;
+    }
+
+    .pillar-title {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      color: var(--jet);
+    }
+
+    .pillar-desc {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       PAGE 3: COLOR PALETTE
+    ========================================== */
+    .color-page {
+      background: var(--silver);
+    }
+
+    .color-intro {
+      margin-bottom: var(--space-xl);
+    }
+
+    .color-philosophy {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--jet);
+      line-height: 1.5;
+      max-width: 50ch;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+
+    .color-swatch {
+      position: relative;
+    }
+
+    .color-swatch--primary {
+      grid-row: span 2;
+    }
+
+    .color-preview {
+      height: 100px;
+      position: relative;
+    }
+
+    .color-swatch--primary .color-preview {
+      height: 100%;
+      min-height: 180px;
+    }
+
+    .color-preview--jet { background: var(--jet); }
+    .color-preview--silver {
+      background: var(--silver);
+      border: 1px solid rgba(36, 34, 27, 0.1);
+    }
+    .color-preview--butter { background: var(--butter); }
+    .color-preview--butter-light { background: var(--butter-light); }
+    .color-preview--pink { background: var(--pink); }
+    .color-preview--pink-soft { background: var(--pink-soft); }
+    .color-preview--cherry { background: var(--cherry); }
+
+    .color-info {
+      padding: var(--space-sm) 0;
+    }
+
+    .color-name {
+      font-family: var(--font-elegant);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .color-hex {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+    }
+
+    .color-usage {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* ==========================================
+       PAGE 4: TYPOGRAPHY
+    ========================================== */
+    .type-page {
+      background: var(--silver);
+    }
+
+    .type-intro {
+      max-width: 50ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .type-intro p {
+      font-family: var(--font-elegant);
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .type-specimens {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .type-specimen {
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid rgba(36, 34, 27, 0.1);
+    }
+
+    .type-specimen:last-child {
+      border-bottom: none;
+    }
+
+    .type-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: var(--space-sm);
+    }
+
+    .type-role {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--cherry);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .type-details {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+    }
+
+    /* BOLDER Elegant Cormorant — Medium weight */
+    .type-sample--elegant {
+      font-family: var(--font-elegant);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--jet);
+    }
+
+    .type-sample--elegant-italic {
+      font-family: var(--font-elegant);
+      font-size: 2rem;
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--cherry);
+      max-width: 40ch;
+    }
+
+    /* BOLD MOMENTS — Display Serif */
+    .type-sample--display {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--butter);
+      text-shadow: 2px 2px 0 var(--jet);
+    }
+
+    .type-sample--body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.8;
+      max-width: 55ch;
+      color: var(--text-secondary);
+    }
+
+    .type-sample--mono {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       PAGE 5: TYPOGRAPHY INTERPLAY
+    ========================================== */
+    .interplay-page {
+      background: var(--butter-light);
+    }
+
+    .interplay-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .interplay-example {
+      background: var(--silver);
+      padding: var(--space-xl);
+      position: relative;
+    }
+
+    .interplay-example--dark {
+      background: var(--jet);
+    }
+
+    .interplay-example--butter {
+      background: var(--butter);
+    }
+
+    .interplay-label {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .interplay-example--dark .interplay-label {
+      color: rgba(228, 223, 216, 0.5);
+    }
+
+    .editorial-headline {
+      font-family: var(--font-elegant);
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--jet);
+      margin-bottom: var(--space-md);
+    }
+
+    .editorial-subline {
+      font-family: var(--font-elegant);
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--cherry);
+    }
+
+    .stat-display {
+      text-align: center;
+      padding: var(--space-lg) 0;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--butter);
+      line-height: 1;
+    }
+
+    .stat-context {
+      font-family: var(--font-elegant);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--silver);
+      margin-top: var(--space-sm);
+    }
+
+    .stat-source {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: rgba(228, 223, 216, 0.5);
+      letter-spacing: 0.1em;
+      margin-top: var(--space-md);
+    }
+
+    .pullquote-example {
+      padding: var(--space-xl) 0;
+    }
+
+    .pullquote {
+      font-family: var(--font-elegant);
+      font-size: 1.9rem;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--jet);
+      border-left: 3px solid var(--cherry);
+      padding-left: var(--space-lg);
+    }
+
+    .pullquote-attr {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: var(--space-md);
+      padding-left: var(--space-lg);
+    }
+
+    /* ==========================================
+       PAGE 6: COMPONENTS
+    ========================================== */
+    .components-page {
+      background: var(--silver);
+    }
+
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .component-card {
+      background: white;
+      padding: var(--space-lg);
+      box-shadow: 0 2px 12px rgba(36, 34, 27, 0.08);
+    }
+
+    .component-label {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn--primary {
+      background: var(--butter);
+      color: var(--jet);
+    }
+
+    .btn--cherry {
+      background: var(--cherry);
+      color: white;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--jet);
+      border: 2px solid var(--jet);
+    }
+
+    .btn--elegant {
+      background: transparent;
+      color: var(--cherry);
+      font-family: var(--font-elegant);
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-style: italic;
+      padding: 8px 0;
+      border-bottom: 2px solid var(--cherry);
+    }
+
+    .tags {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+    }
+
+    .tag--butter {
+      background: var(--butter);
+      color: var(--jet);
+    }
+
+    .tag--pink {
+      background: var(--pink);
+      color: var(--jet);
+    }
+
+    .tag--cherry {
+      background: var(--cherry);
+      color: white;
+    }
+
+    .dividers {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .divider--subtle {
+      height: 1px;
+      background: rgba(36, 34, 27, 0.1);
+    }
+
+    .divider--butter {
+      height: 3px;
+      background: var(--butter);
+      width: 60px;
+    }
+
+    .divider--cherry {
+      height: 2px;
+      background: var(--cherry);
+      width: 40px;
+    }
+
+    /* ==========================================
+       PAGE 7: SOCIAL TEMPLATES
+    ========================================== */
+    .social-page {
+      background: var(--silver);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 140px;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .social-preview {
+      background: white;
+      box-shadow: 0 4px 16px rgba(36, 34, 27, 0.1);
+      overflow: hidden;
+    }
+
+    .social-preview-label {
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(36, 34, 27, 0.08);
+    }
+
+    .instagram-post {
+      aspect-ratio: 1;
+      background: var(--butter);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-xl);
+      text-align: center;
+      position: relative;
+    }
+
+    .instagram-post .headline {
+      font-family: var(--font-elegant);
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--jet);
+      line-height: 1.2;
+      margin-bottom: var(--space-sm);
+    }
+
+    .instagram-post .subline {
+      font-family: var(--font-elegant);
+      font-size: 1rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--cherry);
+    }
+
+    .instagram-post .brand {
+      position: absolute;
+      bottom: var(--space-md);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-elegant);
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--jet);
+      opacity: 0.5;
+    }
+
+    .linkedin-banner {
+      aspect-ratio: 1200/627;
+      background: var(--pink-soft);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: var(--space-lg);
+      gap: var(--space-md);
+      position: relative;
+    }
+
+    .linkedin-content .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.4rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cherry);
+      margin-bottom: var(--space-xs);
+    }
+
+    .linkedin-content .headline {
+      font-family: var(--font-elegant);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--jet);
+      line-height: 1.2;
+    }
+
+    .linkedin-content .subline {
+      font-family: var(--font-elegant);
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--cherry);
+      margin-top: 4px;
+    }
+
+    .linkedin-brand {
+      text-align: right;
+    }
+
+    .linkedin-brand .name {
+      font-family: var(--font-elegant);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--jet);
+    }
+
+    .instagram-story {
+      aspect-ratio: 9/16;
+      background: var(--jet);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-md);
+      text-align: center;
+      position: relative;
+    }
+
+    .instagram-story .stat {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--butter);
+      line-height: 1;
+    }
+
+    .instagram-story .context {
+      font-family: var(--font-elegant);
+      font-size: 0.65rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--pink);
+      margin-top: var(--space-xs);
+    }
+
+    .instagram-story .brand {
+      position: absolute;
+      bottom: var(--space-sm);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-elegant);
+      font-size: 0.5rem;
+      font-style: italic;
+      color: rgba(228, 223, 216, 0.4);
+    }
+
+    /* ==========================================
+       PAGE 8: PHOTOGRAPHY
+    ========================================== */
+    .photo-page {
+      background: var(--pink-soft);
+    }
+
+    .photo-intro {
+      max-width: 50ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .photo-intro p {
+      font-family: var(--font-elegant);
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--jet);
+      line-height: 1.6;
+    }
+
+    .photo-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .photo-principle {
+      padding: var(--space-lg);
+      background: white;
+      position: relative;
+    }
+
+    .photo-principle-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--butter);
+      position: absolute;
+      top: var(--space-sm);
+      right: var(--space-md);
+      line-height: 1;
+      opacity: 0.5;
+    }
+
+    .photo-principle-title {
+      font-family: var(--font-elegant);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+      color: var(--jet);
+    }
+
+    .photo-principle-desc {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .photo-moods {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+
+    .photo-mood {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-md);
+      position: relative;
+    }
+
+    .photo-mood--butter {
+      background: var(--butter);
+    }
+
+    .photo-mood--pink {
+      background: var(--pink);
+    }
+
+    .photo-mood--silver {
+      background: var(--silver);
+      border: 1px solid rgba(36, 34, 27, 0.1);
+    }
+
+    .photo-mood--jet {
+      background: var(--jet);
+    }
+
+    .photo-mood span {
+      font-family: var(--font-elegant);
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .photo-mood--jet span {
+      color: var(--butter);
+    }
+
+    .photo-mood-badge {
+      position: absolute;
+      top: var(--space-xs);
+      right: var(--space-xs);
+      font-family: var(--font-mono);
+      font-size: 0.45rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      background: var(--cherry);
+      color: white;
+    }
+
+    /* ==========================================
+       PAGE 9: DO'S AND DON'TS
+    ========================================== */
+    .guidelines-page {
+      background: var(--silver);
+    }
+
+    .guidelines-intro {
+      max-width: 50ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .guidelines-intro p {
+      font-family: var(--font-elegant);
+      font-size: 1.3rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .guidelines-col h3 {
+      font-family: var(--font-elegant);
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: 3px solid;
+    }
+
+    .guidelines-col--do h3 {
+      border-color: var(--butter);
+      color: var(--jet);
+    }
+
+    .guidelines-col--dont h3 {
+      border-color: var(--cherry);
+      color: var(--cherry);
+    }
+
+    .guidelines-list {
+      list-style: none;
+    }
+
+    .guidelines-list li {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(36, 34, 27, 0.08);
+      display: grid;
+      grid-template-columns: 10px 1fr;
+      gap: var(--space-md);
+      align-items: start;
+    }
+
+    .guidelines-list li::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 0.4em;
+    }
+
+    .guidelines-col--do .guidelines-list li::before {
+      background: var(--butter);
+    }
+
+    .guidelines-col--dont .guidelines-list li::before {
+      background: var(--cherry);
+    }
+
+    .guideline-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .guideline-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       PAGE 10: CLOSING
+    ========================================== */
+    .closing-page {
+      background: var(--butter);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .closing-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 100% 60% at 50% 100%, rgba(255, 179, 177, 0.3) 0%, transparent 50%);
+    }
+
+    .closing-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .closing-wordmark .first {
+      display: block;
+      font-family: var(--font-elegant);
+      font-size: 5rem;
+      font-weight: 500;
+      color: var(--jet);
+      line-height: 1;
+    }
+
+    .closing-wordmark .last {
+      display: block;
+      font-family: var(--font-elegant);
+      font-size: 2.2rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--jet);
+      margin-top: var(--space-xs);
+      opacity: 0.6;
+    }
+
+    .closing-tagline {
+      font-family: var(--font-elegant);
+      font-size: 1.3rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--jet);
+      margin-top: var(--space-xl);
+      max-width: 30ch;
+      opacity: 0.7;
+    }
+
+    .closing-meta {
+      position: absolute;
+      bottom: var(--space-lg);
+      left: var(--space-xl);
+      right: var(--space-xl);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--jet);
+      opacity: 0.5;
+    }
+
+    .closing-accent {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--jet);
+      opacity: 0.15;
+    }
+
+    .closing-accent--tl {
+      top: var(--space-xl);
+      left: var(--space-xl);
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .closing-accent--br {
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      border-left: none;
+      border-top: none;
+    }
+
+    /* ==========================================
+       UTILITY CLASSES
+    ========================================== */
+    .text-inverse { color: var(--silver); }
+    .text-butter { color: var(--butter); }
+    .text-cherry { color: var(--cherry); }
+    .bg-jet { background: var(--jet); }
+    .bg-butter { background: var(--butter); }
+    .bg-pink { background: var(--pink); }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       PAGE 1: COVER
+  ========================================== -->
+  <div class="page cover">
+    <div class="cover-accent cover-accent--tl"></div>
+    <div class="cover-accent cover-accent--br"></div>
+    <div class="cover-content">
+      <p class="cover-eyebrow">Brand Guidelines 2025</p>
+      <div class="cover-name">
+        <span class="first">Tobi Oredein</span>
+        <span class="last">Brand System</span>
+      </div>
+      <p class="cover-tagline">The future of Black women's media</p>
+    </div>
+    <span class="cover-version">v2.2</span>
+  </div>
+
+  <!-- ==========================================
+       PAGE 2: BRAND ESSENCE
+  ========================================== -->
+  <div class="page essence-page">
+    <header class="page-header">
+      <span class="page-section">02 — Brand Essence</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="essence-content">
+      <div class="essence-quote">
+        <blockquote>
+          "I'm building what comes next — where <em>data meets culture</em>, and community drives everything."
+        </blockquote>
+        <cite>— Tobi Oredein, Founder & CEO, Black Ballad</cite>
+      </div>
+      <div class="essence-pillars">
+        <p class="subsection-label">Brand Pillars</p>
+        <div class="pillar">
+          <h4 class="pillar-title">The Trusted Guide</h4>
+          <p class="pillar-desc">Wisdom walking into the room — insight over disruption</p>
+        </div>
+        <div class="pillar">
+          <h4 class="pillar-title">Rigorous & Different</h4>
+          <p class="pillar-desc">Data-driven credibility, unapologetically forward-thinking</p>
+        </div>
+        <div class="pillar">
+          <h4 class="pillar-title">Warm & Commanding</h4>
+          <p class="pillar-desc">Community-centered presence that commands attention</p>
+        </div>
+        <div class="pillar">
+          <h4 class="pillar-title">Building the Future</h4>
+          <p class="pillar-desc">Media, data, community, technology — together</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 3: COLOR PALETTE
+  ========================================== -->
+  <div class="page color-page">
+    <header class="page-header">
+      <span class="page-section">03 — Color Palette</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Color System</h2>
+      <p class="section-subtitle">butter yellow, pink lemonade, jet black</p>
+
+      <div class="color-intro">
+        <div class="color-philosophy">
+          Fresh, unexpected, and undeniably bold — butter yellow brings optimism, pink adds softness, jet grounds it all.
+        </div>
+      </div>
+
+      <div class="color-grid">
+        <div class="color-swatch color-swatch--primary">
+          <div class="color-preview color-preview--butter"></div>
+          <div class="color-info">
+            <div class="color-name">Butter Yellow</div>
+            <div class="color-hex">#F2D04E</div>
+            <div class="color-usage">Primary accent — optimism, energy, standout moments</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--jet"></div>
+          <div class="color-info">
+            <div class="color-name">Jet</div>
+            <div class="color-hex">#24221B</div>
+            <div class="color-usage">Text, grounding, drama</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--silver"></div>
+          <div class="color-info">
+            <div class="color-name">Silver</div>
+            <div class="color-hex">#E4DFD8</div>
+            <div class="color-usage">Primary background</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--butter-light"></div>
+          <div class="color-info">
+            <div class="color-name">Butter Light</div>
+            <div class="color-hex">#FFEFBC</div>
+            <div class="color-usage">Soft sections</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--pink"></div>
+          <div class="color-info">
+            <div class="color-name">Pink Lemonade</div>
+            <div class="color-hex">#FFB3B1</div>
+            <div class="color-usage">Warmth, feminine touch</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--pink-soft"></div>
+          <div class="color-info">
+            <div class="color-name">Pink Soft</div>
+            <div class="color-hex">#FFE4E3</div>
+            <div class="color-usage">Soft backgrounds</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--cherry"></div>
+          <div class="color-info">
+            <div class="color-name">Cherry Cola</div>
+            <div class="color-hex">#9A0D02</div>
+            <div class="color-usage">Accent, emphasis, CTAs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 4: TYPOGRAPHY
+  ========================================== -->
+  <div class="page type-page">
+    <header class="page-header">
+      <span class="page-section">04 — Typography</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Type System</h2>
+      <p class="section-subtitle">bolder elegance, confident voice</p>
+
+      <div class="type-intro">
+        <p>Medium-weight elegance that commands without shouting. The serif leads with confidence, bold moments punctuate.</p>
+      </div>
+
+      <div class="type-specimens">
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Primary Voice</span>
+            <span class="type-details">Cormorant Garamond Medium 500</span>
+          </div>
+          <p class="type-sample--elegant">The Future of Black Women's Media</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Quotes & Editorial</span>
+            <span class="type-details">Cormorant Garamond Medium Italic</span>
+          </div>
+          <p class="type-sample--elegant-italic">"Building what comes next — where data meets culture, and community drives everything."</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Bold Moments</span>
+            <span class="type-details">Playfair Display Black 900</span>
+          </div>
+          <p class="type-sample--display">87%</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Body</span>
+            <span class="type-details">DM Sans Medium 500</span>
+          </div>
+          <p class="type-sample--body">Every word carries weight. Body copy should feel confident and clear — warm but never informal, intelligent but never cold.</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Data & Sources</span>
+            <span class="type-details">JetBrains Mono Medium 500</span>
+          </div>
+          <p class="type-sample--mono">Source: BB Index 2024 · n=2,847</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 5: TYPOGRAPHY INTERPLAY
+  ========================================== -->
+  <div class="page interplay-page">
+    <header class="page-header">
+      <span class="page-section">05 — Typography in Action</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">The Interplay</h2>
+      <p class="section-subtitle">how elegant and bold work together</p>
+
+      <div class="interplay-grid">
+        <div class="interplay-example interplay-example--butter">
+          <span class="interplay-label">Editorial Headline</span>
+          <div style="padding-top: var(--space-lg);">
+            <h3 class="editorial-headline">Redefining What<br>Representation Means</h3>
+            <p class="editorial-subline">in media, in data, in culture</p>
+          </div>
+        </div>
+
+        <div class="interplay-example interplay-example--dark">
+          <span class="interplay-label">Stat Moment</span>
+          <div class="stat-display">
+            <p class="stat-number">87%</p>
+            <p class="stat-context">of Black British women say<br>representation matters in media</p>
+            <p class="stat-source">Source: BB Index 2024</p>
+          </div>
+        </div>
+
+        <div class="interplay-example" style="grid-column: span 2;">
+          <span class="interplay-label">Pull Quote</span>
+          <div class="pullquote-example">
+            <p class="pullquote">"This isn't about disruption for disruption's sake. It's about building something that lasts — with data, with community, with intention."</p>
+            <p class="pullquote-attr">— Tobi Oredein</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 6: COMPONENTS
+  ========================================== -->
+  <div class="page components-page">
+    <header class="page-header">
+      <span class="page-section">06 — Components</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">UI Elements</h2>
+      <p class="section-subtitle">bold, fresh, confident</p>
+
+      <div class="components-grid">
+        <div class="component-card">
+          <p class="component-label">Buttons</p>
+          <div style="display: flex; flex-direction: column; gap: var(--space-md); align-items: flex-start;">
+            <a href="#" class="btn btn--primary">Learn More</a>
+            <a href="#" class="btn btn--cherry">Subscribe</a>
+            <a href="#" class="btn btn--outline">View Details</a>
+            <a href="#" class="btn btn--elegant">Read the story →</a>
+          </div>
+        </div>
+
+        <div class="component-card">
+          <p class="component-label">Tags & Labels</p>
+          <div class="tags">
+            <span class="tag tag--butter">Media</span>
+            <span class="tag tag--pink">Community</span>
+            <span class="tag tag--cherry">Featured</span>
+          </div>
+        </div>
+
+        <div class="component-card">
+          <p class="component-label">Dividers</p>
+          <div class="dividers">
+            <div class="divider--subtle"></div>
+            <div class="divider--butter"></div>
+            <div class="divider--cherry"></div>
+          </div>
+        </div>
+
+        <div class="component-card" style="grid-column: span 2;">
+          <p class="component-label">Quote Card</p>
+          <div style="padding: var(--space-lg); background: var(--butter-light);">
+            <p style="font-family: var(--font-elegant); font-size: 1.4rem; font-weight: 500; font-style: italic; line-height: 1.5; color: var(--jet);">
+              "The brands that win are the ones that understand their audience — not just demographically, but culturally."
+            </p>
+            <p style="font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--cherry); margin-top: var(--space-md);">
+              Tobi Oredein, Black Ballad
+            </p>
+          </div>
+        </div>
+
+        <div class="component-card">
+          <p class="component-label">Stat Card</p>
+          <div style="text-align: center; padding: var(--space-lg) 0;">
+            <p style="font-family: var(--font-display); font-size: 3rem; font-weight: 900; color: var(--butter); text-shadow: 1px 1px 0 var(--jet); line-height: 1;">2.8M</p>
+            <p style="font-family: var(--font-elegant); font-size: 1rem; font-weight: 500; font-style: italic; color: var(--text-secondary); margin-top: var(--space-xs);">annual audience reach</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 7: SOCIAL TEMPLATES
+  ========================================== -->
+  <div class="page social-page">
+    <header class="page-header">
+      <span class="page-section">07 — Social Media</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Social Templates</h2>
+      <p class="section-subtitle">bold compositions for the feed</p>
+
+      <div class="social-grid">
+        <div class="social-preview">
+          <div class="social-preview-label">Instagram Post — 1080×1080</div>
+          <div class="instagram-post">
+            <h3 class="headline">Redefining What<br>Representation Means</h3>
+            <p class="subline">in media, in data, in culture</p>
+            <span class="brand">Tobi Oredein</span>
+          </div>
+        </div>
+
+        <div class="social-preview">
+          <div class="social-preview-label">LinkedIn — 1200×627</div>
+          <div class="linkedin-banner">
+            <div class="linkedin-content">
+              <span class="eyebrow">Keynote Speaker</span>
+              <h3 class="headline">The Future of Black<br>Women in Media</h3>
+              <p class="subline">booking now for 2025</p>
+            </div>
+            <div class="linkedin-brand">
+              <span class="name">Tobi Oredein</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-preview">
+          <div class="social-preview-label">Story — 1080×1920</div>
+          <div class="instagram-story">
+            <p class="stat">87%</p>
+            <p class="context">say representation matters</p>
+            <span class="brand">Tobi Oredein</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 8: PHOTOGRAPHY
+  ========================================== -->
+  <div class="page photo-page">
+    <header class="page-header">
+      <span class="page-section">08 — Photography</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Photography Direction</h2>
+      <p class="section-subtitle">warm, bright, lifestyle-forward</p>
+
+      <div class="photo-intro">
+        <p>Photography should feel fresh and optimistic — natural light, warm tones, and authentic confidence.</p>
+      </div>
+
+      <div class="photo-principles">
+        <div class="photo-principle">
+          <span class="photo-principle-number">01</span>
+          <h4 class="photo-principle-title">Natural Light</h4>
+          <p class="photo-principle-desc">Bright, warm lighting that feels optimistic. Morning light, golden tones, natural warmth.</p>
+        </div>
+        <div class="photo-principle">
+          <span class="photo-principle-number">02</span>
+          <h4 class="photo-principle-title">Fresh Environments</h4>
+          <p class="photo-principle-desc">Clean, modern spaces with pops of color. Think lifestyle editorial, not corporate.</p>
+        </div>
+        <div class="photo-principle">
+          <span class="photo-principle-number">03</span>
+          <h4 class="photo-principle-title">Confident Presence</h4>
+          <p class="photo-principle-desc">Real moments of joy and leadership. Authentic expressions, natural confidence.</p>
+        </div>
+      </div>
+
+      <p class="subsection-label">Color Moods</p>
+      <div class="photo-moods">
+        <div class="photo-mood photo-mood--butter">
+          <span class="photo-mood-badge">Primary</span>
+          <span>Sunny Warm</span>
+        </div>
+        <div class="photo-mood photo-mood--pink">
+          <span>Soft Pink</span>
+        </div>
+        <div class="photo-mood photo-mood--silver">
+          <span>Natural Light</span>
+        </div>
+        <div class="photo-mood photo-mood--jet">
+          <span>Bold Contrast</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 9: DO'S AND DON'TS
+  ========================================== -->
+  <div class="page guidelines-page">
+    <header class="page-header">
+      <span class="page-section">09 — Guidelines</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Do's & Don'ts</h2>
+      <p class="section-subtitle">protecting the brand voice</p>
+
+      <div class="guidelines-intro">
+        <p>Fresh, optimistic, and confidently bold — but never garish, never corporate, never cold.</p>
+      </div>
+
+      <div class="guidelines-grid">
+        <div class="guidelines-col guidelines-col--do">
+          <h3>Do</h3>
+          <ul class="guidelines-list">
+            <li>
+              <div>
+                <p class="guideline-title">Lead with butter yellow</p>
+                <p class="guideline-desc">It's the signature — optimistic, unexpected, memorable</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Use bolder font weights</p>
+                <p class="guideline-desc">Medium/500 for elegance, Black/900 for stats</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Mix yellow + pink thoughtfully</p>
+                <p class="guideline-desc">They complement each other beautifully</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Keep backgrounds light</p>
+                <p class="guideline-desc">Silver and soft tones, dark only for dramatic stats</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Feel fresh and optimistic</p>
+                <p class="guideline-desc">Energy without being overwhelming</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="guidelines-col guidelines-col--dont">
+          <h3>Don't</h3>
+          <ul class="guidelines-list">
+            <li>
+              <div>
+                <p class="guideline-title">Make it garish</p>
+                <p class="guideline-desc">Balance yellow with silver and neutrals</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Go too light on fonts</p>
+                <p class="guideline-desc">This palette needs confident weight</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Use corporate aesthetics</p>
+                <p class="guideline-desc">No Helvetica, no navy, no stock photos</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Overdo the cherry red</p>
+                <p class="guideline-desc">It's an accent, not a primary color</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Lose the warmth</p>
+                <p class="guideline-desc">This palette is about joy and confidence</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 10: CLOSING
+  ========================================== -->
+  <div class="page closing-page">
+    <div class="closing-accent closing-accent--tl"></div>
+    <div class="closing-accent closing-accent--br"></div>
+    <div class="closing-content">
+      <div class="closing-wordmark">
+        <span class="first">Tobi Oredein</span>
+        <span class="last">Brand System</span>
+      </div>
+      <p class="closing-tagline">The future of Black women's media — where data meets culture.</p>
+    </div>
+    <div class="closing-meta">
+      <span>Brand Guidelines v2.2 — Butter Yellow</span>
+      <span>© 2025 Tobi Oredein</span>
+    </div>
+  </div>
+
+</body>
+</html>
