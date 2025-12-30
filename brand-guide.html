@@ -84,10 +84,10 @@
     }
 
     /* ==========================================
-       COVER PAGE
+       PAGE 1: COVER — Editorial, Lifestyle-Led
     ========================================== */
     .cover {
-      background: var(--black);
+      background: var(--off-white);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -95,28 +95,24 @@
       position: relative;
     }
 
+    /* Subtle organic texture */
     .cover::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(196, 101, 74, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(201, 169, 98, 0.1) 0%, transparent 50%);
+        radial-gradient(ellipse 120% 80% at 20% 80%, rgba(232, 212, 208, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 60% at 80% 20%, rgba(201, 169, 98, 0.08) 0%, transparent 50%);
       pointer-events: none;
     }
 
-    /* Brushed metal texture overlay */
+    /* Soft linen texture */
     .cover::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        rgba(255,255,255,0.01) 1px,
-        transparent 2px,
-        transparent 4px
-      );
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.02;
       pointer-events: none;
     }
 
@@ -124,53 +120,54 @@
       position: relative;
       z-index: 1;
       text-align: center;
+      padding: var(--space-xl);
     }
 
     .cover-eyebrow {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: var(--space-xl);
+      color: var(--grey);
+      margin-bottom: var(--space-2xl);
     }
 
     .cover-name {
       margin-bottom: var(--space-lg);
     }
 
+    /* Elegant Cormorant headline - THE PRIMARY VOICE */
     .cover-name .first {
       display: block;
-      font-family: var(--font-display);
-      font-size: 6rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      color: var(--off-white);
+      font-family: var(--font-elegant);
+      font-size: 7rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      color: var(--black);
       line-height: 0.9;
-      text-transform: uppercase;
     }
 
     .cover-name .last {
       display: block;
       font-family: var(--font-elegant);
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 300;
       font-style: italic;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--terracotta);
-      line-height: 1.2;
+      line-height: 1.4;
       margin-top: var(--space-sm);
     }
 
     .cover-tagline {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-family: var(--font-elegant);
+      font-size: 1.1rem;
+      font-style: italic;
       color: var(--grey);
       margin-top: var(--space-2xl);
       padding-top: var(--space-lg);
-      border-top: 1px solid rgba(201, 169, 98, 0.3);
+      border-top: 1px solid rgba(138, 133, 128, 0.2);
+      letter-spacing: 0.02em;
     }
 
     .cover-version {
@@ -178,20 +175,42 @@
       bottom: var(--space-lg);
       right: var(--space-lg);
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       color: var(--grey);
       letter-spacing: 0.1em;
     }
 
+    /* Decorative corner accents */
+    .cover-accent {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border: 1px solid rgba(201, 169, 98, 0.3);
+    }
+
+    .cover-accent--tl {
+      top: var(--space-xl);
+      left: var(--space-xl);
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .cover-accent--br {
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      border-left: none;
+      border-top: none;
+    }
+
     /* ==========================================
-       NAVIGATION / PAGE HEADERS
+       PAGE HEADERS — Refined Editorial
     ========================================== */
     .page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: var(--space-lg) var(--space-xl);
-      border-bottom: 1px solid rgba(26, 22, 20, 0.1);
+      border-bottom: 1px solid rgba(26, 22, 20, 0.08);
     }
 
     .page-header--dark {
@@ -200,40 +219,39 @@
 
     .page-section {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--terracotta);
+      color: var(--grey);
     }
 
     .page-brand {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      font-family: var(--font-elegant);
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--terracotta);
     }
 
     /* ==========================================
-       SECTION STYLES
+       SECTION STYLES — Magazine Editorial
     ========================================== */
     .section-content {
       padding: var(--space-xl);
     }
 
+    /* Primary headline style - Elegant serif (Cormorant) */
     .section-title {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: var(--space-md);
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
+      font-family: var(--font-elegant);
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: var(--space-sm);
+      letter-spacing: 0.01em;
     }
 
     .section-subtitle {
       font-family: var(--font-elegant);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 300;
       font-style: italic;
       color: var(--terracotta);
@@ -241,17 +259,18 @@
     }
 
     .section-intro {
-      font-size: 1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
       color: var(--text-secondary);
-      max-width: 50ch;
+      max-width: 55ch;
       line-height: 1.8;
     }
 
     /* Subsection headers */
     .subsection-label {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--grey);
       margin-bottom: var(--space-md);
@@ -264,504 +283,546 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, var(--grey) 0%, transparent 100%);
-      opacity: 0.3;
+      background: linear-gradient(90deg, rgba(138, 133, 128, 0.3) 0%, transparent 100%);
     }
 
     /* ==========================================
-       PAGE 2: BRAND STORY
+       PAGE 2: BRAND ESSENCE — Editorial Magazine Feel
     ========================================== */
-    .story-page {
-      background: var(--off-white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .essence-page {
+      background: var(--blush);
+      display: flex;
+      flex-direction: column;
     }
 
-    .story-left {
-      background: var(--black);
+    .essence-content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
       padding: var(--space-xl);
+      gap: var(--space-xl);
+    }
+
+    .essence-quote {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
     }
 
-    .story-left::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(135deg, transparent 0%, rgba(196, 101, 74, 0.08) 100%);
-    }
-
-    .story-quote {
-      position: relative;
-      z-index: 1;
-    }
-
-    .story-quote blockquote {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 500;
-      color: var(--off-white);
-      line-height: 1.3;
-      margin-bottom: var(--space-lg);
-    }
-
-    .story-quote blockquote em {
+    .essence-quote blockquote {
       font-family: var(--font-elegant);
+      font-size: 2.8rem;
+      font-weight: 300;
       font-style: italic;
+      color: var(--black);
+      line-height: 1.25;
+      margin-bottom: var(--space-lg);
+      position: relative;
+      padding-left: var(--space-lg);
+    }
+
+    .essence-quote blockquote::before {
+      content: '"';
+      position: absolute;
+      left: -0.1em;
+      top: -0.2em;
+      font-family: var(--font-elegant);
+      font-size: 6rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      opacity: 0.3;
+      line-height: 1;
+    }
+
+    .essence-quote blockquote em {
+      font-style: normal;
       color: var(--terracotta);
     }
 
-    .story-quote cite {
+    .essence-quote cite {
       font-family: var(--font-body);
       font-size: 0.8rem;
       font-style: normal;
       color: var(--grey);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-left: var(--space-lg);
     }
 
-    .story-right {
-      padding: var(--space-xl);
+    .essence-pillars {
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-
-    .story-right .section-title {
-      font-size: 2.5rem;
-    }
-
-    .brand-pillars {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: var(--space-lg);
-      margin-top: var(--space-xl);
     }
 
     .pillar {
-      padding: var(--space-md);
-      border-left: 2px solid var(--terracotta);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(26, 22, 20, 0.1);
+    }
+
+    .pillar:last-child {
+      border-bottom: none;
     }
 
     .pillar-title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
+      font-family: var(--font-elegant);
+      font-size: 1.4rem;
+      font-weight: 400;
       margin-bottom: var(--space-xs);
+      color: var(--black);
     }
 
     .pillar-desc {
+      font-family: var(--font-body);
       font-size: 0.85rem;
       color: var(--text-secondary);
     }
 
     /* ==========================================
-       PAGE 3: COLOR PALETTE
+       PAGE 3: COLOR PALETTE — Lifestyle Soft
     ========================================== */
     .color-page {
       background: var(--off-white);
     }
 
+    .color-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+
+    .color-philosophy {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--black);
+      line-height: 1.5;
+    }
+
     .color-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: var(--space-md);
-      margin-bottom: var(--space-xl);
     }
 
     .color-swatch {
       position: relative;
-      overflow: hidden;
     }
 
-    .color-swatch--large {
-      grid-column: span 1;
+    .color-swatch--primary {
       grid-row: span 2;
-      display: flex;
-      flex-direction: column;
     }
 
     .color-preview {
-      height: 120px;
+      height: 100px;
       position: relative;
       display: flex;
       align-items: flex-end;
-      padding: var(--space-md);
+      padding: var(--space-sm);
     }
 
-    .color-swatch--large .color-preview {
-      flex: 1;
-      min-height: 200px;
+    .color-swatch--primary .color-preview {
+      height: 100%;
+      min-height: 180px;
     }
 
-    /* Brushed metal effect for gold */
-    .color-preview--gold {
-      background: linear-gradient(
-        135deg,
-        #C9A962 0%,
-        #D4B86A 25%,
-        #C9A962 50%,
-        #BFA058 75%,
-        #C9A962 100%
-      );
-    }
-
-    .color-preview--black {
-      background: var(--black);
-    }
-
+    .color-preview--black { background: var(--black); }
     .color-preview--off-white {
       background: var(--off-white);
-      border: 1px solid rgba(26, 22, 20, 0.1);
+      border: 1px solid rgba(26, 22, 20, 0.08);
     }
-
-    .color-preview--terracotta {
-      background: var(--terracotta);
+    .color-preview--terracotta { background: var(--terracotta); }
+    .color-preview--olive { background: var(--olive); }
+    .color-preview--gold {
+      background: linear-gradient(135deg, var(--gold) 0%, #D4B86A 50%, var(--gold) 100%);
     }
-
-    .color-preview--olive {
-      background: var(--olive);
-    }
-
-    .color-preview--blush {
-      background: var(--blush);
-    }
-
-    .color-preview--grey {
-      background: var(--grey);
-    }
+    .color-preview--blush { background: var(--blush); }
+    .color-preview--grey { background: var(--grey); }
 
     .color-info {
-      padding: var(--space-md) 0;
+      padding: var(--space-sm) 0;
     }
 
     .color-name {
-      font-family: var(--font-display);
+      font-family: var(--font-elegant);
       font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: var(--space-xs);
+      font-weight: 400;
+      margin-bottom: 2px;
     }
 
     .color-hex {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       color: var(--grey);
     }
 
     .color-usage {
-      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
       color: var(--text-secondary);
-      margin-top: var(--space-xs);
-    }
-
-    /* Color combinations demo */
-    .color-combos {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    .color-combo {
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: var(--space-md);
-    }
-
-    .color-combo span {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 700;
+      margin-top: 4px;
+      line-height: 1.4;
     }
 
     /* ==========================================
-       PAGE 4: TYPOGRAPHY
+       PAGE 4: TYPOGRAPHY — The Heart of the Brand
     ========================================== */
     .type-page {
-      background: var(--black);
-      color: var(--off-white);
+      background: var(--off-white);
+    }
+
+    .type-intro {
+      max-width: 50ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .type-intro p {
+      font-family: var(--font-elegant);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .type-specimens {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
     }
 
     .type-specimen {
-      margin-bottom: var(--space-xl);
-      padding-bottom: var(--space-xl);
-      border-bottom: 1px solid rgba(250, 246, 241, 0.1);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid rgba(26, 22, 20, 0.08);
     }
 
     .type-specimen:last-child {
       border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
     }
 
     .type-meta {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
     }
 
-    .type-name {
+    .type-role {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--terracotta);
+      background: rgba(196, 101, 74, 0.1);
+      padding: 4px 10px;
+      border-radius: 2px;
     }
 
     .type-details {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.55rem;
       color: var(--grey);
+      letter-spacing: 0.05em;
     }
 
+    /* PRIMARY VOICE — Elegant Cormorant */
+    .type-sample--elegant {
+      font-family: var(--font-elegant);
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--black);
+    }
+
+    .type-sample--elegant-italic {
+      font-family: var(--font-elegant);
+      font-size: 2rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--terracotta);
+      max-width: 40ch;
+    }
+
+    /* BOLD MOMENTS — Display Serif (sparingly) */
     .type-sample--display {
       font-family: var(--font-display);
-      font-size: 4rem;
+      font-size: 4.5rem;
       font-weight: 900;
       line-height: 1;
       text-transform: uppercase;
       letter-spacing: -0.02em;
-    }
-
-    .type-sample--elegant {
-      font-family: var(--font-elegant);
-      font-size: 2.5rem;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.2;
-      color: var(--terracotta);
+      color: var(--black);
     }
 
     .type-sample--body {
       font-family: var(--font-body);
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.8;
-      max-width: 60ch;
-      color: rgba(250, 246, 241, 0.8);
+      max-width: 55ch;
+      color: var(--text-secondary);
     }
 
     .type-sample--mono {
       font-family: var(--font-mono);
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       line-height: 1.6;
-      color: var(--gold);
-    }
-
-    /* Type scale demonstration */
-    .type-scale {
-      display: grid;
-      gap: var(--space-md);
-      margin-top: var(--space-xl);
-    }
-
-    .type-scale-row {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      align-items: baseline;
-      gap: var(--space-lg);
-    }
-
-    .type-scale-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
       color: var(--grey);
-      text-align: right;
     }
 
     /* ==========================================
-       PAGE 5: WORDMARK / LOGO
+       PAGE 5: TYPOGRAPHY INTERPLAY
     ========================================== */
-    .wordmark-page {
-      background: var(--off-white);
+    .interplay-page {
+      background: var(--blush);
     }
 
-    .wordmark-grid {
+    .interplay-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
+      gap: var(--space-xl);
     }
 
-    .wordmark-box {
-      aspect-ratio: 16/10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .interplay-example {
+      background: var(--off-white);
       padding: var(--space-xl);
       position: relative;
     }
 
-    .wordmark-box--light {
-      background: var(--off-white);
-      border: 1px solid rgba(26, 22, 20, 0.1);
-    }
-
-    .wordmark-box--dark {
+    .interplay-example--dark {
       background: var(--black);
     }
 
-    .wordmark-box--terracotta {
-      background: var(--terracotta);
-    }
-
-    .wordmark-box--gradient {
-      background: linear-gradient(135deg, var(--black) 0%, #2a2420 100%);
-    }
-
-    .wordmark-label {
+    .interplay-label {
       position: absolute;
       top: var(--space-md);
-      left: var(--space-md);
+      right: var(--space-md);
       font-family: var(--font-mono);
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--grey);
     }
 
-    .wordmark-box--dark .wordmark-label,
-    .wordmark-box--terracotta .wordmark-label {
-      color: rgba(250, 246, 241, 0.5);
+    .interplay-example--dark .interplay-label {
+      color: rgba(250, 246, 241, 0.4);
     }
 
-    /* Primary wordmark */
-    .wordmark-primary {
-      text-align: center;
-    }
-
-    .wordmark-primary .name-bold {
-      font-family: var(--font-display);
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: block;
-      line-height: 1;
-    }
-
-    .wordmark-primary .name-elegant {
-      font-family: var(--font-elegant);
-      font-size: 1.5rem;
-      font-weight: 300;
-      font-style: italic;
-      letter-spacing: 0.1em;
-      display: block;
-      margin-top: var(--space-xs);
-    }
-
-    /* Horizontal wordmark */
-    .wordmark-horizontal {
-      display: flex;
-      align-items: baseline;
-      gap: var(--space-sm);
-    }
-
-    .wordmark-horizontal .name-bold {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .wordmark-horizontal .name-elegant {
-      font-family: var(--font-elegant);
-      font-size: 1.4rem;
-      font-weight: 300;
-      font-style: italic;
-    }
-
-    /* Symbol / Monogram */
-    .symbol-monogram {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .symbol-monogram .letter-t {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 900;
-      line-height: 1;
-      position: absolute;
-      left: 8px;
-    }
-
-    .symbol-monogram .letter-o {
+    /* Editorial headline example */
+    .editorial-headline {
       font-family: var(--font-elegant);
       font-size: 2.2rem;
       font-weight: 300;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: var(--space-md);
+    }
+
+    .editorial-subline {
+      font-family: var(--font-elegant);
+      font-size: 1.1rem;
       font-style: italic;
-      position: absolute;
-      right: 8px;
-      bottom: 12px;
-    }
-
-    /* Clearspace indicator */
-    .clearspace-demo {
-      position: relative;
-      padding: var(--space-xl);
-      border: 1px dashed var(--terracotta);
-    }
-
-    .clearspace-demo::before {
-      content: 'X';
-      position: absolute;
-      top: 50%;
-      left: var(--space-sm);
-      transform: translateY(-50%);
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
       color: var(--terracotta);
     }
 
+    /* Stat callout example */
+    .stat-display {
+      text-align: center;
+      padding: var(--space-lg) 0;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--off-white);
+      line-height: 1;
+    }
+
+    .stat-context {
+      font-family: var(--font-elegant);
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: rgba(250, 246, 241, 0.8);
+      margin-top: var(--space-sm);
+    }
+
+    .stat-source {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: rgba(250, 246, 241, 0.4);
+      letter-spacing: 0.1em;
+      margin-top: var(--space-md);
+    }
+
+    /* Pull quote example */
+    .pullquote-example {
+      padding: var(--space-xl) 0;
+    }
+
+    .pullquote {
+      font-family: var(--font-elegant);
+      font-size: 1.8rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--black);
+      border-left: 2px solid var(--terracotta);
+      padding-left: var(--space-lg);
+    }
+
+    .pullquote-attr {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--grey);
+      margin-top: var(--space-md);
+      padding-left: var(--space-lg);
+    }
+
     /* ==========================================
-       PAGE 6: SOCIAL TEMPLATES
+       PAGE 6: COMPONENTS — Lifestyle Editorial
+    ========================================== */
+    .components-page {
+      background: var(--off-white);
+    }
+
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .component-card {
+      background: white;
+      padding: var(--space-lg);
+      box-shadow: 0 2px 12px rgba(26, 22, 20, 0.06);
+    }
+
+    .component-label {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Button styles */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn--primary {
+      background: var(--terracotta);
+      color: var(--off-white);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--black);
+      border: 1px solid var(--black);
+    }
+
+    .btn--elegant {
+      background: transparent;
+      color: var(--terracotta);
+      font-family: var(--font-elegant);
+      font-size: 1rem;
+      font-style: italic;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--terracotta);
+    }
+
+    /* Tag styles */
+    .tags {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+    }
+
+    .tag--default {
+      background: var(--blush);
+      color: var(--black);
+    }
+
+    .tag--accent {
+      background: var(--terracotta);
+      color: var(--off-white);
+    }
+
+    /* Dividers */
+    .dividers {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .divider--subtle {
+      height: 1px;
+      background: rgba(26, 22, 20, 0.08);
+    }
+
+    .divider--accent {
+      height: 2px;
+      background: var(--terracotta);
+      width: 60px;
+    }
+
+    .divider--gold {
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    }
+
+    /* ==========================================
+       PAGE 7: SOCIAL TEMPLATES — Editorial Compositions
     ========================================== */
     .social-page {
-      background: var(--blush);
+      background: var(--off-white);
     }
 
     .social-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 180px;
+      grid-template-columns: 1fr 1fr 140px;
       gap: var(--space-lg);
       align-items: start;
     }
 
     .social-preview {
       background: white;
-      box-shadow: 0 4px 20px rgba(26, 22, 20, 0.1);
+      box-shadow: 0 4px 16px rgba(26, 22, 20, 0.08);
       overflow: hidden;
     }
 
     .social-preview-label {
       padding: var(--space-sm) var(--space-md);
-      background: var(--black);
       font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--off-white);
+      color: var(--grey);
+      border-bottom: 1px solid rgba(26, 22, 20, 0.06);
     }
 
-    /* Instagram Post */
+    /* Instagram Post — Editorial Style */
     .instagram-post {
       aspect-ratio: 1;
-      background: var(--black);
+      background: var(--blush);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -770,132 +831,86 @@
       position: relative;
     }
 
-    .instagram-post::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 30% 70%, rgba(196, 101, 74, 0.2) 0%, transparent 50%);
-    }
-
-    .instagram-post .eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: var(--space-md);
-      position: relative;
-    }
-
     .instagram-post .headline {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--off-white);
-      line-height: 1.1;
-      position: relative;
+      font-family: var(--font-elegant);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: var(--space-sm);
     }
 
     .instagram-post .subline {
       font-family: var(--font-elegant);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-style: italic;
       color: var(--terracotta);
-      margin-top: var(--space-sm);
-      position: relative;
     }
 
     .instagram-post .brand {
       position: absolute;
-      bottom: var(--space-lg);
+      bottom: var(--space-md);
       left: 50%;
       transform: translateX(-50%);
-      font-family: var(--font-display);
-      font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-family: var(--font-elegant);
+      font-size: 0.65rem;
+      font-style: italic;
       color: var(--grey);
     }
 
-    /* LinkedIn Banner */
+    /* LinkedIn Banner — Professional Editorial */
     .linkedin-banner {
       aspect-ratio: 1200/627;
-      background: linear-gradient(135deg, var(--black) 0%, #2a2420 100%);
+      background: var(--off-white);
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       padding: var(--space-lg);
-      gap: var(--space-lg);
+      gap: var(--space-md);
       position: relative;
-    }
-
-    .linkedin-banner::before {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 40%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(196, 101, 74, 0.1) 100%);
-    }
-
-    .linkedin-content {
-      position: relative;
+      border: 1px solid rgba(26, 22, 20, 0.06);
     }
 
     .linkedin-content .eyebrow {
       font-family: var(--font-mono);
-      font-size: 0.45rem;
-      letter-spacing: 0.25em;
+      font-size: 0.4rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: var(--space-sm);
+      color: var(--grey);
+      margin-bottom: var(--space-xs);
     }
 
     .linkedin-content .headline {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--off-white);
-      line-height: 1.1;
+      font-family: var(--font-elegant);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.2;
     }
 
     .linkedin-content .subline {
       font-family: var(--font-elegant);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-style: italic;
       color: var(--terracotta);
-      margin-top: var(--space-xs);
+      margin-top: 4px;
     }
 
     .linkedin-brand {
       text-align: right;
-      position: relative;
     }
 
-    .linkedin-brand .name-bold {
-      font-family: var(--font-display);
-      font-size: 0.9rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--off-white);
-      display: block;
-    }
-
-    .linkedin-brand .name-elegant {
+    .linkedin-brand .name {
       font-family: var(--font-elegant);
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       font-style: italic;
       color: var(--terracotta);
     }
 
-    /* Instagram Story */
+    /* Instagram Story — Bold Moment */
     .instagram-story {
       aspect-ratio: 9/16;
-      background: var(--terracotta);
+      background: var(--black);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -904,41 +919,164 @@
       position: relative;
     }
 
-    .instagram-story .headline {
+    .instagram-story .stat {
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: 2rem;
       font-weight: 900;
-      text-transform: uppercase;
       color: var(--off-white);
-      line-height: 1.1;
+      line-height: 1;
     }
 
-    .instagram-story .subline {
+    .instagram-story .context {
       font-family: var(--font-elegant);
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-style: italic;
-      color: var(--black);
+      color: var(--terracotta);
       margin-top: var(--space-xs);
     }
 
     .instagram-story .brand {
       position: absolute;
-      bottom: var(--space-md);
+      bottom: var(--space-sm);
       left: 50%;
       transform: translateX(-50%);
-      font-family: var(--font-display);
+      font-family: var(--font-elegant);
       font-size: 0.45rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(250, 246, 241, 0.6);
+      font-style: italic;
+      color: rgba(250, 246, 241, 0.4);
     }
 
     /* ==========================================
-       PAGE 7: DO'S AND DON'TS
+       PAGE 8: PHOTOGRAPHY — Warm, Natural, Lifestyle
+    ========================================== */
+    .photo-page {
+      background: var(--blush);
+    }
+
+    .photo-intro {
+      max-width: 50ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .photo-intro p {
+      font-family: var(--font-elegant);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    .photo-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .photo-principle {
+      padding: var(--space-lg);
+      background: var(--off-white);
+      position: relative;
+    }
+
+    .photo-principle-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(196, 101, 74, 0.15);
+      position: absolute;
+      top: var(--space-sm);
+      right: var(--space-md);
+      line-height: 1;
+    }
+
+    .photo-principle-title {
+      font-family: var(--font-elegant);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: var(--space-sm);
+      color: var(--black);
+    }
+
+    .photo-principle-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .photo-moods {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+
+    .photo-mood {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-md);
+      position: relative;
+    }
+
+    .photo-mood--natural {
+      background: linear-gradient(135deg, #E8DDD8 0%, #D4C9C4 100%);
+    }
+
+    .photo-mood--warm {
+      background: linear-gradient(135deg, #D4C4BC 0%, #C4B4AC 100%);
+    }
+
+    .photo-mood--golden {
+      background: linear-gradient(135deg, #D4C8A8 0%, #C9BD98 100%);
+    }
+
+    .photo-mood--intimate {
+      background: linear-gradient(135deg, #3D3530 0%, #2A2420 100%);
+    }
+
+    .photo-mood span {
+      font-family: var(--font-elegant);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .photo-mood--intimate span {
+      color: var(--off-white);
+    }
+
+    .photo-mood-badge {
+      position: absolute;
+      top: var(--space-xs);
+      right: var(--space-xs);
+      font-family: var(--font-mono);
+      font-size: 0.45rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* ==========================================
+       PAGE 9: DO'S AND DON'TS
     ========================================== */
     .guidelines-page {
       background: var(--off-white);
+    }
+
+    .guidelines-intro {
+      max-width: 50ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .guidelines-intro p {
+      font-family: var(--font-elegant);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text-secondary);
     }
 
     .guidelines-grid {
@@ -948,13 +1086,12 @@
     }
 
     .guidelines-col h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 800;
-      text-transform: uppercase;
+      font-family: var(--font-elegant);
+      font-size: 2rem;
+      font-weight: 300;
       margin-bottom: var(--space-lg);
       padding-bottom: var(--space-md);
-      border-bottom: 3px solid;
+      border-bottom: 2px solid;
     }
 
     .guidelines-col--do h3 {
@@ -973,9 +1110,9 @@
 
     .guidelines-list li {
       padding: var(--space-md) 0;
-      border-bottom: 1px solid rgba(26, 22, 20, 0.1);
+      border-bottom: 1px solid rgba(26, 22, 20, 0.06);
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 8px 1fr;
       gap: var(--space-md);
       align-items: start;
     }
@@ -985,7 +1122,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      margin-top: 0.5em;
+      margin-top: 0.4em;
     }
 
     .guidelines-col--do .guidelines-list li::before {
@@ -998,133 +1135,22 @@
 
     .guideline-title {
       font-family: var(--font-body);
-      font-weight: 600;
+      font-weight: 500;
       font-size: 0.9rem;
-      margin-bottom: var(--space-xs);
+      margin-bottom: 2px;
     }
 
     .guideline-desc {
+      font-family: var(--font-body);
       font-size: 0.8rem;
       color: var(--text-secondary);
     }
 
     /* ==========================================
-       PAGE 8: PHOTOGRAPHY
+       PAGE 10: CLOSING — Editorial Elegance
     ========================================== */
-    .photo-page {
-      background: var(--black);
-      color: var(--off-white);
-    }
-
-    .photo-principles {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-      margin-bottom: var(--space-xl);
-    }
-
-    .photo-principle {
-      padding: var(--space-lg);
-      border: 1px solid rgba(250, 246, 241, 0.1);
-      position: relative;
-    }
-
-    .photo-principle::before {
-      content: attr(data-number);
-      position: absolute;
-      top: var(--space-md);
-      right: var(--space-md);
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 900;
-      color: rgba(196, 101, 74, 0.2);
-      line-height: 1;
-    }
-
-    .photo-principle-title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: var(--space-sm);
-    }
-
-    .photo-principle-desc {
-      font-size: 0.85rem;
-      color: rgba(250, 246, 241, 0.7);
-      line-height: 1.6;
-    }
-
-    /* Photo treatment examples */
-    .photo-treatments {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
-    }
-
-    .photo-treatment {
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: var(--space-md);
-      position: relative;
-    }
-
-    .photo-treatment--warm {
-      background: linear-gradient(135deg, #3d2f2a 0%, #2a2420 100%);
-    }
-
-    .photo-treatment--overlay {
-      background: var(--terracotta);
-    }
-
-    .photo-treatment--duotone {
-      background: linear-gradient(135deg, var(--olive) 0%, var(--black) 100%);
-    }
-
-    .photo-treatment--natural {
-      background: linear-gradient(135deg, #4a4035 0%, #2a2420 100%);
-      border: 1px solid rgba(201, 169, 98, 0.3);
-    }
-
-    .photo-treatment span {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--off-white);
-    }
-
-    .photo-treatment-badge {
-      position: absolute;
-      top: var(--space-sm);
-      right: var(--space-sm);
-      padding: 2px 6px;
-      font-family: var(--font-mono);
-      font-size: 0.5rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-    }
-
-    .photo-treatment-badge--preferred {
-      background: var(--gold);
-      color: var(--black);
-    }
-
-    .photo-treatment-badge--avoid {
-      background: transparent;
-      border: 1px solid var(--terracotta);
-      color: var(--terracotta);
-    }
-
-    /* ==========================================
-       BACK COVER
-    ========================================== */
-    .back-cover {
-      background: var(--black);
+    .closing-page {
+      background: var(--off-white);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1133,46 +1159,80 @@
       position: relative;
     }
 
-    .back-cover::before {
+    .closing-page::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 50% 30% at 50% 50%, rgba(196, 101, 74, 0.1) 0%, transparent 70%);
+        radial-gradient(ellipse 100% 60% at 50% 100%, rgba(232, 212, 208, 0.4) 0%, transparent 50%);
     }
 
-    .back-cover-content {
+    .closing-content {
       position: relative;
       z-index: 1;
     }
 
-    .back-cover .wordmark-primary .name-bold {
-      color: var(--off-white);
+    .closing-wordmark .first {
+      display: block;
+      font-family: var(--font-elegant);
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1;
     }
 
-    .back-cover .wordmark-primary .name-elegant {
+    .closing-wordmark .last {
+      display: block;
+      font-family: var(--font-elegant);
+      font-size: 2.2rem;
+      font-weight: 300;
+      font-style: italic;
       color: var(--terracotta);
+      margin-top: var(--space-xs);
     }
 
-    .back-cover-tagline {
+    .closing-tagline {
       font-family: var(--font-elegant);
       font-size: 1.2rem;
       font-style: italic;
       color: var(--grey);
       margin-top: var(--space-xl);
+      max-width: 30ch;
     }
 
-    .back-cover-meta {
+    .closing-meta {
       position: absolute;
       bottom: var(--space-lg);
-      left: var(--space-lg);
-      right: var(--space-lg);
+      left: var(--space-xl);
+      right: var(--space-xl);
       display: flex;
       justify-content: space-between;
       font-family: var(--font-mono);
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       letter-spacing: 0.1em;
       color: var(--grey);
+    }
+
+    /* Corner accents for closing */
+    .closing-accent {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(201, 169, 98, 0.2);
+    }
+
+    .closing-accent--tl {
+      top: var(--space-xl);
+      left: var(--space-xl);
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .closing-accent--br {
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      border-left: none;
+      border-top: none;
     }
 
     /* ==========================================
@@ -1182,60 +1242,60 @@
     .text-terracotta { color: var(--terracotta); }
     .text-gold { color: var(--gold); }
     .bg-black { background: var(--black); }
-    .bg-terracotta { background: var(--terracotta); }
+    .bg-blush { background: var(--blush); }
   </style>
 </head>
 <body>
 
   <!-- ==========================================
-       PAGE 1: COVER
+       PAGE 1: COVER — Elegant Editorial
   ========================================== -->
   <div class="page cover">
+    <div class="cover-accent cover-accent--tl"></div>
+    <div class="cover-accent cover-accent--br"></div>
     <div class="cover-content">
       <p class="cover-eyebrow">Brand Guidelines 2025</p>
       <div class="cover-name">
-        <span class="first">Tobi</span>
-        <span class="last">Oredein</span>
+        <span class="first">Tobi Oredein</span>
+        <span class="last">Brand System</span>
       </div>
-      <p class="cover-tagline">Media · Data · Community · Technology</p>
+      <p class="cover-tagline">The future of Black women's media</p>
     </div>
-    <span class="cover-version">v2.0</span>
+    <span class="cover-version">v2.1</span>
   </div>
 
   <!-- ==========================================
-       PAGE 2: BRAND STORY
+       PAGE 2: BRAND ESSENCE
   ========================================== -->
-  <div class="page story-page">
-    <div class="story-left">
-      <div class="story-quote">
+  <div class="page essence-page">
+    <header class="page-header">
+      <span class="page-section">02 — Brand Essence</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="essence-content">
+      <div class="essence-quote">
         <blockquote>
-          "I'm building the future of Black women's media — where <em>data meets culture</em>, and community drives everything."
+          "I'm building what comes next — where <em>data meets culture</em>, and community drives everything."
         </blockquote>
-        <cite>— Tobi Oredein, Founder & CEO</cite>
+        <cite>— Tobi Oredein, Founder & CEO, Black Ballad</cite>
       </div>
-    </div>
-    <div class="story-right">
-      <p class="subsection-label">Brand Story</p>
-      <h2 class="section-title">The Trusted Guide</h2>
-      <p class="section-intro">
-        Tobi Oredein stands at the intersection of innovation and wisdom. Her brand isn't about disruption for disruption's sake — it's about leading with insight, building with purpose, and creating spaces where Black women can define their own narratives.
-      </p>
-      <div class="brand-pillars">
+      <div class="essence-pillars">
+        <p class="subsection-label">Brand Pillars</p>
         <div class="pillar">
-          <h4 class="pillar-title">Rigorous</h4>
-          <p class="pillar-desc">Data-driven insights that command respect</p>
+          <h4 class="pillar-title">The Trusted Guide</h4>
+          <p class="pillar-desc">Wisdom walking into the room — insight over disruption</p>
         </div>
         <div class="pillar">
-          <h4 class="pillar-title">Different</h4>
-          <p class="pillar-desc">Unapologetically forward-thinking</p>
+          <h4 class="pillar-title">Rigorous & Different</h4>
+          <p class="pillar-desc">Data-driven credibility, unapologetically forward-thinking</p>
         </div>
         <div class="pillar">
-          <h4 class="pillar-title">Warm</h4>
-          <p class="pillar-desc">Community-centered, never cold</p>
+          <h4 class="pillar-title">Warm & Commanding</h4>
+          <p class="pillar-desc">Community-centered presence that commands attention</p>
         </div>
         <div class="pillar">
-          <h4 class="pillar-title">Future</h4>
-          <p class="pillar-desc">Building what comes next</p>
+          <h4 class="pillar-title">Building the Future</h4>
+          <p class="pillar-desc">Media, data, community, technology — together</p>
         </div>
       </div>
     </div>
@@ -1246,52 +1306,34 @@
   ========================================== -->
   <div class="page color-page">
     <header class="page-header">
-      <span class="page-section">03 — Color System</span>
+      <span class="page-section">03 — Color Palette</span>
       <span class="page-brand">Tobi Oredein</span>
     </header>
     <div class="section-content">
-      <h2 class="section-title">Color Palette</h2>
-      <p class="section-subtitle">warm precision, bold restraint</p>
+      <h2 class="section-title">Color System</h2>
+      <p class="section-subtitle">warm earth tones, unexpected elegance</p>
+
+      <div class="color-intro">
+        <div class="color-philosophy">
+          Warm, unexpected earth tones that feel neither corporate nor safe — terracotta leads, gold elevates, blush softens.
+        </div>
+      </div>
 
       <div class="color-grid">
-        <div class="color-swatch color-swatch--large">
-          <div class="color-preview color-preview--black"></div>
-          <div class="color-info">
-            <div class="color-name">Deep Black</div>
-            <div class="color-hex">#1A1614</div>
-            <div class="color-usage">Primary backgrounds, headlines, anchoring elements</div>
-          </div>
-        </div>
-        <div class="color-swatch">
+        <div class="color-swatch color-swatch--primary">
           <div class="color-preview color-preview--terracotta"></div>
           <div class="color-info">
             <div class="color-name">Terracotta</div>
             <div class="color-hex">#C4654A</div>
-            <div class="color-usage">Signature accent, CTAs, emphasis</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--gold"></div>
-          <div class="color-info">
-            <div class="color-name">Warm Gold</div>
-            <div class="color-hex">#C9A962</div>
-            <div class="color-usage">Premium moments, metallic accents</div>
+            <div class="color-usage">Signature accent — warmth, personality, emphasis</div>
           </div>
         </div>
         <div class="color-swatch">
           <div class="color-preview color-preview--off-white"></div>
           <div class="color-info">
-            <div class="color-name">Off White</div>
+            <div class="color-name">Warm Off-White</div>
             <div class="color-hex">#FAF6F1</div>
-            <div class="color-usage">Light backgrounds, inverse text</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--olive"></div>
-          <div class="color-info">
-            <div class="color-name">Deep Olive</div>
-            <div class="color-hex">#5C5C3D</div>
-            <div class="color-usage">Secondary accent, sophisticated warmth</div>
+            <div class="color-usage">Primary background</div>
           </div>
         </div>
         <div class="color-swatch">
@@ -1299,7 +1341,31 @@
           <div class="color-info">
             <div class="color-name">Blush</div>
             <div class="color-hex">#E8D4D0</div>
-            <div class="color-usage">Soft backgrounds, subtle accents</div>
+            <div class="color-usage">Soft sections, lifestyle feel</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--black"></div>
+          <div class="color-info">
+            <div class="color-name">Deep Black</div>
+            <div class="color-hex">#1A1614</div>
+            <div class="color-usage">Dramatic moments only</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--olive"></div>
+          <div class="color-info">
+            <div class="color-name">Deep Olive</div>
+            <div class="color-hex">#5C5C3D</div>
+            <div class="color-usage">Sophistication, success states</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--gold"></div>
+          <div class="color-info">
+            <div class="color-name">Warm Gold</div>
+            <div class="color-hex">#C9A962</div>
+            <div class="color-usage">Premium, jewelry-like accents</div>
           </div>
         </div>
         <div class="color-swatch">
@@ -1307,24 +1373,8 @@
           <div class="color-info">
             <div class="color-name">Warm Grey</div>
             <div class="color-hex">#8A8580</div>
-            <div class="color-usage">Secondary text, captions, dividers</div>
+            <div class="color-usage">Captions, secondary text</div>
           </div>
-        </div>
-      </div>
-
-      <p class="subsection-label" style="margin-top: var(--space-xl);">Recommended Combinations</p>
-      <div class="color-combos">
-        <div class="color-combo" style="background: var(--black);">
-          <span style="color: var(--off-white);">Aa</span>
-        </div>
-        <div class="color-combo" style="background: var(--black);">
-          <span style="color: var(--terracotta);">Aa</span>
-        </div>
-        <div class="color-combo" style="background: var(--terracotta);">
-          <span style="color: var(--off-white);">Aa</span>
-        </div>
-        <div class="color-combo" style="background: var(--off-white); border: 1px solid rgba(26,22,20,0.1);">
-          <span style="color: var(--black);">Aa</span>
         </div>
       </div>
     </div>
@@ -1334,118 +1384,193 @@
        PAGE 4: TYPOGRAPHY
   ========================================== -->
   <div class="page type-page">
-    <header class="page-header page-header--dark">
-      <span class="page-section">04 — Typography</span>
-      <span class="page-brand text-inverse">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title text-inverse">Type System</h2>
-      <p class="section-subtitle">bold contrast, warm authority</p>
-
-      <div class="type-specimen">
-        <div class="type-meta">
-          <span class="type-name">Display — Playfair Display</span>
-          <span class="type-details">Black 900 / Uppercase</span>
-        </div>
-        <p class="type-sample--display">Build The Future</p>
-      </div>
-
-      <div class="type-specimen">
-        <div class="type-meta">
-          <span class="type-name">Elegant — Cormorant Garamond</span>
-          <span class="type-details">Light 300 / Italic</span>
-        </div>
-        <p class="type-sample--elegant">where data meets culture</p>
-      </div>
-
-      <div class="type-specimen">
-        <div class="type-meta">
-          <span class="type-name">Body — DM Sans</span>
-          <span class="type-details">Regular 400 / 1.8 line height</span>
-        </div>
-        <p class="type-sample--body">Every word carries weight. Body copy should feel confident and clear — never cluttered, never cold. Write like you're speaking to someone who's ready to level up.</p>
-      </div>
-
-      <div class="type-specimen">
-        <div class="type-meta">
-          <span class="type-name">Technical — JetBrains Mono</span>
-          <span class="type-details">Regular 400 / Data + Labels</span>
-        </div>
-        <p class="type-sample--mono">INSIGHT_001 // 87% of Black British women...</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==========================================
-       PAGE 5: WORDMARK
-  ========================================== -->
-  <div class="page wordmark-page">
     <header class="page-header">
-      <span class="page-section">05 — Wordmark</span>
+      <span class="page-section">04 — Typography</span>
       <span class="page-brand">Tobi Oredein</span>
     </header>
     <div class="section-content">
-      <h2 class="section-title">Name Treatment</h2>
-      <p class="section-subtitle">the bold/elegant contrast</p>
+      <h2 class="section-title">Type System</h2>
+      <p class="section-subtitle">elegant voice, bold punctuation</p>
 
-      <div class="wordmark-grid">
-        <div class="wordmark-box wordmark-box--light">
-          <span class="wordmark-label">Primary — Light BG</span>
-          <div class="wordmark-primary">
-            <span class="name-bold" style="color: var(--black);">Tobi</span>
-            <span class="name-elegant" style="color: var(--terracotta);">Oredein</span>
-          </div>
-        </div>
-        <div class="wordmark-box wordmark-box--dark">
-          <span class="wordmark-label">Primary — Dark BG</span>
-          <div class="wordmark-primary">
-            <span class="name-bold" style="color: var(--off-white);">Tobi</span>
-            <span class="name-elegant" style="color: var(--terracotta);">Oredein</span>
-          </div>
-        </div>
-        <div class="wordmark-box wordmark-box--light">
-          <span class="wordmark-label">Horizontal</span>
-          <div class="wordmark-horizontal">
-            <span class="name-bold" style="color: var(--black);">Tobi</span>
-            <span class="name-elegant" style="color: var(--terracotta);">Oredein</span>
-          </div>
-        </div>
-        <div class="wordmark-box wordmark-box--terracotta">
-          <span class="wordmark-label">Monogram</span>
-          <div class="symbol-monogram">
-            <span class="letter-t" style="color: var(--off-white);">T</span>
-            <span class="letter-o" style="color: var(--black);">o</span>
-          </div>
-        </div>
+      <div class="type-intro">
+        <p>The elegant serif leads — it's the voice of the brand. Bold display moments punctuate, they don't dominate.</p>
       </div>
 
-      <p class="subsection-label" style="margin-top: var(--space-xl);">Clear Space</p>
-      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: var(--space-md);">
-        Maintain minimum clear space equal to the height of the "T" around all sides of the wordmark.
-      </p>
+      <div class="type-specimens">
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Primary Voice</span>
+            <span class="type-details">Cormorant Garamond Light 300</span>
+          </div>
+          <p class="type-sample--elegant">The Future of Black Women's Media</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Quotes & Editorial</span>
+            <span class="type-details">Cormorant Garamond Light Italic</span>
+          </div>
+          <p class="type-sample--elegant-italic">"Building what comes next — where data meets culture, and community drives everything."</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Bold Moments</span>
+            <span class="type-details">Playfair Display Black 900 — Use Sparingly</span>
+          </div>
+          <p class="type-sample--display">87%</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Body</span>
+            <span class="type-details">DM Sans Regular 400</span>
+          </div>
+          <p class="type-sample--body">Every word carries weight. Body copy should feel confident and clear — warm but never informal, intelligent but never cold.</p>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-meta">
+            <span class="type-role">Data & Sources</span>
+            <span class="type-details">JetBrains Mono 400 — Subtle, Small</span>
+          </div>
+          <p class="type-sample--mono">Source: BB Index 2024 · n=2,847</p>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- ==========================================
-       PAGE 6: SOCIAL TEMPLATES
+       PAGE 5: TYPOGRAPHY INTERPLAY
+  ========================================== -->
+  <div class="page interplay-page">
+    <header class="page-header">
+      <span class="page-section">05 — Typography in Action</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">The Interplay</h2>
+      <p class="section-subtitle">how elegant and bold work together</p>
+
+      <div class="interplay-grid">
+        <!-- Editorial Headline Example -->
+        <div class="interplay-example">
+          <span class="interplay-label">Editorial Headline</span>
+          <div style="padding-top: var(--space-lg);">
+            <h3 class="editorial-headline">Redefining What<br>Representation Means</h3>
+            <p class="editorial-subline">in media, in data, in culture</p>
+          </div>
+        </div>
+
+        <!-- Stat Callout Example -->
+        <div class="interplay-example interplay-example--dark">
+          <span class="interplay-label">Stat Moment</span>
+          <div class="stat-display">
+            <p class="stat-number">87%</p>
+            <p class="stat-context">of Black British women say<br>representation matters in media</p>
+            <p class="stat-source">Source: BB Index 2024</p>
+          </div>
+        </div>
+
+        <!-- Pull Quote Example -->
+        <div class="interplay-example" style="grid-column: span 2;">
+          <span class="interplay-label">Pull Quote</span>
+          <div class="pullquote-example">
+            <p class="pullquote">"This isn't about disruption for disruption's sake. It's about building something that lasts — with data, with community, with intention."</p>
+            <p class="pullquote-attr">— Tobi Oredein</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 6: COMPONENTS
+  ========================================== -->
+  <div class="page components-page">
+    <header class="page-header">
+      <span class="page-section">06 — Components</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">UI Elements</h2>
+      <p class="section-subtitle">refined, editorial, warm</p>
+
+      <div class="components-grid">
+        <!-- Buttons -->
+        <div class="component-card">
+          <p class="component-label">Buttons</p>
+          <div style="display: flex; flex-direction: column; gap: var(--space-md); align-items: flex-start;">
+            <a href="#" class="btn btn--primary">Learn More</a>
+            <a href="#" class="btn btn--outline">View Details</a>
+            <a href="#" class="btn btn--elegant">Read the story →</a>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="component-card">
+          <p class="component-label">Tags & Labels</p>
+          <div class="tags">
+            <span class="tag tag--default">Media</span>
+            <span class="tag tag--default">Data</span>
+            <span class="tag tag--accent">Featured</span>
+          </div>
+        </div>
+
+        <!-- Dividers -->
+        <div class="component-card">
+          <p class="component-label">Dividers</p>
+          <div class="dividers">
+            <div class="divider--subtle"></div>
+            <div class="divider--accent"></div>
+            <div class="divider--gold"></div>
+          </div>
+        </div>
+
+        <!-- Quote Card -->
+        <div class="component-card" style="grid-column: span 2;">
+          <p class="component-label">Quote Card</p>
+          <div style="padding: var(--space-lg); background: var(--blush);">
+            <p style="font-family: var(--font-elegant); font-size: 1.3rem; font-style: italic; line-height: 1.5; color: var(--black);">
+              "The brands that win are the ones that understand their audience — not just demographically, but culturally."
+            </p>
+            <p style="font-family: var(--font-body); font-size: 0.75rem; color: var(--grey); margin-top: var(--space-md);">
+              Tobi Oredein, Black Ballad
+            </p>
+          </div>
+        </div>
+
+        <!-- Stat Card -->
+        <div class="component-card">
+          <p class="component-label">Stat Card</p>
+          <div style="text-align: center; padding: var(--space-lg) 0;">
+            <p style="font-family: var(--font-display); font-size: 3rem; font-weight: 900; color: var(--terracotta); line-height: 1;">2.8M</p>
+            <p style="font-family: var(--font-elegant); font-size: 0.95rem; font-style: italic; color: var(--grey); margin-top: var(--space-xs);">annual audience reach</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 7: SOCIAL TEMPLATES
   ========================================== -->
   <div class="page social-page">
     <header class="page-header">
-      <span class="page-section">06 — Social Media</span>
+      <span class="page-section">07 — Social Media</span>
       <span class="page-brand">Tobi Oredein</span>
     </header>
     <div class="section-content">
       <h2 class="section-title">Social Templates</h2>
-      <p class="section-subtitle">commanding the scroll</p>
+      <p class="section-subtitle">editorial compositions for the feed</p>
 
       <div class="social-grid">
         <!-- Instagram Post -->
         <div class="social-preview">
           <div class="social-preview-label">Instagram Post — 1080×1080</div>
           <div class="instagram-post">
-            <span class="eyebrow">Insight</span>
-            <h3 class="headline">Data Is<br>The New<br>Currency</h3>
-            <p class="subline">and we're leading the exchange</p>
+            <h3 class="headline">Redefining What<br>Representation Means</h3>
+            <p class="subline">in media, in data, in culture</p>
             <span class="brand">Tobi Oredein</span>
           </div>
         </div>
@@ -1456,12 +1581,11 @@
           <div class="linkedin-banner">
             <div class="linkedin-content">
               <span class="eyebrow">Keynote Speaker</span>
-              <h3 class="headline">The Future Of<br>Black Women<br>In Media</h3>
+              <h3 class="headline">The Future of Black<br>Women in Media</h3>
               <p class="subline">booking now for 2025</p>
             </div>
             <div class="linkedin-brand">
-              <span class="name-bold">Tobi</span>
-              <span class="name-elegant">Oredein</span>
+              <span class="name">Tobi Oredein</span>
             </div>
           </div>
         </div>
@@ -1470,97 +1594,10 @@
         <div class="social-preview">
           <div class="social-preview-label">Story — 1080×1920</div>
           <div class="instagram-story">
-            <h3 class="headline">New<br>Episode<br>Live</h3>
-            <p class="subline">swipe up to listen</p>
+            <p class="stat">87%</p>
+            <p class="context">say representation matters</p>
             <span class="brand">Tobi Oredein</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==========================================
-       PAGE 7: DO'S AND DON'TS
-  ========================================== -->
-  <div class="page guidelines-page">
-    <header class="page-header">
-      <span class="page-section">07 — Guidelines</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">Do's & Don'ts</h2>
-      <p class="section-subtitle">protecting the brand</p>
-
-      <div class="guidelines-grid">
-        <div class="guidelines-col guidelines-col--do">
-          <h3>Do</h3>
-          <ul class="guidelines-list">
-            <li>
-              <div>
-                <p class="guideline-title">Use bold/elegant contrast</p>
-                <p class="guideline-desc">Pair heavy display type with light italic sublines</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Lead with terracotta</p>
-                <p class="guideline-desc">Use as the signature accent — it's what makes us recognizable</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Embrace strategic density</p>
-                <p class="guideline-desc">Bold moments need breathing room around them</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Keep photography warm</p>
-                <p class="guideline-desc">Natural light, rich environments, authentic moments</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Sound like a trusted guide</p>
-                <p class="guideline-desc">Wisdom over disruption, insight over hype</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="guidelines-col guidelines-col--dont">
-          <h3>Don't</h3>
-          <ul class="guidelines-list">
-            <li>
-              <div>
-                <p class="guideline-title">Use safe, muted palettes</p>
-                <p class="guideline-desc">No cream/beige/gray-only combinations</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Default to corporate minimal</p>
-                <p class="guideline-desc">Avoid Helvetica, navy, stock photos</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Use "girl boss" aesthetics</p>
-                <p class="guideline-desc">No pink/gold clichés, no motivational poster energy</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Over-filter photography</p>
-                <p class="guideline-desc">Keep images natural, no heavy color treatments</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Clutter layouts</p>
-                <p class="guideline-desc">Strategic maximalism ≠ chaotic density</p>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
@@ -1570,62 +1607,161 @@
        PAGE 8: PHOTOGRAPHY
   ========================================== -->
   <div class="page photo-page">
-    <header class="page-header page-header--dark">
+    <header class="page-header">
       <span class="page-section">08 — Photography</span>
-      <span class="page-brand text-inverse">Tobi Oredein</span>
+      <span class="page-brand">Tobi Oredein</span>
     </header>
     <div class="section-content">
-      <h2 class="section-title text-inverse">Photo Guidelines</h2>
-      <p class="section-subtitle">warm, authentic, commanding</p>
+      <h2 class="section-title">Photography Direction</h2>
+      <p class="section-subtitle">warm, authentic, lifestyle-forward</p>
+
+      <div class="photo-intro">
+        <p>Photography should feel like a sophisticated lifestyle publication — warm natural light, rich environments, authentic presence.</p>
+      </div>
 
       <div class="photo-principles">
-        <div class="photo-principle" data-number="01">
-          <h4 class="photo-principle-title">Natural Light</h4>
-          <p class="photo-principle-desc">Soft, warm lighting that feels inviting yet professional. Golden hour energy, not harsh flash.</p>
+        <div class="photo-principle">
+          <span class="photo-principle-number">01</span>
+          <h4 class="photo-principle-title">Natural Warmth</h4>
+          <p class="photo-principle-desc">Soft, warm lighting that feels inviting. Golden hour energy, not harsh flash or corporate studio.</p>
         </div>
-        <div class="photo-principle" data-number="02">
+        <div class="photo-principle">
+          <span class="photo-principle-number">02</span>
           <h4 class="photo-principle-title">Rich Environments</h4>
-          <p class="photo-principle-desc">Layered backgrounds with texture and warmth. Think sophisticated interiors, urban settings.</p>
+          <p class="photo-principle-desc">Layered backgrounds with texture. Sophisticated interiors, urban warmth, curated spaces.</p>
         </div>
-        <div class="photo-principle" data-number="03">
-          <h4 class="photo-principle-title">Confident Presence</h4>
-          <p class="photo-principle-desc">Authentic expressions that convey wisdom and authority. Real moments over posed shots.</p>
+        <div class="photo-principle">
+          <span class="photo-principle-number">03</span>
+          <h4 class="photo-principle-title">Authentic Presence</h4>
+          <p class="photo-principle-desc">Real moments over posed shots. Expressions that convey wisdom, warmth, and quiet confidence.</p>
         </div>
       </div>
 
-      <p class="subsection-label" style="color: var(--gold);">Treatment Options</p>
-      <div class="photo-treatments">
-        <div class="photo-treatment photo-treatment--natural">
-          <span class="photo-treatment-badge photo-treatment-badge--preferred">Preferred</span>
+      <p class="subsection-label">Color Moods</p>
+      <div class="photo-moods">
+        <div class="photo-mood photo-mood--natural">
+          <span class="photo-mood-badge">Preferred</span>
           <span>Natural Warm</span>
         </div>
-        <div class="photo-treatment photo-treatment--warm">
-          <span>Warm Grade</span>
+        <div class="photo-mood photo-mood--warm">
+          <span>Rich Earth</span>
         </div>
-        <div class="photo-treatment photo-treatment--overlay">
-          <span>Terracotta Overlay</span>
+        <div class="photo-mood photo-mood--golden">
+          <span>Golden Hour</span>
         </div>
-        <div class="photo-treatment photo-treatment--duotone">
-          <span class="photo-treatment-badge photo-treatment-badge--avoid">Sparingly</span>
-          <span>Duotone</span>
+        <div class="photo-mood photo-mood--intimate">
+          <span>Intimate Dark</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- ==========================================
-       PAGE 9: BACK COVER
+       PAGE 9: DO'S AND DON'TS
   ========================================== -->
-  <div class="page back-cover">
-    <div class="back-cover-content">
-      <div class="wordmark-primary">
-        <span class="name-bold" style="font-size: 4rem;">Tobi</span>
-        <span class="name-elegant" style="font-size: 2.5rem;">Oredein</span>
+  <div class="page guidelines-page">
+    <header class="page-header">
+      <span class="page-section">09 — Guidelines</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Do's & Don'ts</h2>
+      <p class="section-subtitle">protecting the brand voice</p>
+
+      <div class="guidelines-intro">
+        <p>The brand should feel like a sophisticated lifestyle publication that happens to have incredible data — not a tech company trying to seem warm.</p>
       </div>
-      <p class="back-cover-tagline">Building the future of Black women's media.</p>
+
+      <div class="guidelines-grid">
+        <div class="guidelines-col guidelines-col--do">
+          <h3>Do</h3>
+          <ul class="guidelines-list">
+            <li>
+              <div>
+                <p class="guideline-title">Lead with elegant typography</p>
+                <p class="guideline-desc">Cormorant Garamond is the voice — bold is punctuation</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Use blush and off-white generously</p>
+                <p class="guideline-desc">Light, airy, editorial — dark is for drama only</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Let terracotta bring warmth</p>
+                <p class="guideline-desc">Signature accent for personality, not just CTAs</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Create breathing room</p>
+                <p class="guideline-desc">White space is editorial — maximalism is strategic</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Sound like a trusted guide</p>
+                <p class="guideline-desc">Wisdom over hype, insight over disruption</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="guidelines-col guidelines-col--dont">
+          <h3>Don't</h3>
+          <ul class="guidelines-list">
+            <li>
+              <div>
+                <p class="guideline-title">Over-use bold display type</p>
+                <p class="guideline-desc">Playfair Black is for stats and emphasis only</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Default to dark backgrounds</p>
+                <p class="guideline-desc">This isn't a tech brand — keep it light and warm</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Use corporate aesthetics</p>
+                <p class="guideline-desc">No Helvetica, no navy, no stock photos</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Chase trends</p>
+                <p class="guideline-desc">No "girl boss" pink-gold, no generic gradients</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Over-filter photography</p>
+                <p class="guideline-desc">Keep images natural — color accuracy matters</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="back-cover-meta">
-      <span>Brand Guidelines v2.0</span>
+  </div>
+
+  <!-- ==========================================
+       PAGE 10: CLOSING
+  ========================================== -->
+  <div class="page closing-page">
+    <div class="closing-accent closing-accent--tl"></div>
+    <div class="closing-accent closing-accent--br"></div>
+    <div class="closing-content">
+      <div class="closing-wordmark">
+        <span class="first">Tobi Oredein</span>
+        <span class="last">Brand System</span>
+      </div>
+      <p class="closing-tagline">The future of Black women's media — where data meets culture.</p>
+    </div>
+    <div class="closing-meta">
+      <span>Brand Guidelines v2.1</span>
       <span>© 2025 Tobi Oredein</span>
     </div>
   </div>
