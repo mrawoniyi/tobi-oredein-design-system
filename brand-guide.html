@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tobi Oredein — Brand Guide</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    @page {
+      size: 11in 8.5in;
+      margin: 0;
+    }
+
+    :root {
+      /* Primary */
+      --black: #1A1614;
+      --off-white: #FAF6F1;
+
+      /* Signature */
+      --terracotta: #C4654A;
+      --olive: #5C5C3D;
+      --gold: #C9A962;
+
+      /* Supporting */
+      --blush: #E8D4D0;
+      --grey: #8A8580;
+
+      /* Functional */
+      --text-primary: var(--black);
+      --text-secondary: var(--grey);
+      --text-inverse: var(--off-white);
+
+      /* Typography */
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-elegant: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Spacing */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 2rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--off-white);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Page Structure */
+    .page {
+      width: 11in;
+      min-height: 8.5in;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* ==========================================
+       COVER PAGE
+    ========================================== */
+    .cover {
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(196, 101, 74, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(201, 169, 98, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Brushed metal texture overlay */
+    .cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        rgba(255,255,255,0.01) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-xl);
+    }
+
+    .cover-name {
+      margin-bottom: var(--space-lg);
+    }
+
+    .cover-name .first {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 6rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--off-white);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .cover-name .last {
+      display: block;
+      font-family: var(--font-elegant);
+      font-size: 3.5rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      color: var(--terracotta);
+      line-height: 1.2;
+      margin-top: var(--space-sm);
+    }
+
+    .cover-tagline {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(201, 169, 98, 0.3);
+    }
+
+    .cover-version {
+      position: absolute;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--grey);
+      letter-spacing: 0.1em;
+    }
+
+    /* ==========================================
+       NAVIGATION / PAGE HEADERS
+    ========================================== */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-lg) var(--space-xl);
+      border-bottom: 1px solid rgba(26, 22, 20, 0.1);
+    }
+
+    .page-header--dark {
+      border-bottom-color: rgba(250, 246, 241, 0.1);
+    }
+
+    .page-section {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .page-brand {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================
+       SECTION STYLES
+    ========================================== */
+    .section-content {
+      padding: var(--space-xl);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: var(--space-md);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--terracotta);
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-intro {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 50ch;
+      line-height: 1.8;
+    }
+
+    /* Subsection headers */
+    .subsection-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .subsection-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--grey) 0%, transparent 100%);
+      opacity: 0.3;
+    }
+
+    /* ==========================================
+       PAGE 2: BRAND STORY
+    ========================================== */
+    .story-page {
+      background: var(--off-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .story-left {
+      background: var(--black);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .story-left::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 0%, rgba(196, 101, 74, 0.08) 100%);
+    }
+
+    .story-quote {
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-quote blockquote {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--off-white);
+      line-height: 1.3;
+      margin-bottom: var(--space-lg);
+    }
+
+    .story-quote blockquote em {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .story-quote cite {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-style: normal;
+      color: var(--grey);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .story-right {
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story-right .section-title {
+      font-size: 2.5rem;
+    }
+
+    .brand-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .pillar {
+      padding: var(--space-md);
+      border-left: 2px solid var(--terracotta);
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
+    }
+
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       PAGE 3: COLOR PALETTE
+    ========================================== */
+    .color-page {
+      background: var(--off-white);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .color-swatch {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .color-swatch--large {
+      grid-column: span 1;
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .color-preview {
+      height: 120px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-md);
+    }
+
+    .color-swatch--large .color-preview {
+      flex: 1;
+      min-height: 200px;
+    }
+
+    /* Brushed metal effect for gold */
+    .color-preview--gold {
+      background: linear-gradient(
+        135deg,
+        #C9A962 0%,
+        #D4B86A 25%,
+        #C9A962 50%,
+        #BFA058 75%,
+        #C9A962 100%
+      );
+    }
+
+    .color-preview--black {
+      background: var(--black);
+    }
+
+    .color-preview--off-white {
+      background: var(--off-white);
+      border: 1px solid rgba(26, 22, 20, 0.1);
+    }
+
+    .color-preview--terracotta {
+      background: var(--terracotta);
+    }
+
+    .color-preview--olive {
+      background: var(--olive);
+    }
+
+    .color-preview--blush {
+      background: var(--blush);
+    }
+
+    .color-preview--grey {
+      background: var(--grey);
+    }
+
+    .color-info {
+      padding: var(--space-md) 0;
+    }
+
+    .color-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
+    }
+
+    .color-hex {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--grey);
+    }
+
+    .color-usage {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: var(--space-xs);
+    }
+
+    /* Color combinations demo */
+    .color-combos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .color-combo {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-md);
+    }
+
+    .color-combo span {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* ==========================================
+       PAGE 4: TYPOGRAPHY
+    ========================================== */
+    .type-page {
+      background: var(--black);
+      color: var(--off-white);
+    }
+
+    .type-specimen {
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid rgba(250, 246, 241, 0.1);
+    }
+
+    .type-specimen:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .type-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: var(--space-md);
+    }
+
+    .type-name {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .type-details {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--grey);
+    }
+
+    .type-sample--display {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .type-sample--elegant {
+      font-family: var(--font-elegant);
+      font-size: 2.5rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--terracotta);
+    }
+
+    .type-sample--body {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 60ch;
+      color: rgba(250, 246, 241, 0.8);
+    }
+
+    .type-sample--mono {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--gold);
+    }
+
+    /* Type scale demonstration */
+    .type-scale {
+      display: grid;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .type-scale-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      align-items: baseline;
+      gap: var(--space-lg);
+    }
+
+    .type-scale-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--grey);
+      text-align: right;
+    }
+
+    /* ==========================================
+       PAGE 5: WORDMARK / LOGO
+    ========================================== */
+    .wordmark-page {
+      background: var(--off-white);
+    }
+
+    .wordmark-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .wordmark-box {
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl);
+      position: relative;
+    }
+
+    .wordmark-box--light {
+      background: var(--off-white);
+      border: 1px solid rgba(26, 22, 20, 0.1);
+    }
+
+    .wordmark-box--dark {
+      background: var(--black);
+    }
+
+    .wordmark-box--terracotta {
+      background: var(--terracotta);
+    }
+
+    .wordmark-box--gradient {
+      background: linear-gradient(135deg, var(--black) 0%, #2a2420 100%);
+    }
+
+    .wordmark-label {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .wordmark-box--dark .wordmark-label,
+    .wordmark-box--terracotta .wordmark-label {
+      color: rgba(250, 246, 241, 0.5);
+    }
+
+    /* Primary wordmark */
+    .wordmark-primary {
+      text-align: center;
+    }
+
+    .wordmark-primary .name-bold {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      line-height: 1;
+    }
+
+    .wordmark-primary .name-elegant {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: var(--space-xs);
+    }
+
+    /* Horizontal wordmark */
+    .wordmark-horizontal {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-sm);
+    }
+
+    .wordmark-horizontal .name-bold {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .wordmark-horizontal .name-elegant {
+      font-family: var(--font-elegant);
+      font-size: 1.4rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* Symbol / Monogram */
+    .symbol-monogram {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .symbol-monogram .letter-t {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      position: absolute;
+      left: 8px;
+    }
+
+    .symbol-monogram .letter-o {
+      font-family: var(--font-elegant);
+      font-size: 2.2rem;
+      font-weight: 300;
+      font-style: italic;
+      position: absolute;
+      right: 8px;
+      bottom: 12px;
+    }
+
+    /* Clearspace indicator */
+    .clearspace-demo {
+      position: relative;
+      padding: var(--space-xl);
+      border: 1px dashed var(--terracotta);
+    }
+
+    .clearspace-demo::before {
+      content: 'X';
+      position: absolute;
+      top: 50%;
+      left: var(--space-sm);
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--terracotta);
+    }
+
+    /* ==========================================
+       PAGE 6: SOCIAL TEMPLATES
+    ========================================== */
+    .social-page {
+      background: var(--blush);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 180px;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .social-preview {
+      background: white;
+      box-shadow: 0 4px 20px rgba(26, 22, 20, 0.1);
+      overflow: hidden;
+    }
+
+    .social-preview-label {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--black);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--off-white);
+    }
+
+    /* Instagram Post */
+    .instagram-post {
+      aspect-ratio: 1;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-xl);
+      text-align: center;
+      position: relative;
+    }
+
+    .instagram-post::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 70%, rgba(196, 101, 74, 0.2) 0%, transparent 50%);
+    }
+
+    .instagram-post .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+
+    .instagram-post .headline {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--off-white);
+      line-height: 1.1;
+      position: relative;
+    }
+
+    .instagram-post .subline {
+      font-family: var(--font-elegant);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--terracotta);
+      margin-top: var(--space-sm);
+      position: relative;
+    }
+
+    .instagram-post .brand {
+      position: absolute;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* LinkedIn Banner */
+    .linkedin-banner {
+      aspect-ratio: 1200/627;
+      background: linear-gradient(135deg, var(--black) 0%, #2a2420 100%);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: var(--space-lg);
+      gap: var(--space-lg);
+      position: relative;
+    }
+
+    .linkedin-banner::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(196, 101, 74, 0.1) 100%);
+    }
+
+    .linkedin-content {
+      position: relative;
+    }
+
+    .linkedin-content .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.45rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-sm);
+    }
+
+    .linkedin-content .headline {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--off-white);
+      line-height: 1.1;
+    }
+
+    .linkedin-content .subline {
+      font-family: var(--font-elegant);
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--terracotta);
+      margin-top: var(--space-xs);
+    }
+
+    .linkedin-brand {
+      text-align: right;
+      position: relative;
+    }
+
+    .linkedin-brand .name-bold {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--off-white);
+      display: block;
+    }
+
+    .linkedin-brand .name-elegant {
+      font-family: var(--font-elegant);
+      font-size: 0.7rem;
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    /* Instagram Story */
+    .instagram-story {
+      aspect-ratio: 9/16;
+      background: var(--terracotta);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-md);
+      text-align: center;
+      position: relative;
+    }
+
+    .instagram-story .headline {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--off-white);
+      line-height: 1.1;
+    }
+
+    .instagram-story .subline {
+      font-family: var(--font-elegant);
+      font-size: 0.7rem;
+      font-style: italic;
+      color: var(--black);
+      margin-top: var(--space-xs);
+    }
+
+    .instagram-story .brand {
+      position: absolute;
+      bottom: var(--space-md);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-size: 0.45rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250, 246, 241, 0.6);
+    }
+
+    /* ==========================================
+       PAGE 7: DO'S AND DON'TS
+    ========================================== */
+    .guidelines-page {
+      background: var(--off-white);
+    }
+
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .guidelines-col h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: 3px solid;
+    }
+
+    .guidelines-col--do h3 {
+      border-color: var(--olive);
+      color: var(--olive);
+    }
+
+    .guidelines-col--dont h3 {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    .guidelines-list {
+      list-style: none;
+    }
+
+    .guidelines-list li {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(26, 22, 20, 0.1);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-md);
+      align-items: start;
+    }
+
+    .guidelines-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 0.5em;
+    }
+
+    .guidelines-col--do .guidelines-list li::before {
+      background: var(--olive);
+    }
+
+    .guidelines-col--dont .guidelines-list li::before {
+      background: var(--terracotta);
+    }
+
+    .guideline-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .guideline-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================
+       PAGE 8: PHOTOGRAPHY
+    ========================================== */
+    .photo-page {
+      background: var(--black);
+      color: var(--off-white);
+    }
+
+    .photo-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .photo-principle {
+      padding: var(--space-lg);
+      border: 1px solid rgba(250, 246, 241, 0.1);
+      position: relative;
+    }
+
+    .photo-principle::before {
+      content: attr(data-number);
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(196, 101, 74, 0.2);
+      line-height: 1;
+    }
+
+    .photo-principle-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+
+    .photo-principle-desc {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 241, 0.7);
+      line-height: 1.6;
+    }
+
+    /* Photo treatment examples */
+    .photo-treatments {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+
+    .photo-treatment {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-md);
+      position: relative;
+    }
+
+    .photo-treatment--warm {
+      background: linear-gradient(135deg, #3d2f2a 0%, #2a2420 100%);
+    }
+
+    .photo-treatment--overlay {
+      background: var(--terracotta);
+    }
+
+    .photo-treatment--duotone {
+      background: linear-gradient(135deg, var(--olive) 0%, var(--black) 100%);
+    }
+
+    .photo-treatment--natural {
+      background: linear-gradient(135deg, #4a4035 0%, #2a2420 100%);
+      border: 1px solid rgba(201, 169, 98, 0.3);
+    }
+
+    .photo-treatment span {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--off-white);
+    }
+
+    .photo-treatment-badge {
+      position: absolute;
+      top: var(--space-sm);
+      right: var(--space-sm);
+      padding: 2px 6px;
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+
+    .photo-treatment-badge--preferred {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .photo-treatment-badge--avoid {
+      background: transparent;
+      border: 1px solid var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    /* ==========================================
+       BACK COVER
+    ========================================== */
+    .back-cover {
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .back-cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 30% at 50% 50%, rgba(196, 101, 74, 0.1) 0%, transparent 70%);
+    }
+
+    .back-cover-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-cover .wordmark-primary .name-bold {
+      color: var(--off-white);
+    }
+
+    .back-cover .wordmark-primary .name-elegant {
+      color: var(--terracotta);
+    }
+
+    .back-cover-tagline {
+      font-family: var(--font-elegant);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--grey);
+      margin-top: var(--space-xl);
+    }
+
+    .back-cover-meta {
+      position: absolute;
+      bottom: var(--space-lg);
+      left: var(--space-lg);
+      right: var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--grey);
+    }
+
+    /* ==========================================
+       UTILITY CLASSES
+    ========================================== */
+    .text-inverse { color: var(--off-white); }
+    .text-terracotta { color: var(--terracotta); }
+    .text-gold { color: var(--gold); }
+    .bg-black { background: var(--black); }
+    .bg-terracotta { background: var(--terracotta); }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       PAGE 1: COVER
+  ========================================== -->
+  <div class="page cover">
+    <div class="cover-content">
+      <p class="cover-eyebrow">Brand Guidelines 2025</p>
+      <div class="cover-name">
+        <span class="first">Tobi</span>
+        <span class="last">Oredein</span>
+      </div>
+      <p class="cover-tagline">Media · Data · Community · Technology</p>
+    </div>
+    <span class="cover-version">v2.0</span>
+  </div>
+
+  <!-- ==========================================
+       PAGE 2: BRAND STORY
+  ========================================== -->
+  <div class="page story-page">
+    <div class="story-left">
+      <div class="story-quote">
+        <blockquote>
+          "I'm building the future of Black women's media — where <em>data meets culture</em>, and community drives everything."
+        </blockquote>
+        <cite>— Tobi Oredein, Founder & CEO</cite>
+      </div>
+    </div>
+    <div class="story-right">
+      <p class="subsection-label">Brand Story</p>
+      <h2 class="section-title">The Trusted Guide</h2>
+      <p class="section-intro">
+        Tobi Oredein stands at the intersection of innovation and wisdom. Her brand isn't about disruption for disruption's sake — it's about leading with insight, building with purpose, and creating spaces where Black women can define their own narratives.
+      </p>
+      <div class="brand-pillars">
+        <div class="pillar">
+          <h4 class="pillar-title">Rigorous</h4>
+          <p class="pillar-desc">Data-driven insights that command respect</p>
+        </div>
+        <div class="pillar">
+          <h4 class="pillar-title">Different</h4>
+          <p class="pillar-desc">Unapologetically forward-thinking</p>
+        </div>
+        <div class="pillar">
+          <h4 class="pillar-title">Warm</h4>
+          <p class="pillar-desc">Community-centered, never cold</p>
+        </div>
+        <div class="pillar">
+          <h4 class="pillar-title">Future</h4>
+          <p class="pillar-desc">Building what comes next</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 3: COLOR PALETTE
+  ========================================== -->
+  <div class="page color-page">
+    <header class="page-header">
+      <span class="page-section">03 — Color System</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Color Palette</h2>
+      <p class="section-subtitle">warm precision, bold restraint</p>
+
+      <div class="color-grid">
+        <div class="color-swatch color-swatch--large">
+          <div class="color-preview color-preview--black"></div>
+          <div class="color-info">
+            <div class="color-name">Deep Black</div>
+            <div class="color-hex">#1A1614</div>
+            <div class="color-usage">Primary backgrounds, headlines, anchoring elements</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--terracotta"></div>
+          <div class="color-info">
+            <div class="color-name">Terracotta</div>
+            <div class="color-hex">#C4654A</div>
+            <div class="color-usage">Signature accent, CTAs, emphasis</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--gold"></div>
+          <div class="color-info">
+            <div class="color-name">Warm Gold</div>
+            <div class="color-hex">#C9A962</div>
+            <div class="color-usage">Premium moments, metallic accents</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--off-white"></div>
+          <div class="color-info">
+            <div class="color-name">Off White</div>
+            <div class="color-hex">#FAF6F1</div>
+            <div class="color-usage">Light backgrounds, inverse text</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--olive"></div>
+          <div class="color-info">
+            <div class="color-name">Deep Olive</div>
+            <div class="color-hex">#5C5C3D</div>
+            <div class="color-usage">Secondary accent, sophisticated warmth</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--blush"></div>
+          <div class="color-info">
+            <div class="color-name">Blush</div>
+            <div class="color-hex">#E8D4D0</div>
+            <div class="color-usage">Soft backgrounds, subtle accents</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-preview color-preview--grey"></div>
+          <div class="color-info">
+            <div class="color-name">Warm Grey</div>
+            <div class="color-hex">#8A8580</div>
+            <div class="color-usage">Secondary text, captions, dividers</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="subsection-label" style="margin-top: var(--space-xl);">Recommended Combinations</p>
+      <div class="color-combos">
+        <div class="color-combo" style="background: var(--black);">
+          <span style="color: var(--off-white);">Aa</span>
+        </div>
+        <div class="color-combo" style="background: var(--black);">
+          <span style="color: var(--terracotta);">Aa</span>
+        </div>
+        <div class="color-combo" style="background: var(--terracotta);">
+          <span style="color: var(--off-white);">Aa</span>
+        </div>
+        <div class="color-combo" style="background: var(--off-white); border: 1px solid rgba(26,22,20,0.1);">
+          <span style="color: var(--black);">Aa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 4: TYPOGRAPHY
+  ========================================== -->
+  <div class="page type-page">
+    <header class="page-header page-header--dark">
+      <span class="page-section">04 — Typography</span>
+      <span class="page-brand text-inverse">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title text-inverse">Type System</h2>
+      <p class="section-subtitle">bold contrast, warm authority</p>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span class="type-name">Display — Playfair Display</span>
+          <span class="type-details">Black 900 / Uppercase</span>
+        </div>
+        <p class="type-sample--display">Build The Future</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span class="type-name">Elegant — Cormorant Garamond</span>
+          <span class="type-details">Light 300 / Italic</span>
+        </div>
+        <p class="type-sample--elegant">where data meets culture</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span class="type-name">Body — DM Sans</span>
+          <span class="type-details">Regular 400 / 1.8 line height</span>
+        </div>
+        <p class="type-sample--body">Every word carries weight. Body copy should feel confident and clear — never cluttered, never cold. Write like you're speaking to someone who's ready to level up.</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span class="type-name">Technical — JetBrains Mono</span>
+          <span class="type-details">Regular 400 / Data + Labels</span>
+        </div>
+        <p class="type-sample--mono">INSIGHT_001 // 87% of Black British women...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 5: WORDMARK
+  ========================================== -->
+  <div class="page wordmark-page">
+    <header class="page-header">
+      <span class="page-section">05 — Wordmark</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Name Treatment</h2>
+      <p class="section-subtitle">the bold/elegant contrast</p>
+
+      <div class="wordmark-grid">
+        <div class="wordmark-box wordmark-box--light">
+          <span class="wordmark-label">Primary — Light BG</span>
+          <div class="wordmark-primary">
+            <span class="name-bold" style="color: var(--black);">Tobi</span>
+            <span class="name-elegant" style="color: var(--terracotta);">Oredein</span>
+          </div>
+        </div>
+        <div class="wordmark-box wordmark-box--dark">
+          <span class="wordmark-label">Primary — Dark BG</span>
+          <div class="wordmark-primary">
+            <span class="name-bold" style="color: var(--off-white);">Tobi</span>
+            <span class="name-elegant" style="color: var(--terracotta);">Oredein</span>
+          </div>
+        </div>
+        <div class="wordmark-box wordmark-box--light">
+          <span class="wordmark-label">Horizontal</span>
+          <div class="wordmark-horizontal">
+            <span class="name-bold" style="color: var(--black);">Tobi</span>
+            <span class="name-elegant" style="color: var(--terracotta);">Oredein</span>
+          </div>
+        </div>
+        <div class="wordmark-box wordmark-box--terracotta">
+          <span class="wordmark-label">Monogram</span>
+          <div class="symbol-monogram">
+            <span class="letter-t" style="color: var(--off-white);">T</span>
+            <span class="letter-o" style="color: var(--black);">o</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="subsection-label" style="margin-top: var(--space-xl);">Clear Space</p>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: var(--space-md);">
+        Maintain minimum clear space equal to the height of the "T" around all sides of the wordmark.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 6: SOCIAL TEMPLATES
+  ========================================== -->
+  <div class="page social-page">
+    <header class="page-header">
+      <span class="page-section">06 — Social Media</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Social Templates</h2>
+      <p class="section-subtitle">commanding the scroll</p>
+
+      <div class="social-grid">
+        <!-- Instagram Post -->
+        <div class="social-preview">
+          <div class="social-preview-label">Instagram Post — 1080×1080</div>
+          <div class="instagram-post">
+            <span class="eyebrow">Insight</span>
+            <h3 class="headline">Data Is<br>The New<br>Currency</h3>
+            <p class="subline">and we're leading the exchange</p>
+            <span class="brand">Tobi Oredein</span>
+          </div>
+        </div>
+
+        <!-- LinkedIn Banner -->
+        <div class="social-preview">
+          <div class="social-preview-label">LinkedIn — 1200×627</div>
+          <div class="linkedin-banner">
+            <div class="linkedin-content">
+              <span class="eyebrow">Keynote Speaker</span>
+              <h3 class="headline">The Future Of<br>Black Women<br>In Media</h3>
+              <p class="subline">booking now for 2025</p>
+            </div>
+            <div class="linkedin-brand">
+              <span class="name-bold">Tobi</span>
+              <span class="name-elegant">Oredein</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Story -->
+        <div class="social-preview">
+          <div class="social-preview-label">Story — 1080×1920</div>
+          <div class="instagram-story">
+            <h3 class="headline">New<br>Episode<br>Live</h3>
+            <p class="subline">swipe up to listen</p>
+            <span class="brand">Tobi Oredein</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 7: DO'S AND DON'TS
+  ========================================== -->
+  <div class="page guidelines-page">
+    <header class="page-header">
+      <span class="page-section">07 — Guidelines</span>
+      <span class="page-brand">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title">Do's & Don'ts</h2>
+      <p class="section-subtitle">protecting the brand</p>
+
+      <div class="guidelines-grid">
+        <div class="guidelines-col guidelines-col--do">
+          <h3>Do</h3>
+          <ul class="guidelines-list">
+            <li>
+              <div>
+                <p class="guideline-title">Use bold/elegant contrast</p>
+                <p class="guideline-desc">Pair heavy display type with light italic sublines</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Lead with terracotta</p>
+                <p class="guideline-desc">Use as the signature accent — it's what makes us recognizable</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Embrace strategic density</p>
+                <p class="guideline-desc">Bold moments need breathing room around them</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Keep photography warm</p>
+                <p class="guideline-desc">Natural light, rich environments, authentic moments</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Sound like a trusted guide</p>
+                <p class="guideline-desc">Wisdom over disruption, insight over hype</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="guidelines-col guidelines-col--dont">
+          <h3>Don't</h3>
+          <ul class="guidelines-list">
+            <li>
+              <div>
+                <p class="guideline-title">Use safe, muted palettes</p>
+                <p class="guideline-desc">No cream/beige/gray-only combinations</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Default to corporate minimal</p>
+                <p class="guideline-desc">Avoid Helvetica, navy, stock photos</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Use "girl boss" aesthetics</p>
+                <p class="guideline-desc">No pink/gold clichés, no motivational poster energy</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Over-filter photography</p>
+                <p class="guideline-desc">Keep images natural, no heavy color treatments</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p class="guideline-title">Clutter layouts</p>
+                <p class="guideline-desc">Strategic maximalism ≠ chaotic density</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 8: PHOTOGRAPHY
+  ========================================== -->
+  <div class="page photo-page">
+    <header class="page-header page-header--dark">
+      <span class="page-section">08 — Photography</span>
+      <span class="page-brand text-inverse">Tobi Oredein</span>
+    </header>
+    <div class="section-content">
+      <h2 class="section-title text-inverse">Photo Guidelines</h2>
+      <p class="section-subtitle">warm, authentic, commanding</p>
+
+      <div class="photo-principles">
+        <div class="photo-principle" data-number="01">
+          <h4 class="photo-principle-title">Natural Light</h4>
+          <p class="photo-principle-desc">Soft, warm lighting that feels inviting yet professional. Golden hour energy, not harsh flash.</p>
+        </div>
+        <div class="photo-principle" data-number="02">
+          <h4 class="photo-principle-title">Rich Environments</h4>
+          <p class="photo-principle-desc">Layered backgrounds with texture and warmth. Think sophisticated interiors, urban settings.</p>
+        </div>
+        <div class="photo-principle" data-number="03">
+          <h4 class="photo-principle-title">Confident Presence</h4>
+          <p class="photo-principle-desc">Authentic expressions that convey wisdom and authority. Real moments over posed shots.</p>
+        </div>
+      </div>
+
+      <p class="subsection-label" style="color: var(--gold);">Treatment Options</p>
+      <div class="photo-treatments">
+        <div class="photo-treatment photo-treatment--natural">
+          <span class="photo-treatment-badge photo-treatment-badge--preferred">Preferred</span>
+          <span>Natural Warm</span>
+        </div>
+        <div class="photo-treatment photo-treatment--warm">
+          <span>Warm Grade</span>
+        </div>
+        <div class="photo-treatment photo-treatment--overlay">
+          <span>Terracotta Overlay</span>
+        </div>
+        <div class="photo-treatment photo-treatment--duotone">
+          <span class="photo-treatment-badge photo-treatment-badge--avoid">Sparingly</span>
+          <span>Duotone</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 9: BACK COVER
+  ========================================== -->
+  <div class="page back-cover">
+    <div class="back-cover-content">
+      <div class="wordmark-primary">
+        <span class="name-bold" style="font-size: 4rem;">Tobi</span>
+        <span class="name-elegant" style="font-size: 2.5rem;">Oredein</span>
+      </div>
+      <p class="back-cover-tagline">Building the future of Black women's media.</p>
+    </div>
+    <div class="back-cover-meta">
+      <span>Brand Guidelines v2.0</span>
+      <span>© 2025 Tobi Oredein</span>
+    </div>
+  </div>
+
+</body>
+</html>

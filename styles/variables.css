@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Tobi Oredein Design System - CSS Variables
+   Version 2.0 - Rebrand
+   ========================================================================== */
+
+:root {
+  /* -------------------------------------------------------------------------
+     COLOR PALETTE
+     The future of Black women's media — warm, unexpected earth tones
+     ------------------------------------------------------------------------- */
+
+  /* Primary Colors */
+  --color-black: #1A1614;        /* Deep warm black */
+  --color-off-white: #FAF6F1;    /* Warm off-white */
+
+  /* Signature Colors */
+  --color-terracotta: #C4654A;   /* Bold unexpected earth - headlines, CTAs */
+  --color-olive: #5C5C3D;        /* Sophisticated warmth */
+  --color-gold: #C9A962;         /* Premium moments, metallic accents */
+
+  /* Supporting Colors */
+  --color-blush: #E8D4D0;        /* Soft accent */
+  --color-grey: #8A8580;         /* Breathing room, captions */
+
+  /* Legacy Aliases (for backwards compatibility) */
+  --color-cream: var(--color-off-white);
+  --color-sand: var(--color-blush);
+  --color-beige: var(--color-blush);
+
+  /* Semantic Colors */
+  --color-background: var(--color-off-white);
+  --color-text: var(--color-black);
+  --color-text-muted: var(--color-grey);
+  --color-border: rgba(138, 133, 128, 0.3);
+  --color-accent: var(--color-terracotta);
+  --color-accent-secondary: var(--color-olive);
+  --color-accent-premium: var(--color-gold);
+
+  /* -------------------------------------------------------------------------
+     TYPOGRAPHY
+     Bold contrast — heavy/light pairings that create visual drama
+     ------------------------------------------------------------------------- */
+
+  /* Font Families */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-elegant: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  /* Type Scale */
+  --text-display: 6rem;      /* 96px - hero headlines */
+  --text-h1: 4rem;           /* 64px - major headlines */
+  --text-h2: 3rem;           /* 48px - section titles */
+  --text-h3: 2rem;           /* 32px - card titles */
+  --text-h4: 1.5rem;         /* 24px - subheadings */
+  --text-body-lg: 1.125rem;  /* 18px - intro text */
+  --text-body: 1rem;         /* 16px - body text */
+  --text-caption: 0.875rem;  /* 14px - captions */
+  --text-small: 0.75rem;     /* 12px - labels */
+  --text-micro: 0.625rem;    /* 10px - micro labels */
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+  --leading-loose: 2;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+  --tracking-ultra: 0.3em;
+
+  /* -------------------------------------------------------------------------
+     SPACING SCALE
+     Strategic maximalism — bold impact with breathing room
+     ------------------------------------------------------------------------- */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+
+  /* Legacy spacing (for backwards compatibility) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* -------------------------------------------------------------------------
+     LAYOUT
+     ------------------------------------------------------------------------- */
+
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1440px;
+
+  /* -------------------------------------------------------------------------
+     BORDERS & RADIUS
+     ------------------------------------------------------------------------- */
+
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 3px;
+
+  /* -------------------------------------------------------------------------
+     SHADOWS
+     Creating depth without heaviness
+     ------------------------------------------------------------------------- */
+
+  --shadow-sm: 0 2px 8px rgba(26, 22, 20, 0.08);
+  --shadow-md: 0 4px 24px rgba(26, 22, 20, 0.12);
+  --shadow-lg: 0 12px 48px rgba(26, 22, 20, 0.16);
+  --shadow-xl: 0 24px 64px rgba(26, 22, 20, 0.20);
+  --shadow-glow: 0 0 40px rgba(201, 169, 98, 0.3);
+  --shadow-glow-terracotta: 0 8px 24px rgba(196, 101, 74, 0.3);
+  --shadow-glow-olive: 0 8px 24px rgba(92, 92, 61, 0.3);
+
+  /* -------------------------------------------------------------------------
+     TRANSITIONS
+     Movement should feel alive, even in static materials
+     ------------------------------------------------------------------------- */
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-fast: 150ms var(--ease-out);
+  --transition-base: 300ms var(--ease-out);
+  --transition-slow: 500ms var(--ease-out);
+
+  /* -------------------------------------------------------------------------
+     Z-INDEX SCALE
+     ------------------------------------------------------------------------- */
+
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-fixed: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+  --z-overlay: 10000;
+}
+
+/* Dark mode / Inverted (for use on dark backgrounds) */
+.inverted,
+.section--dark,
+[data-theme="dark"] {
+  --color-background: var(--color-black);
+  --color-text: var(--color-off-white);
+  --color-text-muted: var(--color-grey);
+  --color-border: rgba(138, 133, 128, 0.2);
+}
+
+/* Blush section variant */
+.section--blush {
+  --color-background: var(--color-blush);
+  --color-text: var(--color-black);
+  --color-border: rgba(138, 133, 128, 0.2);
+}

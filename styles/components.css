@@ -1,0 +1,866 @@
+/* ==========================================================================
+   Tobi Oredein Design System - Components
+   Version 2.0 - Rebrand
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   WORDMARK / NAME TREATMENT
+   Bold, commanding presence with heavy weight
+   ------------------------------------------------------------------------- */
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-ultra);
+  text-transform: uppercase;
+  line-height: var(--leading-none);
+}
+
+.wordmark--lg {
+  font-size: var(--text-display);
+}
+
+.wordmark--md {
+  font-size: var(--text-h1);
+}
+
+.wordmark--sm {
+  font-size: var(--text-h2);
+}
+
+.wordmark--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.wordmark--stacked .first-name,
+.wordmark--stacked .last-name {
+  display: block;
+}
+
+/* Initials mark - monogram style */
+.initials {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--text-display);
+  line-height: var(--leading-none);
+}
+
+/* Elegant subline treatment */
+.subline {
+  font-family: var(--font-elegant);
+  font-weight: var(--weight-light);
+  font-style: italic;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-snug);
+}
+
+/* -------------------------------------------------------------------------
+   BUTTONS
+   Bold, confident actions with signature colors
+   ------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: var(--border-medium) solid transparent;
+  border-radius: var(--radius-none);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+/* Primary - Terracotta (signature accent) */
+.btn--primary {
+  background-color: var(--color-terracotta);
+  color: var(--color-off-white);
+  border-color: var(--color-terracotta);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  box-shadow: var(--shadow-glow-terracotta);
+}
+
+/* Secondary - Olive (sophisticated warmth) */
+.btn--secondary {
+  background-color: var(--color-olive);
+  color: var(--color-off-white);
+  border-color: var(--color-olive);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  box-shadow: var(--shadow-glow-olive);
+}
+
+/* Outline - Dark */
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+}
+
+/* Ghost - Minimal */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: transparent;
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-blush);
+}
+
+/* Premium - Gold accent */
+.btn--premium {
+  background: linear-gradient(135deg, var(--color-gold), #D4B876);
+  color: var(--color-black);
+  border-color: var(--color-gold);
+}
+
+.btn--premium:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+/* Size variants */
+.btn--lg {
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: var(--text-body);
+}
+
+.btn--sm {
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-small);
+}
+
+/* Inverted button variants (on dark backgrounds) */
+.inverted .btn--primary,
+.section--dark .btn--primary,
+[data-theme="dark"] .btn--primary {
+  background-color: var(--color-terracotta);
+  color: var(--color-off-white);
+  border-color: var(--color-terracotta);
+}
+
+.inverted .btn--primary:hover,
+.section--dark .btn--primary:hover,
+[data-theme="dark"] .btn--primary:hover {
+  background-color: var(--color-off-white);
+  color: var(--color-black);
+  border-color: var(--color-off-white);
+}
+
+.inverted .btn--outline,
+.section--dark .btn--outline,
+[data-theme="dark"] .btn--outline {
+  background-color: transparent;
+  color: var(--color-off-white);
+  border-color: var(--color-off-white);
+}
+
+.inverted .btn--outline:hover,
+.section--dark .btn--outline:hover,
+[data-theme="dark"] .btn--outline:hover {
+  background-color: var(--color-off-white);
+  color: var(--color-black);
+}
+
+/* -------------------------------------------------------------------------
+   CARDS
+   Clean containers with depth and warmth
+   ------------------------------------------------------------------------- */
+
+.card {
+  background-color: var(--color-background);
+  padding: var(--space-xl);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.card--elevated {
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+.card--elevated:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Blush background variant */
+.card--blush {
+  background-color: var(--color-blush);
+  border: none;
+}
+
+/* Dark variant */
+.card--dark {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+  border: none;
+}
+
+.card--dark .card__title {
+  color: var(--color-off-white);
+}
+
+.card--dark .card__text {
+  color: var(--color-grey);
+}
+
+/* Accent border variants */
+.card--accent-terracotta {
+  border-left: var(--border-thick) solid var(--color-terracotta);
+}
+
+.card--accent-olive {
+  border-left: var(--border-thick) solid var(--color-olive);
+}
+
+.card--accent-gold {
+  border-left: var(--border-thick) solid var(--color-gold);
+}
+
+/* Image card */
+.card--image {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card--image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card--image .card__content {
+  padding: var(--space-xl);
+}
+
+/* Card title */
+.card__title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-h4);
+  margin-bottom: var(--space-sm);
+}
+
+/* Card text */
+.card__text {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+/* -------------------------------------------------------------------------
+   QUOTE / TESTIMONIAL
+   Elegant italic serif with signature accents
+   ------------------------------------------------------------------------- */
+
+.quote {
+  position: relative;
+  padding-left: var(--space-xl);
+  border-left: var(--border-thick) solid var(--color-terracotta);
+}
+
+.quote__text {
+  font-family: var(--font-elegant);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-light);
+  font-style: italic;
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.quote__author {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.quote__role {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-grey);
+  margin-top: var(--space-xs);
+}
+
+/* Centered quote with decorative mark */
+.quote--centered {
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.quote--centered::before {
+  content: '"';
+  display: block;
+  font-family: var(--font-elegant);
+  font-size: 8rem;
+  font-weight: var(--weight-light);
+  line-height: 0.8;
+  color: var(--color-gold);
+  opacity: 0.6;
+  margin-bottom: var(--space-md);
+}
+
+/* Large display quote */
+.quote--display .quote__text {
+  font-size: var(--text-h2);
+}
+
+/* Olive accent variant */
+.quote--olive {
+  border-left-color: var(--color-olive);
+}
+
+/* Gold accent variant */
+.quote--gold {
+  border-left-color: var(--color-gold);
+}
+
+/* -------------------------------------------------------------------------
+   SECTION LAYOUTS
+   Strategic spacing with color-blocked backgrounds
+   ------------------------------------------------------------------------- */
+
+.section {
+  padding: var(--space-4xl) var(--space-xl);
+}
+
+.section--lg {
+  padding: var(--space-5xl) var(--space-xl);
+}
+
+.section--sm {
+  padding: var(--space-3xl) var(--space-xl);
+}
+
+/* Light (default) */
+.section--light {
+  background-color: var(--color-off-white);
+  color: var(--color-black);
+}
+
+/* Blush variant */
+.section--blush {
+  background-color: var(--color-blush);
+  color: var(--color-black);
+}
+
+/* Dark variant */
+.section--dark {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--color-off-white);
+}
+
+/* Olive variant */
+.section--olive {
+  background-color: var(--color-olive);
+  color: var(--color-off-white);
+}
+
+/* Terracotta variant */
+.section--terracotta {
+  background-color: var(--color-terracotta);
+  color: var(--color-off-white);
+}
+
+/* Container */
+.container {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.container--narrow {
+  max-width: var(--container-md);
+}
+
+.container--wide {
+  max-width: var(--container-xl);
+}
+
+.container--full {
+  max-width: var(--container-2xl);
+}
+
+/* -------------------------------------------------------------------------
+   HERO LAYOUTS
+   Commanding presence with bold typography
+   ------------------------------------------------------------------------- */
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-4xl) var(--space-xl);
+  position: relative;
+}
+
+.hero--full {
+  min-height: 100vh;
+}
+
+.hero__content {
+  max-width: var(--container-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow - small uppercase label */
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-ultra);
+  text-transform: uppercase;
+  color: var(--color-terracotta);
+  margin-bottom: var(--space-lg);
+}
+
+/* Main title - heavy display */
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-lg);
+}
+
+/* Subtitle - elegant italic */
+.hero__subtitle {
+  font-family: var(--font-elegant);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-light);
+  font-style: italic;
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Body text */
+.hero__body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Hero with background image */
+.hero--image {
+  background-size: cover;
+  background-position: center;
+}
+
+.hero--image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 22, 20, 0.4),
+    rgba(26, 22, 20, 0.7)
+  );
+}
+
+.hero--image .hero__content {
+  color: var(--color-off-white);
+}
+
+.hero--image .hero__title {
+  color: var(--color-off-white);
+}
+
+.hero--image .hero__eyebrow {
+  color: var(--color-gold);
+}
+
+.hero--image .hero__subtitle {
+  color: rgba(250, 246, 241, 0.8);
+}
+
+/* Dark hero */
+.hero--dark {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+}
+
+.hero--dark .hero__title {
+  color: var(--color-off-white);
+}
+
+.hero--dark .hero__eyebrow {
+  color: var(--color-terracotta);
+}
+
+.hero--dark .hero__subtitle {
+  color: var(--color-grey);
+}
+
+/* -------------------------------------------------------------------------
+   DIVIDERS
+   Subtle separators and accent lines
+   ------------------------------------------------------------------------- */
+
+.divider {
+  width: 100%;
+  height: var(--border-thin);
+  background-color: var(--color-border);
+  margin: var(--space-2xl) 0;
+}
+
+.divider--short {
+  width: 80px;
+  margin: var(--space-xl) auto;
+}
+
+.divider--thick {
+  height: var(--border-medium);
+  background-color: var(--color-black);
+}
+
+/* Accent color variants */
+.divider--terracotta {
+  background-color: var(--color-terracotta);
+}
+
+.divider--olive {
+  background-color: var(--color-olive);
+}
+
+.divider--gold {
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* -------------------------------------------------------------------------
+   SOCIAL POST FRAMES
+   Platform-specific containers for social content
+   ------------------------------------------------------------------------- */
+
+.social-frame {
+  background-color: var(--color-off-white);
+  overflow: hidden;
+  position: relative;
+}
+
+.social-frame--instagram {
+  width: 1080px;
+  height: 1080px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.social-frame--story {
+  width: 1080px;
+  height: 1920px;
+  max-width: 100%;
+  aspect-ratio: 9 / 16;
+}
+
+.social-frame--linkedin {
+  width: 1200px;
+  height: 627px;
+  max-width: 100%;
+  aspect-ratio: 1200 / 627;
+}
+
+.social-frame--twitter {
+  width: 1200px;
+  height: 675px;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.social-frame__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl);
+  text-align: center;
+}
+
+/* Dark social frame variant */
+.social-frame--dark {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+}
+
+/* Blush social frame variant */
+.social-frame--blush {
+  background-color: var(--color-blush);
+}
+
+/* -------------------------------------------------------------------------
+   TAGS / PILLS
+   Compact labels with signature color variants
+   ------------------------------------------------------------------------- */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  background-color: var(--color-blush);
+  color: var(--color-black);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.tag--outline {
+  background-color: transparent;
+  border: var(--border-thin) solid var(--color-border);
+}
+
+.tag--dark {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+}
+
+.tag--terracotta {
+  background-color: var(--color-terracotta);
+  color: var(--color-off-white);
+}
+
+.tag--olive {
+  background-color: var(--color-olive);
+  color: var(--color-off-white);
+}
+
+.tag--gold {
+  background: linear-gradient(135deg, var(--color-gold), #D4B876);
+  color: var(--color-black);
+}
+
+/* Pill variant (fully rounded) */
+.tag--pill {
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-lg);
+}
+
+/* -------------------------------------------------------------------------
+   FORM ELEMENTS
+   Clean, functional inputs with subtle interactions
+   ------------------------------------------------------------------------- */
+
+.input {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  background-color: var(--color-background);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-terracotta);
+  box-shadow: 0 0 0 3px rgba(196, 101, 74, 0.1);
+}
+
+.input::placeholder {
+  color: var(--color-grey);
+}
+
+/* Input variants */
+.input--lg {
+  padding: var(--space-lg) var(--space-xl);
+  font-size: var(--text-body-lg);
+}
+
+.input--dark {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+  border-color: var(--color-grey);
+}
+
+.input--dark:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.2);
+}
+
+.label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+/* Textarea */
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Select */
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238A8580' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center;
+  padding-right: var(--space-2xl);
+}
+
+/* -------------------------------------------------------------------------
+   DATA DISPLAY
+   For metrics, statistics, and numerical content
+   ------------------------------------------------------------------------- */
+
+.stat {
+  text-align: center;
+}
+
+.stat__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-none);
+  color: var(--color-terracotta);
+  margin-bottom: var(--space-sm);
+}
+
+.stat__label {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Large stat variant */
+.stat--lg .stat__value {
+  font-size: var(--text-display);
+}
+
+/* Gold accent variant */
+.stat--gold .stat__value {
+  color: var(--color-gold);
+}
+
+/* Olive accent variant */
+.stat--olive .stat__value {
+  color: var(--color-olive);
+}
+
+/* -------------------------------------------------------------------------
+   NAVIGATION
+   Minimal, elegant navigation components
+   ------------------------------------------------------------------------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.nav__link {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav__link:hover {
+  color: var(--color-terracotta);
+}
+
+.nav__link--active {
+  color: var(--color-terracotta);
+}
+
+.nav__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-terracotta);
+}
+
+/* -------------------------------------------------------------------------
+   BADGE
+   Small status indicators
+   ------------------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  background-color: var(--color-terracotta);
+  color: var(--color-off-white);
+  border-radius: var(--radius-full);
+}
+
+.badge--olive {
+  background-color: var(--color-olive);
+}
+
+.badge--gold {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
