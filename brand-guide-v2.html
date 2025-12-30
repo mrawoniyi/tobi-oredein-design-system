@@ -3,48 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tobi Oredein — Brand Guide v2.2 (Butter Yellow)</title>
-
-  <!-- Google Fonts -->
+  <title>Tobi Oredein — Brand Guide v2.2</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    @page {
-      size: 11in 8.5in;
-      margin: 0;
-    }
+    /* ==========================================================================
+       TOBI OREDEIN BRAND GUIDE v2.2
+       A cohesive blend of butter yellow, pink lemonade, silver & jet black
+       Colors in conversation, not isolation
+       ========================================================================== */
 
     :root {
-      /* NEW PALETTE — Butter Yellow + Pink Lemonade */
+      /* Core Palette */
       --jet: #24221B;
+      --jet-soft: #3D3A31;
       --silver: #E4DFD8;
+      --silver-light: #F0EDE8;
+      --cream: #FAF8F5;
+
+      /* Signature Colors */
       --butter: #F2D04E;
-      --butter-light: #FFEFBC;
+      --butter-soft: #FFEFBC;
+      --butter-muted: #F5E4A3;
       --pink: #FFB3B1;
       --pink-soft: #FFE4E3;
+      --pink-muted: #FFCFCE;
       --cherry: #9A0D02;
+      --cherry-soft: #C41E10;
 
-      /* Functional */
-      --text-primary: var(--jet);
-      --text-secondary: #6B6860;
-      --text-inverse: var(--silver);
-      --background: var(--silver);
+      /* Blended Gradients */
+      --gradient-warm: linear-gradient(135deg, var(--butter-soft) 0%, var(--pink-soft) 50%, var(--silver-light) 100%);
+      --gradient-butter-pink: linear-gradient(120deg, var(--butter-soft) 0%, var(--pink-soft) 100%);
+      --gradient-pink-silver: linear-gradient(120deg, var(--pink-soft) 0%, var(--silver-light) 100%);
+      --gradient-diagonal: linear-gradient(160deg, var(--butter) 0%, var(--pink) 40%, var(--silver) 100%);
+      --gradient-subtle: linear-gradient(180deg, var(--cream) 0%, var(--silver-light) 100%);
 
       /* Typography */
-      --font-display: 'Playfair Display', Georgia, serif;
       --font-elegant: 'Cormorant Garamond', Georgia, serif;
+      --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'DM Sans', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
-
-      /* Spacing */
-      --space-xs: 0.25rem;
-      --space-sm: 0.5rem;
-      --space-md: 1rem;
-      --space-lg: 2rem;
-      --space-xl: 4rem;
-      --space-2xl: 6rem;
     }
 
     * {
@@ -55,433 +54,631 @@
 
     html {
       font-size: 16px;
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
       font-family: var(--font-body);
-      background: var(--silver);
-      color: var(--text-primary);
+      color: var(--jet);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      background: var(--cream);
     }
 
-    /* Page Structure */
+    /* ==========================================================================
+       PAGE STRUCTURE
+       ========================================================================== */
+
     .page {
-      width: 11in;
-      min-height: 8.5in;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
       position: relative;
       overflow: hidden;
       page-break-after: always;
+      background: var(--cream);
     }
 
-    .page:last-child {
-      page-break-after: auto;
+    .page-content {
+      padding: 48px 56px;
+      min-height: 297mm;
+      position: relative;
+      z-index: 2;
     }
 
-    /* ==========================================
-       PAGE 1: COVER — Fresh, Bold, Unexpected
-    ========================================== */
-    .cover {
+    /* ==========================================================================
+       DECORATIVE ELEMENTS — Creating Color Blend
+       ========================================================================== */
+
+    /* Floating color blobs that create watercolor effect */
+    .color-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .blob-butter {
       background: var(--butter);
+    }
+
+    .blob-pink {
+      background: var(--pink);
+    }
+
+    .blob-silver {
+      background: var(--silver);
+    }
+
+    /* Gradient accent line */
+    .gradient-line {
+      height: 3px;
+      background: var(--gradient-diagonal);
+      border-radius: 2px;
+    }
+
+    .gradient-line--thin {
+      height: 1.5px;
+    }
+
+    /* Multi-color decorative dots */
+    .color-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .color-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    /* Overlapping circles decoration */
+    .overlap-circles {
+      position: relative;
+      display: inline-flex;
+    }
+
+    .overlap-circles span {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    .overlap-circles span:nth-child(2) {
+      margin-left: -10px;
+    }
+
+    .overlap-circles span:nth-child(3) {
+      margin-left: -10px;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY STYLES
+       ========================================================================== */
+
+    .heading-elegant {
+      font-family: var(--font-elegant);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .heading-display {
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .text-italic {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .text-mono {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Color text accents */
+    .text-butter { color: var(--butter); }
+    .text-pink { color: var(--pink); }
+    .text-cherry { color: var(--cherry); }
+    .text-jet { color: var(--jet); }
+
+    /* ==========================================================================
+       PAGE 1: COVER — Blended Color Atmosphere
+       ========================================================================== */
+
+    .cover {
+      background: var(--gradient-warm);
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
+      text-align: center;
     }
 
-    .cover::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 100% 60% at 0% 100%, rgba(255, 179, 177, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse 80% 50% at 100% 0%, rgba(255, 239, 188, 0.5) 0%, transparent 50%);
-      pointer-events: none;
+    /* Large floating blobs for color mixing */
+    .cover .blob-1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
+    }
+
+    .cover .blob-2 {
+      width: 300px;
+      height: 300px;
+      bottom: 100px;
+      left: -80px;
+    }
+
+    .cover .blob-3 {
+      width: 250px;
+      height: 250px;
+      bottom: -50px;
+      right: 100px;
     }
 
     .cover-content {
       position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: var(--space-xl);
+      z-index: 2;
     }
 
-    .cover-eyebrow {
+    .cover-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .cover-tag-line {
+      width: 40px;
+      height: 2px;
+      background: var(--gradient-diagonal);
+    }
+
+    .cover-tag-text {
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      letter-spacing: 0.25em;
+      font-weight: 500;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--jet);
-      opacity: 0.6;
-      margin-bottom: var(--space-2xl);
+      color: var(--jet-soft);
     }
 
     .cover-name {
-      margin-bottom: var(--space-lg);
+      margin-bottom: 24px;
     }
 
-    /* BOLDER Cormorant — Medium/Semibold instead of Light */
     .cover-name .first {
-      display: block;
       font-family: var(--font-elegant);
-      font-size: 7rem;
+      font-size: 5.5rem;
       font-weight: 500;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.03em;
       color: var(--jet);
+      display: block;
       line-height: 0.9;
     }
 
     .cover-name .last {
+      font-family: var(--font-display);
+      font-size: 5.5rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--jet);
       display: block;
-      font-family: var(--font-elegant);
-      font-size: 3rem;
-      font-weight: 500;
-      font-style: italic;
-      letter-spacing: 0.08em;
-      color: var(--jet);
-      line-height: 1.4;
-      margin-top: var(--space-sm);
-      opacity: 0.7;
-    }
-
-    .cover-tagline {
-      font-family: var(--font-elegant);
-      font-size: 1.2rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--jet);
-      margin-top: var(--space-2xl);
-      padding-top: var(--space-lg);
-      border-top: 2px solid rgba(36, 34, 27, 0.2);
-      letter-spacing: 0.02em;
-    }
-
-    .cover-version {
-      position: absolute;
-      bottom: var(--space-lg);
-      right: var(--space-lg);
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--jet);
-      opacity: 0.5;
-      letter-spacing: 0.1em;
-    }
-
-    /* Decorative corner accents */
-    .cover-accent {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border: 2px solid var(--jet);
-      opacity: 0.15;
-    }
-
-    .cover-accent--tl {
-      top: var(--space-xl);
-      left: var(--space-xl);
-      border-right: none;
-      border-bottom: none;
-    }
-
-    .cover-accent--br {
-      bottom: var(--space-xl);
-      right: var(--space-xl);
-      border-left: none;
-      border-top: none;
-    }
-
-    /* ==========================================
-       PAGE HEADERS
-    ========================================== */
-    .page-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space-lg) var(--space-xl);
-      border-bottom: 1px solid rgba(36, 34, 27, 0.1);
-    }
-
-    .page-header--dark {
-      border-bottom-color: rgba(228, 223, 216, 0.15);
-    }
-
-    .page-section {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-    }
-
-    .page-brand {
-      font-family: var(--font-elegant);
-      font-size: 1rem;
-      font-weight: 600;
-      font-style: italic;
-      color: var(--jet);
-    }
-
-    /* ==========================================
-       SECTION STYLES — Bolder Typography
-    ========================================== */
-    .section-content {
-      padding: var(--space-xl);
-    }
-
-    /* BOLDER section titles */
-    .section-title {
-      font-family: var(--font-elegant);
-      font-size: 3.5rem;
-      font-weight: 500;
-      line-height: 1.1;
-      margin-bottom: var(--space-sm);
-      letter-spacing: 0.01em;
-      color: var(--jet);
-    }
-
-    .section-subtitle {
-      font-family: var(--font-elegant);
-      font-size: 1.4rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--cherry);
-      margin-bottom: var(--space-xl);
-    }
-
-    .section-intro {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      max-width: 55ch;
-      line-height: 1.8;
-    }
-
-    .subsection-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: var(--space-md);
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-    }
-
-    .subsection-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(36, 34, 27, 0.2) 0%, transparent 100%);
-    }
-
-    /* ==========================================
-       PAGE 2: BRAND ESSENCE
-    ========================================== */
-    .essence-page {
-      background: var(--pink-soft);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .essence-content {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      padding: var(--space-xl);
-      gap: var(--space-xl);
-    }
-
-    .essence-quote {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .essence-quote blockquote {
-      font-family: var(--font-elegant);
-      font-size: 2.8rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--jet);
-      line-height: 1.25;
-      margin-bottom: var(--space-lg);
-      position: relative;
-      padding-left: var(--space-lg);
-    }
-
-    .essence-quote blockquote::before {
-      content: '"';
-      position: absolute;
-      left: -0.1em;
-      top: -0.2em;
-      font-family: var(--font-elegant);
-      font-size: 6rem;
-      font-weight: 600;
-      color: var(--cherry);
-      opacity: 0.25;
       line-height: 1;
     }
 
-    .essence-quote blockquote em {
-      font-style: normal;
+    .cover-subtitle {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--jet-soft);
+      margin-bottom: 48px;
+    }
+
+    /* Multi-color decorative element */
+    .cover-decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 48px;
+    }
+
+    .cover-decoration span {
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    .cover-decoration .d1 { width: 32px; background: var(--butter); }
+    .cover-decoration .d2 { width: 48px; background: var(--pink); }
+    .cover-decoration .d3 { width: 24px; background: var(--silver); }
+    .cover-decoration .d4 { width: 16px; background: var(--cherry); }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 48px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+
+    .cover-version {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--jet-soft);
+      opacity: 0.7;
+    }
+
+    /* ==========================================================================
+       PAGE 2: BRAND ESSENCE
+       ========================================================================== */
+
+    .essence {
+      background: var(--cream);
+      position: relative;
+    }
+
+    /* Subtle gradient wash across the page */
+    .essence::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, var(--butter-soft) 0%, transparent 100%);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .essence::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(0deg, var(--pink-soft) 0%, transparent 100%);
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .section-number {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-butter-pink);
+      color: var(--jet);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--jet-soft);
+    }
+
+    .essence-headline {
+      font-family: var(--font-elegant);
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--jet);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .essence-headline .accent {
       color: var(--cherry);
     }
 
-    .essence-quote cite {
+    .essence-body {
       font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
-      font-style: normal;
-      color: var(--text-secondary);
-      letter-spacing: 0.05em;
-      padding-left: var(--space-lg);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--jet-soft);
+      max-width: 480px;
+      margin-bottom: 48px;
     }
 
-    .essence-pillars {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: var(--space-lg);
+    /* Quote block with blended background */
+    .essence-quote {
+      position: relative;
+      padding: 40px 48px;
+      background: linear-gradient(135deg, var(--butter-soft) 0%, var(--pink-soft) 60%, var(--silver-light) 100%);
+      border-radius: 16px;
+      margin-top: 32px;
     }
 
-    .pillar {
-      padding: var(--space-md) 0;
-      border-bottom: 1px solid rgba(36, 34, 27, 0.1);
+    .essence-quote::before {
+      content: '"';
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--cherry);
+      opacity: 0.3;
+      line-height: 1;
     }
 
-    .pillar:last-child {
-      border-bottom: none;
-    }
-
-    .pillar-title {
+    .essence-quote p {
       font-family: var(--font-elegant);
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: var(--space-xs);
-      color: var(--jet);
-    }
-
-    .pillar-desc {
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-
-    /* ==========================================
-       PAGE 3: COLOR PALETTE
-    ========================================== */
-    .color-page {
-      background: var(--silver);
-    }
-
-    .color-intro {
-      margin-bottom: var(--space-xl);
-    }
-
-    .color-philosophy {
-      font-family: var(--font-elegant);
-      font-size: 1.5rem;
-      font-weight: 500;
       font-style: italic;
-      color: var(--jet);
+      font-size: 1.5rem;
+      font-weight: 400;
       line-height: 1.5;
-      max-width: 50ch;
+      color: var(--jet);
     }
 
-    .color-grid {
+    .essence-quote cite {
+      display: block;
+      margin-top: 20px;
+      font-family: var(--font-mono);
+      font-style: normal;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--jet-soft);
+    }
+
+    /* Floating decorative elements */
+    .essence .decor-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+    }
+
+    .essence .decor-1 {
+      width: 120px;
+      height: 120px;
+      background: var(--butter);
+      top: 80px;
+      right: 60px;
+    }
+
+    .essence .decor-2 {
+      width: 80px;
+      height: 80px;
+      background: var(--pink);
+      top: 140px;
+      right: 40px;
+    }
+
+    /* ==========================================================================
+       PAGE 3: COLOR PALETTE — Showing Colors Together
+       ========================================================================== */
+
+    .palette {
+      background: var(--jet);
+      color: var(--cream);
+      position: relative;
+    }
+
+    /* Gradient overlay for color mixing effect */
+    .palette::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 0%, rgba(242, 208, 78, 0.08) 30%, rgba(255, 179, 177, 0.08) 70%, transparent 100%);
+      z-index: 0;
+    }
+
+    .palette .section-number {
+      background: var(--gradient-butter-pink);
+      color: var(--jet);
+    }
+
+    .palette .section-label {
+      color: var(--silver);
+    }
+
+    .palette-intro {
+      font-family: var(--font-elegant);
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--cream);
+      margin-bottom: 40px;
+      max-width: 450px;
+    }
+
+    /* Color swatches with overlapping effect */
+    .palette-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
     }
 
     .color-swatch {
       position: relative;
     }
 
-    .color-swatch--primary {
-      grid-row: span 2;
+    .swatch-color {
+      height: 100px;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .color-preview {
-      height: 100px;
+    /* Add subtle gradient overlay to each swatch */
+    .swatch-color::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+    }
+
+    .swatch-info {
+      margin-top: 12px;
+    }
+
+    .swatch-name {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--silver);
+    }
+
+    /* Gradient combinations showcase */
+    .palette-gradients {
+      margin-top: 32px;
+    }
+
+    .palette-gradients-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 16px;
+    }
+
+    .gradient-samples {
+      display: flex;
+      gap: 16px;
+    }
+
+    .gradient-sample {
+      flex: 1;
+      height: 60px;
+      border-radius: 10px;
       position: relative;
     }
 
-    .color-swatch--primary .color-preview {
-      height: 100%;
-      min-height: 180px;
-    }
-
-    .color-preview--jet { background: var(--jet); }
-    .color-preview--silver {
-      background: var(--silver);
-      border: 1px solid rgba(36, 34, 27, 0.1);
-    }
-    .color-preview--butter { background: var(--butter); }
-    .color-preview--butter-light { background: var(--butter-light); }
-    .color-preview--pink { background: var(--pink); }
-    .color-preview--pink-soft { background: var(--pink-soft); }
-    .color-preview--cherry { background: var(--cherry); }
-
-    .color-info {
-      padding: var(--space-sm) 0;
-    }
-
-    .color-name {
-      font-family: var(--font-elegant);
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .color-hex {
+    .gradient-sample span {
+      position: absolute;
+      bottom: -24px;
+      left: 0;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--text-secondary);
+      font-size: 0.6rem;
+      color: var(--silver);
+      opacity: 0.8;
     }
 
-    .color-usage {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-top: 4px;
-      line-height: 1.4;
+    /* Color harmony illustration */
+    .color-harmony {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
-    /* ==========================================
-       PAGE 4: TYPOGRAPHY
-    ========================================== */
-    .type-page {
-      background: var(--silver);
+    .harmony-circles {
+      display: flex;
+      position: relative;
+    }
+
+    .harmony-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      opacity: 0.85;
+    }
+
+    .harmony-circle:nth-child(2) {
+      margin-left: -24px;
+    }
+
+    .harmony-circle:nth-child(3) {
+      margin-left: -24px;
+    }
+
+    .harmony-circle:nth-child(4) {
+      margin-left: -24px;
+    }
+
+    .harmony-text {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--silver);
+    }
+
+    /* ==========================================================================
+       PAGE 4: TYPOGRAPHY SYSTEM
+       ========================================================================== */
+
+    .typography {
+      background: var(--cream);
+      position: relative;
+    }
+
+    /* Subtle multi-color gradient wash */
+    .typography::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, var(--butter-soft) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 80%, var(--pink-soft) 0%, transparent 40%);
+      opacity: 0.25;
+      z-index: 0;
     }
 
     .type-intro {
-      max-width: 50ch;
-      margin-bottom: var(--space-xl);
-    }
-
-    .type-intro p {
-      font-family: var(--font-elegant);
-      font-size: 1.4rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--text-secondary);
-      line-height: 1.6;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--jet-soft);
+      margin-bottom: 48px;
+      max-width: 500px;
     }
 
     .type-specimens {
       display: flex;
       flex-direction: column;
-      gap: var(--space-lg);
+      gap: 40px;
     }
 
     .type-specimen {
-      padding-bottom: var(--space-lg);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      align-items: start;
+      padding-bottom: 32px;
       border-bottom: 1px solid rgba(36, 34, 27, 0.1);
     }
 
@@ -490,34 +687,35 @@
     }
 
     .type-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: var(--space-sm);
+      padding-top: 8px;
     }
 
     .type-role {
       font-family: var(--font-mono);
-      font-size: 0.55rem;
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: white;
-      background: var(--cherry);
-      padding: 4px 10px;
-      border-radius: 2px;
+      color: var(--cherry);
+      margin-bottom: 6px;
     }
 
-    .type-details {
+    .type-font {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--jet);
+      margin-bottom: 4px;
+    }
+
+    .type-weight {
       font-family: var(--font-mono);
-      font-size: 0.55rem;
-      color: var(--text-secondary);
-      letter-spacing: 0.05em;
+      font-size: 0.65rem;
+      color: var(--jet-soft);
     }
 
-    /* BOLDER Elegant Cormorant — Medium weight */
     .type-sample--elegant {
       font-family: var(--font-elegant);
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 500;
       line-height: 1.1;
       color: var(--jet);
@@ -525,645 +723,703 @@
 
     .type-sample--elegant-italic {
       font-family: var(--font-elegant);
-      font-size: 2rem;
-      font-weight: 500;
       font-style: italic;
+      font-size: 2rem;
+      font-weight: 400;
       line-height: 1.3;
-      color: var(--cherry);
-      max-width: 40ch;
+      color: var(--jet-soft);
     }
 
-    /* BOLD MOMENTS — Display Serif */
     .type-sample--display {
       font-family: var(--font-display);
-      font-size: 5rem;
+      font-size: 4rem;
       font-weight: 900;
       line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      color: var(--butter);
-      text-shadow: 2px 2px 0 var(--jet);
+      color: var(--jet);
     }
 
     .type-sample--body {
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 500;
-      line-height: 1.8;
-      max-width: 55ch;
-      color: var(--text-secondary);
+      line-height: 1.7;
+      color: var(--jet-soft);
+      max-width: 360px;
     }
 
     .type-sample--mono {
       font-family: var(--font-mono);
       font-size: 0.8rem;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.6;
-      color: var(--text-secondary);
+      color: var(--jet-soft);
     }
 
-    /* ==========================================
-       PAGE 5: TYPOGRAPHY INTERPLAY
-    ========================================== */
-    .interplay-page {
-      background: var(--butter-light);
-    }
+    /* Color accent on typography */
+    .type-sample .butter { color: var(--butter); }
+    .type-sample .pink { color: var(--pink); }
+    .type-sample .cherry { color: var(--cherry); }
 
-    .interplay-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
-    }
+    /* ==========================================================================
+       PAGE 5: THE INTERPLAY — Bold + Elegant Together
+       ========================================================================== */
 
-    .interplay-example {
-      background: var(--silver);
-      padding: var(--space-xl);
+    .interplay {
+      background: var(--gradient-pink-silver);
       position: relative;
     }
 
-    .interplay-example--dark {
-      background: var(--jet);
-    }
-
-    .interplay-example--butter {
-      background: var(--butter);
-    }
-
-    .interplay-label {
+    .interplay::before {
+      content: '';
       position: absolute;
-      top: var(--space-md);
-      right: var(--space-md);
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--butter-soft) 0%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    .interplay-intro {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--jet-soft);
+      margin-bottom: 48px;
+      max-width: 460px;
+    }
+
+    .interplay-examples {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .interplay-example {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gradient accent bar */
+    .interplay-example::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gradient-diagonal);
+    }
+
+    .interplay-example-label {
       font-family: var(--font-mono);
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text-secondary);
-    }
-
-    .interplay-example--dark .interplay-label {
-      color: rgba(228, 223, 216, 0.5);
-    }
-
-    .editorial-headline {
-      font-family: var(--font-elegant);
-      font-size: 2.4rem;
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--jet);
-      margin-bottom: var(--space-md);
-    }
-
-    .editorial-subline {
-      font-family: var(--font-elegant);
-      font-size: 1.2rem;
-      font-weight: 500;
-      font-style: italic;
       color: var(--cherry);
+      margin-bottom: 16px;
     }
 
-    .stat-display {
-      text-align: center;
-      padding: var(--space-lg) 0;
+    .stat-block {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
     }
 
     .stat-number {
       font-family: var(--font-display);
-      font-size: 5rem;
+      font-size: 4.5rem;
       font-weight: 900;
-      color: var(--butter);
       line-height: 1;
+      color: var(--jet);
     }
 
     .stat-context {
       font-family: var(--font-elegant);
       font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--silver);
-      margin-top: var(--space-sm);
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--jet-soft);
+      max-width: 280px;
     }
 
     .stat-source {
+      margin-top: 16px;
       font-family: var(--font-mono);
-      font-size: 0.55rem;
-      color: rgba(228, 223, 216, 0.5);
-      letter-spacing: 0.1em;
-      margin-top: var(--space-md);
+      font-size: 0.65rem;
+      color: var(--jet-soft);
+      opacity: 0.7;
     }
 
-    .pullquote-example {
-      padding: var(--space-xl) 0;
+    .headline-example {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .pullquote {
+    .headline-main {
       font-family: var(--font-elegant);
-      font-size: 1.9rem;
-      font-style: italic;
+      font-size: 2.2rem;
       font-weight: 500;
-      line-height: 1.4;
+      line-height: 1.15;
       color: var(--jet);
-      border-left: 3px solid var(--cherry);
-      padding-left: var(--space-lg);
     }
 
-    .pullquote-attr {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-top: var(--space-md);
-      padding-left: var(--space-lg);
+    .headline-sub {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--jet-soft);
     }
 
-    /* ==========================================
+    /* ==========================================================================
        PAGE 6: COMPONENTS
-    ========================================== */
-    .components-page {
-      background: var(--silver);
+       ========================================================================== */
+
+    .components {
+      background: var(--cream);
+      position: relative;
+    }
+
+    /* Multi-directional gradient */
+    .components::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, var(--butter-soft) 0%, transparent 30%),
+        linear-gradient(225deg, var(--pink-soft) 0%, transparent 30%);
+      opacity: 0.3;
     }
 
     .components-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
     }
 
     .component-card {
       background: white;
-      padding: var(--space-lg);
-      box-shadow: 0 2px 12px rgba(36, 34, 27, 0.08);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 24px rgba(36, 34, 27, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gradient corner accent */
+    .component-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-butter-pink);
+      opacity: 0.15;
+      border-radius: 0 16px 0 80px;
     }
 
     .component-label {
       font-family: var(--font-mono);
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: var(--space-md);
+      color: var(--cherry);
+      margin-bottom: 16px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
+    /* Quote component */
+    .quote-component {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--butter-soft) 0%, var(--pink-soft) 50%, var(--silver-light) 100%);
+    }
+
+    .quote-component::after {
+      display: none;
+    }
+
+    .quote-text {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--jet);
+      margin-bottom: 16px;
+    }
+
+    .quote-attribution {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quote-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gradient-diagonal);
+    }
+
+    .quote-name {
       font-family: var(--font-body);
       font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      color: var(--jet);
+    }
+
+    .quote-title {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--jet-soft);
+    }
+
+    /* Button components */
+    .button-samples {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
       text-decoration: none;
       transition: all 0.2s ease;
     }
 
     .btn--primary {
-      background: var(--butter);
-      color: var(--jet);
+      background: var(--jet);
+      color: var(--cream);
     }
 
-    .btn--cherry {
-      background: var(--cherry);
-      color: white;
-    }
-
-    .btn--outline {
+    .btn--secondary {
       background: transparent;
       color: var(--jet);
       border: 2px solid var(--jet);
     }
 
-    .btn--elegant {
-      background: transparent;
-      color: var(--cherry);
-      font-family: var(--font-elegant);
-      font-size: 1.1rem;
-      font-weight: 600;
-      font-style: italic;
-      padding: 8px 0;
-      border-bottom: 2px solid var(--cherry);
+    .btn--accent {
+      background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 100%);
+      color: var(--jet);
     }
 
-    .tags {
+    /* Tag component */
+    .tag-samples {
       display: flex;
-      gap: var(--space-sm);
       flex-wrap: wrap;
+      gap: 8px;
     }
 
     .tag {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
+      display: inline-flex;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 6px 12px;
     }
 
     .tag--butter {
-      background: var(--butter);
+      background: var(--butter-soft);
       color: var(--jet);
     }
 
     .tag--pink {
-      background: var(--pink);
+      background: var(--pink-soft);
       color: var(--jet);
     }
 
-    .tag--cherry {
-      background: var(--cherry);
-      color: white;
-    }
-
-    .dividers {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .divider--subtle {
-      height: 1px;
-      background: rgba(36, 34, 27, 0.1);
-    }
-
-    .divider--butter {
-      height: 3px;
-      background: var(--butter);
-      width: 60px;
-    }
-
-    .divider--cherry {
-      height: 2px;
-      background: var(--cherry);
-      width: 40px;
-    }
-
-    /* ==========================================
-       PAGE 7: SOCIAL TEMPLATES
-    ========================================== */
-    .social-page {
+    .tag--silver {
       background: var(--silver);
+      color: var(--jet);
+    }
+
+    .tag--outline {
+      background: transparent;
+      border: 1px solid var(--jet);
+      color: var(--jet);
+    }
+
+    /* Stat card */
+    .stat-card-mini {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .stat-card-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      background: var(--gradient-diagonal);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-card-label {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--jet-soft);
+      margin-top: 8px;
+    }
+
+    /* ==========================================================================
+       PAGE 7: SOCIAL TEMPLATES
+       ========================================================================== */
+
+    .social {
+      background: var(--jet);
+      color: var(--cream);
+      position: relative;
+    }
+
+    .social::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(242, 208, 78, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, rgba(255, 179, 177, 0.1) 0%, transparent 50%);
+    }
+
+    .social .section-label {
+      color: var(--silver);
+    }
+
+    .social-intro {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--silver);
+      margin-bottom: 40px;
+      max-width: 460px;
     }
 
     .social-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 140px;
-      gap: var(--space-lg);
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    .social-preview {
-      background: white;
-      box-shadow: 0 4px 16px rgba(36, 34, 27, 0.1);
+    .social-template {
+      border-radius: 12px;
       overflow: hidden;
+      position: relative;
     }
 
-    .social-preview-label {
-      padding: var(--space-sm) var(--space-md);
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      border-bottom: 1px solid rgba(36, 34, 27, 0.08);
-    }
-
-    .instagram-post {
+    .social-template--square {
       aspect-ratio: 1;
-      background: var(--butter);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: var(--space-xl);
-      text-align: center;
-      position: relative;
     }
 
-    .instagram-post .headline {
-      font-family: var(--font-elegant);
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--jet);
-      line-height: 1.2;
-      margin-bottom: var(--space-sm);
-    }
-
-    .instagram-post .subline {
-      font-family: var(--font-elegant);
-      font-size: 1rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--cherry);
-    }
-
-    .instagram-post .brand {
-      position: absolute;
-      bottom: var(--space-md);
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-elegant);
-      font-size: 0.7rem;
-      font-weight: 600;
-      font-style: italic;
-      color: var(--jet);
-      opacity: 0.5;
-    }
-
-    .linkedin-banner {
-      aspect-ratio: 1200/627;
-      background: var(--pink-soft);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      padding: var(--space-lg);
-      gap: var(--space-md);
-      position: relative;
-    }
-
-    .linkedin-content .eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.4rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--cherry);
-      margin-bottom: var(--space-xs);
-    }
-
-    .linkedin-content .headline {
-      font-family: var(--font-elegant);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--jet);
-      line-height: 1.2;
-    }
-
-    .linkedin-content .subline {
-      font-family: var(--font-elegant);
-      font-size: 0.75rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--cherry);
-      margin-top: 4px;
-    }
-
-    .linkedin-brand {
-      text-align: right;
-    }
-
-    .linkedin-brand .name {
-      font-family: var(--font-elegant);
-      font-size: 0.9rem;
-      font-weight: 600;
-      font-style: italic;
-      color: var(--jet);
-    }
-
-    .instagram-story {
+    .social-template--story {
       aspect-ratio: 9/16;
-      background: var(--jet);
+      grid-row: span 2;
+    }
+
+    /* Template with blended gradient background */
+    .template-gradient {
+      background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 50%, var(--silver) 100%);
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: var(--space-md);
-      text-align: center;
-      position: relative;
+      justify-content: flex-end;
     }
 
-    .instagram-story .stat {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--butter);
-      line-height: 1;
-    }
-
-    .instagram-story .context {
-      font-family: var(--font-elegant);
-      font-size: 0.65rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--pink);
-      margin-top: var(--space-xs);
-    }
-
-    .instagram-story .brand {
-      position: absolute;
-      bottom: var(--space-sm);
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-elegant);
-      font-size: 0.5rem;
-      font-style: italic;
-      color: rgba(228, 223, 216, 0.4);
-    }
-
-    /* ==========================================
-       PAGE 8: PHOTOGRAPHY
-    ========================================== */
-    .photo-page {
-      background: var(--pink-soft);
-    }
-
-    .photo-intro {
-      max-width: 50ch;
-      margin-bottom: var(--space-xl);
-    }
-
-    .photo-intro p {
+    .template-gradient .template-headline {
       font-family: var(--font-elegant);
       font-size: 1.4rem;
       font-weight: 500;
-      font-style: italic;
       color: var(--jet);
-      line-height: 1.6;
+      line-height: 1.2;
+    }
+
+    .template-gradient .template-subline {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--jet-soft);
+      margin-top: 8px;
+    }
+
+    /* Template with dark background */
+    .template-dark {
+      background: var(--jet-soft);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .template-dark .stat-big {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      background: var(--gradient-diagonal);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .template-dark .stat-text {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--silver);
+      margin-top: 12px;
+    }
+
+    /* Story template */
+    .template-story {
+      background: linear-gradient(180deg, var(--butter-soft) 0%, var(--pink-soft) 50%, var(--cream) 100%);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .template-story .story-quote {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: var(--jet);
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .template-story .story-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .template-story .story-logo {
+      width: 24px;
+      height: 24px;
+      background: var(--jet);
+      border-radius: 4px;
+    }
+
+    .template-story .story-handle {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--jet-soft);
+    }
+
+    /* ==========================================================================
+       PAGE 8: PHOTOGRAPHY DIRECTION
+       ========================================================================== */
+
+    .photography {
+      background: var(--cream);
+      position: relative;
+    }
+
+    .photography::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(0deg, var(--pink-soft) 0%, transparent 100%);
+      opacity: 0.3;
+    }
+
+    .photo-intro {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--jet-soft);
+      margin-bottom: 40px;
+      max-width: 460px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .photo-placeholder {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-warm);
+      opacity: 0.7;
+    }
+
+    .photo-placeholder::after {
+      content: 'IMG';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--jet-soft);
     }
 
     .photo-principles {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-      margin-bottom: var(--space-xl);
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
-    .photo-principle {
-      padding: var(--space-lg);
-      background: white;
-      position: relative;
+    .principle {
+      display: flex;
+      gap: 16px;
     }
 
-    .photo-principle-number {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 900;
-      color: var(--butter);
-      position: absolute;
-      top: var(--space-sm);
-      right: var(--space-md);
-      line-height: 1;
-      opacity: 0.5;
+    .principle-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gradient-butter-pink);
+      flex-shrink: 0;
     }
 
-    .photo-principle-title {
-      font-family: var(--font-elegant);
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: var(--space-sm);
-      color: var(--jet);
-    }
-
-    .photo-principle-desc {
+    .principle-content h4 {
       font-family: var(--font-body);
       font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      line-height: 1.6;
+      font-weight: 600;
+      color: var(--jet);
+      margin-bottom: 4px;
     }
 
-    .photo-moods {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
+    .principle-content p {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--jet-soft);
     }
 
-    .photo-mood {
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: var(--space-md);
+    /* ==========================================================================
+       PAGE 9: DO'S AND DON'TS
+       ========================================================================== */
+
+    .guidelines {
+      background: var(--silver-light);
       position: relative;
     }
 
-    .photo-mood--butter {
-      background: var(--butter);
-    }
-
-    .photo-mood--pink {
-      background: var(--pink);
-    }
-
-    .photo-mood--silver {
-      background: var(--silver);
-      border: 1px solid rgba(36, 34, 27, 0.1);
-    }
-
-    .photo-mood--jet {
-      background: var(--jet);
-    }
-
-    .photo-mood span {
-      font-family: var(--font-elegant);
-      font-size: 0.95rem;
-      font-weight: 600;
-      font-style: italic;
-    }
-
-    .photo-mood--jet span {
-      color: var(--butter);
-    }
-
-    .photo-mood-badge {
+    .guidelines::before {
+      content: '';
       position: absolute;
-      top: var(--space-xs);
-      right: var(--space-xs);
-      font-family: var(--font-mono);
-      font-size: 0.45rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      background: var(--cherry);
-      color: white;
-    }
-
-    /* ==========================================
-       PAGE 9: DO'S AND DON'TS
-    ========================================== */
-    .guidelines-page {
-      background: var(--silver);
-    }
-
-    .guidelines-intro {
-      max-width: 50ch;
-      margin-bottom: var(--space-xl);
-    }
-
-    .guidelines-intro p {
-      font-family: var(--font-elegant);
-      font-size: 1.3rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--text-secondary);
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, var(--butter-soft) 0%, transparent 100%);
+      opacity: 0.25;
     }
 
     .guidelines-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
+      gap: 32px;
+      margin-top: 32px;
     }
 
-    .guidelines-col h3 {
-      font-family: var(--font-elegant);
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: var(--space-lg);
-      padding-bottom: var(--space-md);
-      border-bottom: 3px solid;
+    .guidelines-column h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .guidelines-col--do h3 {
-      border-color: var(--butter);
-      color: var(--jet);
-    }
-
-    .guidelines-col--dont h3 {
-      border-color: var(--cherry);
-      color: var(--cherry);
-    }
-
-    .guidelines-list {
-      list-style: none;
-    }
-
-    .guidelines-list li {
-      padding: var(--space-md) 0;
-      border-bottom: 1px solid rgba(36, 34, 27, 0.08);
-      display: grid;
-      grid-template-columns: 10px 1fr;
-      gap: var(--space-md);
-      align-items: start;
-    }
-
-    .guidelines-list li::before {
-      content: '';
-      width: 10px;
-      height: 10px;
+    .guidelines-column h3 .icon-do {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      margin-top: 0.4em;
+      background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--jet);
+      font-size: 1rem;
     }
 
-    .guidelines-col--do .guidelines-list li::before {
+    .guidelines-column h3 .icon-dont {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--cherry);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .guideline-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .guideline-item {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--jet);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .guideline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 2px;
+    }
+
+    .do-list .guideline-item::before {
       background: var(--butter);
     }
 
-    .guidelines-col--dont .guidelines-list li::before {
+    .dont-list .guideline-item::before {
       background: var(--cherry);
     }
 
-    .guideline-title {
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 2px;
-    }
-
-    .guideline-desc {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-
-    /* ==========================================
+    /* ==========================================================================
        PAGE 10: CLOSING
-    ========================================== */
-    .closing-page {
-      background: var(--butter);
+       ========================================================================== */
+
+    .closing {
+      background: var(--gradient-warm);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1172,606 +1428,613 @@
       position: relative;
     }
 
-    .closing-page::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 100% 60% at 50% 100%, rgba(255, 179, 177, 0.3) 0%, transparent 50%);
+    /* Floating decorative blobs */
+    .closing .blob-1 {
+      width: 300px;
+      height: 300px;
+      top: 50px;
+      left: -80px;
+      background: var(--butter);
+      opacity: 0.3;
+    }
+
+    .closing .blob-2 {
+      width: 250px;
+      height: 250px;
+      bottom: 80px;
+      right: -60px;
+      background: var(--pink);
+      opacity: 0.3;
     }
 
     .closing-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
-    .closing-wordmark .first {
-      display: block;
+    .closing-headline {
       font-family: var(--font-elegant);
-      font-size: 5rem;
+      font-size: 3.5rem;
       font-weight: 500;
+      line-height: 1.15;
       color: var(--jet);
-      line-height: 1;
+      margin-bottom: 16px;
     }
 
-    .closing-wordmark .last {
-      display: block;
+    .closing-subline {
       font-family: var(--font-elegant);
-      font-size: 2.2rem;
-      font-weight: 500;
       font-style: italic;
-      color: var(--jet);
-      margin-top: var(--space-xs);
+      font-size: 1.4rem;
+      color: var(--jet-soft);
+      margin-bottom: 48px;
+    }
+
+    /* Multi-color decorative element */
+    .closing-decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 48px;
+    }
+
+    .closing-decoration span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .closing-contact {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--jet-soft);
+    }
+
+    .closing-contact a {
+      color: var(--cherry);
+      text-decoration: none;
+    }
+
+    .closing-footer {
+      position: absolute;
+      bottom: 48px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--jet-soft);
       opacity: 0.6;
     }
 
-    .closing-tagline {
-      font-family: var(--font-elegant);
-      font-size: 1.3rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--jet);
-      margin-top: var(--space-xl);
-      max-width: 30ch;
-      opacity: 0.7;
+    /* ==========================================================================
+       PRINT STYLES
+       ========================================================================== */
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+
+      .color-blob {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
     }
 
-    .closing-meta {
-      position: absolute;
-      bottom: var(--space-lg);
-      left: var(--space-xl);
-      right: var(--space-xl);
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-      color: var(--jet);
-      opacity: 0.5;
+    @page {
+      size: 210mm 297mm;
+      margin: 0;
     }
-
-    .closing-accent {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border: 2px solid var(--jet);
-      opacity: 0.15;
-    }
-
-    .closing-accent--tl {
-      top: var(--space-xl);
-      left: var(--space-xl);
-      border-right: none;
-      border-bottom: none;
-    }
-
-    .closing-accent--br {
-      bottom: var(--space-xl);
-      right: var(--space-xl);
-      border-left: none;
-      border-top: none;
-    }
-
-    /* ==========================================
-       UTILITY CLASSES
-    ========================================== */
-    .text-inverse { color: var(--silver); }
-    .text-butter { color: var(--butter); }
-    .text-cherry { color: var(--cherry); }
-    .bg-jet { background: var(--jet); }
-    .bg-butter { background: var(--butter); }
-    .bg-pink { background: var(--pink); }
   </style>
 </head>
 <body>
 
-  <!-- ==========================================
+  <!-- ========================================================================
        PAGE 1: COVER
-  ========================================== -->
+       ======================================================================== -->
   <div class="page cover">
-    <div class="cover-accent cover-accent--tl"></div>
-    <div class="cover-accent cover-accent--br"></div>
+    <!-- Floating color blobs for watercolor effect -->
+    <div class="color-blob blob-butter blob-1"></div>
+    <div class="color-blob blob-pink blob-2"></div>
+    <div class="color-blob blob-silver blob-3"></div>
+
     <div class="cover-content">
-      <p class="cover-eyebrow">Brand Guidelines 2025</p>
+      <div class="cover-tag">
+        <span class="cover-tag-line"></span>
+        <span class="cover-tag-text">Brand Identity System</span>
+        <span class="cover-tag-line"></span>
+      </div>
+
       <div class="cover-name">
-        <span class="first">Tobi Oredein</span>
-        <span class="last">Brand System</span>
+        <span class="first">Tobi</span>
+        <span class="last">Oredein</span>
       </div>
-      <p class="cover-tagline">The future of Black women's media</p>
+
+      <p class="cover-subtitle">The future of Black women's media</p>
+
+      <!-- Multi-color decorative bars -->
+      <div class="cover-decoration">
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <span class="d3"></span>
+        <span class="d4"></span>
+      </div>
     </div>
-    <span class="cover-version">v2.2</span>
+
+    <div class="cover-footer">
+      <p class="cover-version">Version 2.2 — Butter & Rose</p>
+    </div>
   </div>
 
-  <!-- ==========================================
+  <!-- ========================================================================
        PAGE 2: BRAND ESSENCE
-  ========================================== -->
-  <div class="page essence-page">
-    <header class="page-header">
-      <span class="page-section">02 — Brand Essence</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="essence-content">
+       ======================================================================== -->
+  <div class="page essence">
+    <div class="decor-circle decor-1"></div>
+    <div class="decor-circle decor-2"></div>
+
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <span class="section-label">Brand Essence</span>
+      </div>
+
+      <h1 class="essence-headline">
+        Building the future of <span class="accent">Black women's</span> media
+      </h1>
+
+      <p class="essence-body">
+        This brand represents a trusted guide — wisdom walking into the room, not disruption for disruption's sake. It bridges the tension between tech precision and cultural warmth, data rigor and community heart.
+      </p>
+
+      <div class="gradient-line" style="width: 120px; margin-bottom: 32px;"></div>
+
+      <p class="essence-body">
+        The visual language feels editorial and sophisticated — a lifestyle publication with the backbone of intelligent data. Modern and bold, yet warm and inviting. Future-forward, but never cold.
+      </p>
+
       <div class="essence-quote">
-        <blockquote>
-          "I'm building what comes next — where <em>data meets culture</em>, and community drives everything."
-        </blockquote>
-        <cite>— Tobi Oredein, Founder & CEO, Black Ballad</cite>
-      </div>
-      <div class="essence-pillars">
-        <p class="subsection-label">Brand Pillars</p>
-        <div class="pillar">
-          <h4 class="pillar-title">The Trusted Guide</h4>
-          <p class="pillar-desc">Wisdom walking into the room — insight over disruption</p>
-        </div>
-        <div class="pillar">
-          <h4 class="pillar-title">Rigorous & Different</h4>
-          <p class="pillar-desc">Data-driven credibility, unapologetically forward-thinking</p>
-        </div>
-        <div class="pillar">
-          <h4 class="pillar-title">Warm & Commanding</h4>
-          <p class="pillar-desc">Community-centered presence that commands attention</p>
-        </div>
-        <div class="pillar">
-          <h4 class="pillar-title">Building the Future</h4>
-          <p class="pillar-desc">Media, data, community, technology — together</p>
-        </div>
+        <p>"Different, rigorous, and unmistakably the future — that's the first impression we create."</p>
+        <cite>— Brand Positioning Statement</cite>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
+  <!-- ========================================================================
        PAGE 3: COLOR PALETTE
-  ========================================== -->
-  <div class="page color-page">
-    <header class="page-header">
-      <span class="page-section">03 — Color Palette</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">Color System</h2>
-      <p class="section-subtitle">butter yellow, pink lemonade, jet black</p>
+       ======================================================================== -->
+  <div class="page palette">
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <span class="section-label">Color Palette</span>
+      </div>
 
-      <div class="color-intro">
-        <div class="color-philosophy">
-          Fresh, unexpected, and undeniably bold — butter yellow brings optimism, pink adds softness, jet grounds it all.
+      <p class="palette-intro">
+        Colors that dance together — butter yellow brings warmth, pink lemonade adds softness, and silver grounds the palette in sophistication.
+      </p>
+
+      <div class="palette-grid">
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--butter);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Butter Yellow</p>
+            <p class="swatch-hex">#F2D04E</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--pink);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Pink Lemonade</p>
+            <p class="swatch-hex">#FFB3B1</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--silver);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Silver Stone</p>
+            <p class="swatch-hex">#E4DFD8</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--jet);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Jet Black</p>
+            <p class="swatch-hex">#24221B</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--cherry);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Cherry Cola</p>
+            <p class="swatch-hex">#9A0D02</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--butter-soft);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Butter Light</p>
+            <p class="swatch-hex">#FFEFBC</p>
+          </div>
         </div>
       </div>
 
-      <div class="color-grid">
-        <div class="color-swatch color-swatch--primary">
-          <div class="color-preview color-preview--butter"></div>
-          <div class="color-info">
-            <div class="color-name">Butter Yellow</div>
-            <div class="color-hex">#F2D04E</div>
-            <div class="color-usage">Primary accent — optimism, energy, standout moments</div>
+      <div class="palette-gradients">
+        <p class="palette-gradients-label">Gradient Combinations</p>
+        <div class="gradient-samples">
+          <div class="gradient-sample" style="background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 100%);">
+            <span>Butter → Pink</span>
+          </div>
+          <div class="gradient-sample" style="background: linear-gradient(135deg, var(--pink) 0%, var(--silver) 100%);">
+            <span>Pink → Silver</span>
+          </div>
+          <div class="gradient-sample" style="background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 50%, var(--silver) 100%);">
+            <span>Full Blend</span>
           </div>
         </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--jet"></div>
-          <div class="color-info">
-            <div class="color-name">Jet</div>
-            <div class="color-hex">#24221B</div>
-            <div class="color-usage">Text, grounding, drama</div>
-          </div>
+      </div>
+
+      <div class="color-harmony">
+        <div class="harmony-circles">
+          <div class="harmony-circle" style="background: var(--butter);"></div>
+          <div class="harmony-circle" style="background: var(--pink);"></div>
+          <div class="harmony-circle" style="background: var(--silver);"></div>
+          <div class="harmony-circle" style="background: var(--cherry);"></div>
         </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--silver"></div>
-          <div class="color-info">
-            <div class="color-name">Silver</div>
-            <div class="color-hex">#E4DFD8</div>
-            <div class="color-usage">Primary background</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--butter-light"></div>
-          <div class="color-info">
-            <div class="color-name">Butter Light</div>
-            <div class="color-hex">#FFEFBC</div>
-            <div class="color-usage">Soft sections</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--pink"></div>
-          <div class="color-info">
-            <div class="color-name">Pink Lemonade</div>
-            <div class="color-hex">#FFB3B1</div>
-            <div class="color-usage">Warmth, feminine touch</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--pink-soft"></div>
-          <div class="color-info">
-            <div class="color-name">Pink Soft</div>
-            <div class="color-hex">#FFE4E3</div>
-            <div class="color-usage">Soft backgrounds</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-preview color-preview--cherry"></div>
-          <div class="color-info">
-            <div class="color-name">Cherry Cola</div>
-            <div class="color-hex">#9A0D02</div>
-            <div class="color-usage">Accent, emphasis, CTAs</div>
-          </div>
-        </div>
+        <p class="harmony-text">Colors in conversation, not isolation</p>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
-       PAGE 4: TYPOGRAPHY
-  ========================================== -->
-  <div class="page type-page">
-    <header class="page-header">
-      <span class="page-section">04 — Typography</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">Type System</h2>
-      <p class="section-subtitle">bolder elegance, confident voice</p>
-
-      <div class="type-intro">
-        <p>Medium-weight elegance that commands without shouting. The serif leads with confidence, bold moments punctuate.</p>
+  <!-- ========================================================================
+       PAGE 4: TYPOGRAPHY SYSTEM
+       ======================================================================== -->
+  <div class="page typography">
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <span class="section-label">Typography</span>
       </div>
+
+      <p class="type-intro">
+        The typography creates a dialogue between elegant femininity and bold presence. Cormorant Garamond leads with sophistication; Playfair Display punctuates with power.
+      </p>
 
       <div class="type-specimens">
         <div class="type-specimen">
           <div class="type-meta">
-            <span class="type-role">Primary Voice</span>
-            <span class="type-details">Cormorant Garamond Medium 500</span>
+            <p class="type-role">Primary Voice</p>
+            <p class="type-font">Cormorant Garamond</p>
+            <p class="type-weight">Medium 500</p>
           </div>
-          <p class="type-sample--elegant">The Future of Black Women's Media</p>
+          <div class="type-sample type-sample--elegant">
+            The Future of Media
+          </div>
         </div>
 
         <div class="type-specimen">
           <div class="type-meta">
-            <span class="type-role">Quotes & Editorial</span>
-            <span class="type-details">Cormorant Garamond Medium Italic</span>
+            <p class="type-role">Elegant Accent</p>
+            <p class="type-font">Cormorant Garamond</p>
+            <p class="type-weight">Italic 400</p>
           </div>
-          <p class="type-sample--elegant-italic">"Building what comes next — where data meets culture, and community drives everything."</p>
+          <div class="type-sample type-sample--elegant-italic">
+            "Building what comes next, with warmth and wisdom"
+          </div>
         </div>
 
         <div class="type-specimen">
           <div class="type-meta">
-            <span class="type-role">Bold Moments</span>
-            <span class="type-details">Playfair Display Black 900</span>
+            <p class="type-role">Bold Moments</p>
+            <p class="type-font">Playfair Display</p>
+            <p class="type-weight">Black 900</p>
           </div>
-          <p class="type-sample--display">87%</p>
+          <div class="type-sample type-sample--display">
+            87%
+          </div>
         </div>
 
         <div class="type-specimen">
           <div class="type-meta">
-            <span class="type-role">Body</span>
-            <span class="type-details">DM Sans Medium 500</span>
+            <p class="type-role">Body Text</p>
+            <p class="type-font">DM Sans</p>
+            <p class="type-weight">Medium 500</p>
           </div>
-          <p class="type-sample--body">Every word carries weight. Body copy should feel confident and clear — warm but never informal, intelligent but never cold.</p>
+          <div class="type-sample type-sample--body">
+            Clear, readable, and modern. Perfect for longer passages that inform and engage the reader with substance and style.
+          </div>
         </div>
 
         <div class="type-specimen">
           <div class="type-meta">
-            <span class="type-role">Data & Sources</span>
-            <span class="type-details">JetBrains Mono Medium 500</span>
+            <p class="type-role">Data & Sources</p>
+            <p class="type-font">JetBrains Mono</p>
+            <p class="type-weight">Regular 400</p>
           </div>
-          <p class="type-sample--mono">Source: BB Index 2024 · n=2,847</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==========================================
-       PAGE 5: TYPOGRAPHY INTERPLAY
-  ========================================== -->
-  <div class="page interplay-page">
-    <header class="page-header">
-      <span class="page-section">05 — Typography in Action</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">The Interplay</h2>
-      <p class="section-subtitle">how elegant and bold work together</p>
-
-      <div class="interplay-grid">
-        <div class="interplay-example interplay-example--butter">
-          <span class="interplay-label">Editorial Headline</span>
-          <div style="padding-top: var(--space-lg);">
-            <h3 class="editorial-headline">Redefining What<br>Representation Means</h3>
-            <p class="editorial-subline">in media, in data, in culture</p>
-          </div>
-        </div>
-
-        <div class="interplay-example interplay-example--dark">
-          <span class="interplay-label">Stat Moment</span>
-          <div class="stat-display">
-            <p class="stat-number">87%</p>
-            <p class="stat-context">of Black British women say<br>representation matters in media</p>
-            <p class="stat-source">Source: BB Index 2024</p>
-          </div>
-        </div>
-
-        <div class="interplay-example" style="grid-column: span 2;">
-          <span class="interplay-label">Pull Quote</span>
-          <div class="pullquote-example">
-            <p class="pullquote">"This isn't about disruption for disruption's sake. It's about building something that lasts — with data, with community, with intention."</p>
-            <p class="pullquote-attr">— Tobi Oredein</p>
+          <div class="type-sample type-sample--mono">
+            Source: BB Index 2024 | n=2,847
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
+  <!-- ========================================================================
+       PAGE 5: THE INTERPLAY
+       ======================================================================== -->
+  <div class="page interplay">
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <span class="section-label">The Interplay</span>
+      </div>
+
+      <p class="interplay-intro">
+        Bold and elegant working in harmony. The elegant serif sets the tone; bold moments provide punctuation. Data appears with confidence but never dominates.
+      </p>
+
+      <div class="interplay-examples">
+        <div class="interplay-example">
+          <p class="interplay-example-label">Stat with Context</p>
+          <div class="stat-block">
+            <span class="stat-number">87%</span>
+            <p class="stat-context">of Black women say representation in media directly impacts their sense of belonging</p>
+          </div>
+          <p class="stat-source">Source: Black Ballad Index 2024</p>
+        </div>
+
+        <div class="interplay-example">
+          <p class="interplay-example-label">Editorial Headline</p>
+          <div class="headline-example">
+            <h2 class="headline-main">The Conversation That Changes Everything</h2>
+            <p class="headline-sub">How community shapes the future of media</p>
+          </div>
+        </div>
+
+        <div class="interplay-example">
+          <p class="interplay-example-label">Statement</p>
+          <div class="headline-example">
+            <h2 class="headline-main" style="font-style: italic; font-weight: 400;">
+              "We're not just reporting on culture — we're building the infrastructure for it."
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
        PAGE 6: COMPONENTS
-  ========================================== -->
-  <div class="page components-page">
-    <header class="page-header">
-      <span class="page-section">06 — Components</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">UI Elements</h2>
-      <p class="section-subtitle">bold, fresh, confident</p>
+       ======================================================================== -->
+  <div class="page components">
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <span class="section-label">Components</span>
+      </div>
 
       <div class="components-grid">
+        <!-- Quote Component -->
+        <div class="component-card quote-component">
+          <p class="component-label">Pull Quote</p>
+          <p class="quote-text">"The future belongs to those who see possibility where others see barriers."</p>
+          <div class="quote-attribution">
+            <div class="quote-avatar"></div>
+            <div>
+              <p class="quote-name">Tobi Oredein</p>
+              <p class="quote-title">Founder & CEO</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
         <div class="component-card">
           <p class="component-label">Buttons</p>
-          <div style="display: flex; flex-direction: column; gap: var(--space-md); align-items: flex-start;">
-            <a href="#" class="btn btn--primary">Learn More</a>
-            <a href="#" class="btn btn--cherry">Subscribe</a>
-            <a href="#" class="btn btn--outline">View Details</a>
-            <a href="#" class="btn btn--elegant">Read the story →</a>
+          <div class="button-samples">
+            <a href="#" class="btn btn--primary">Primary Action</a>
+            <a href="#" class="btn btn--secondary">Secondary</a>
+            <a href="#" class="btn btn--accent">Accent</a>
           </div>
         </div>
 
+        <!-- Tags -->
         <div class="component-card">
-          <p class="component-label">Tags & Labels</p>
-          <div class="tags">
-            <span class="tag tag--butter">Media</span>
-            <span class="tag tag--pink">Community</span>
-            <span class="tag tag--cherry">Featured</span>
+          <p class="component-label">Tags</p>
+          <div class="tag-samples">
+            <span class="tag tag--butter">Community</span>
+            <span class="tag tag--pink">Lifestyle</span>
+            <span class="tag tag--silver">Data</span>
+            <span class="tag tag--outline">Media</span>
           </div>
         </div>
 
-        <div class="component-card">
-          <p class="component-label">Dividers</p>
-          <div class="dividers">
-            <div class="divider--subtle"></div>
-            <div class="divider--butter"></div>
-            <div class="divider--cherry"></div>
-          </div>
-        </div>
-
-        <div class="component-card" style="grid-column: span 2;">
-          <p class="component-label">Quote Card</p>
-          <div style="padding: var(--space-lg); background: var(--butter-light);">
-            <p style="font-family: var(--font-elegant); font-size: 1.4rem; font-weight: 500; font-style: italic; line-height: 1.5; color: var(--jet);">
-              "The brands that win are the ones that understand their audience — not just demographically, but culturally."
-            </p>
-            <p style="font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--cherry); margin-top: var(--space-md);">
-              Tobi Oredein, Black Ballad
-            </p>
-          </div>
-        </div>
-
-        <div class="component-card">
+        <!-- Stat Card -->
+        <div class="component-card stat-card-mini">
           <p class="component-label">Stat Card</p>
-          <div style="text-align: center; padding: var(--space-lg) 0;">
-            <p style="font-family: var(--font-display); font-size: 3rem; font-weight: 900; color: var(--butter); text-shadow: 1px 1px 0 var(--jet); line-height: 1;">2.8M</p>
-            <p style="font-family: var(--font-elegant); font-size: 1rem; font-weight: 500; font-style: italic; color: var(--text-secondary); margin-top: var(--space-xs);">annual audience reach</p>
-          </div>
+          <p class="stat-card-number">2.8M</p>
+          <p class="stat-card-label">Monthly Reach</p>
+        </div>
+
+        <!-- Another Stat -->
+        <div class="component-card stat-card-mini">
+          <p class="component-label">Stat Card</p>
+          <p class="stat-card-number">94%</p>
+          <p class="stat-card-label">Engagement Rate</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
+  <!-- ========================================================================
        PAGE 7: SOCIAL TEMPLATES
-  ========================================== -->
-  <div class="page social-page">
-    <header class="page-header">
-      <span class="page-section">07 — Social Media</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">Social Templates</h2>
-      <p class="section-subtitle">bold compositions for the feed</p>
+       ======================================================================== -->
+  <div class="page social">
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">06</span>
+        <span class="section-label">Social Templates</span>
+      </div>
+
+      <p class="social-intro">
+        Social content uses the full color palette in flowing gradients. Colors blend naturally, creating a cohesive and recognizable visual identity across platforms.
+      </p>
 
       <div class="social-grid">
-        <div class="social-preview">
-          <div class="social-preview-label">Instagram Post — 1080×1080</div>
-          <div class="instagram-post">
-            <h3 class="headline">Redefining What<br>Representation Means</h3>
-            <p class="subline">in media, in data, in culture</p>
-            <span class="brand">Tobi Oredein</span>
+        <!-- Square post with gradient -->
+        <div class="social-template social-template--square template-gradient">
+          <p class="template-headline">The Future Is Being Built Right Now</p>
+          <p class="template-subline">And we're the ones building it</p>
+        </div>
+
+        <!-- Story template -->
+        <div class="social-template social-template--story template-story">
+          <div></div>
+          <p class="story-quote">"Every voice matters. Every story counts. Every woman seen."</p>
+          <div class="story-footer">
+            <div class="story-logo"></div>
+            <span class="story-handle">@tobioredein</span>
           </div>
         </div>
 
-        <div class="social-preview">
-          <div class="social-preview-label">LinkedIn — 1200×627</div>
-          <div class="linkedin-banner">
-            <div class="linkedin-content">
-              <span class="eyebrow">Keynote Speaker</span>
-              <h3 class="headline">The Future of Black<br>Women in Media</h3>
-              <p class="subline">booking now for 2025</p>
-            </div>
-            <div class="linkedin-brand">
-              <span class="name">Tobi Oredein</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="social-preview">
-          <div class="social-preview-label">Story — 1080×1920</div>
-          <div class="instagram-story">
-            <p class="stat">87%</p>
-            <p class="context">say representation matters</p>
-            <span class="brand">Tobi Oredein</span>
-          </div>
+        <!-- Dark stat post -->
+        <div class="social-template social-template--square template-dark">
+          <p class="stat-big">73%</p>
+          <p class="stat-text">feel underrepresented in mainstream media</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
-       PAGE 8: PHOTOGRAPHY
-  ========================================== -->
-  <div class="page photo-page">
-    <header class="page-header">
-      <span class="page-section">08 — Photography</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">Photography Direction</h2>
-      <p class="section-subtitle">warm, bright, lifestyle-forward</p>
+  <!-- ========================================================================
+       PAGE 8: PHOTOGRAPHY DIRECTION
+       ======================================================================== -->
+  <div class="page photography">
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">07</span>
+        <span class="section-label">Photography</span>
+      </div>
 
-      <div class="photo-intro">
-        <p>Photography should feel fresh and optimistic — natural light, warm tones, and authentic confidence.</p>
+      <p class="photo-intro">
+        Photography should feel warm, natural, and editorial. Rich environments with natural lighting. Real moments, not staged perfection. The colors of the palette should echo naturally in imagery.
+      </p>
+
+      <div class="photo-grid">
+        <div class="photo-placeholder"></div>
+        <div class="photo-placeholder"></div>
+        <div class="photo-placeholder"></div>
       </div>
 
       <div class="photo-principles">
-        <div class="photo-principle">
-          <span class="photo-principle-number">01</span>
-          <h4 class="photo-principle-title">Natural Light</h4>
-          <p class="photo-principle-desc">Bright, warm lighting that feels optimistic. Morning light, golden tones, natural warmth.</p>
+        <div class="principle">
+          <div class="principle-icon"></div>
+          <div class="principle-content">
+            <h4>Natural Warmth</h4>
+            <p>Warm color temperatures, golden hour tones, and natural skin tones celebrated authentically.</p>
+          </div>
         </div>
-        <div class="photo-principle">
-          <span class="photo-principle-number">02</span>
-          <h4 class="photo-principle-title">Fresh Environments</h4>
-          <p class="photo-principle-desc">Clean, modern spaces with pops of color. Think lifestyle editorial, not corporate.</p>
-        </div>
-        <div class="photo-principle">
-          <span class="photo-principle-number">03</span>
-          <h4 class="photo-principle-title">Confident Presence</h4>
-          <p class="photo-principle-desc">Real moments of joy and leadership. Authentic expressions, natural confidence.</p>
-        </div>
-      </div>
 
-      <p class="subsection-label">Color Moods</p>
-      <div class="photo-moods">
-        <div class="photo-mood photo-mood--butter">
-          <span class="photo-mood-badge">Primary</span>
-          <span>Sunny Warm</span>
+        <div class="principle">
+          <div class="principle-icon"></div>
+          <div class="principle-content">
+            <h4>Editorial Quality</h4>
+            <p>Magazine-worthy compositions. Thoughtful framing. Intentional negative space.</p>
+          </div>
         </div>
-        <div class="photo-mood photo-mood--pink">
-          <span>Soft Pink</span>
+
+        <div class="principle">
+          <div class="principle-icon"></div>
+          <div class="principle-content">
+            <h4>Real Moments</h4>
+            <p>Authentic connection over posed perfection. Joy, thought, conversation captured naturally.</p>
+          </div>
         </div>
-        <div class="photo-mood photo-mood--silver">
-          <span>Natural Light</span>
-        </div>
-        <div class="photo-mood photo-mood--jet">
-          <span>Bold Contrast</span>
+
+        <div class="principle">
+          <div class="principle-icon"></div>
+          <div class="principle-content">
+            <h4>Color Harmony</h4>
+            <p>Environments that echo the palette — warm woods, soft blush tones, butter yellows appearing naturally.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
+  <!-- ========================================================================
        PAGE 9: DO'S AND DON'TS
-  ========================================== -->
-  <div class="page guidelines-page">
-    <header class="page-header">
-      <span class="page-section">09 — Guidelines</span>
-      <span class="page-brand">Tobi Oredein</span>
-    </header>
-    <div class="section-content">
-      <h2 class="section-title">Do's & Don'ts</h2>
-      <p class="section-subtitle">protecting the brand voice</p>
-
-      <div class="guidelines-intro">
-        <p>Fresh, optimistic, and confidently bold — but never garish, never corporate, never cold.</p>
+       ======================================================================== -->
+  <div class="page guidelines">
+    <div class="page-content">
+      <div class="section-header">
+        <span class="section-number">08</span>
+        <span class="section-label">Guidelines</span>
       </div>
 
       <div class="guidelines-grid">
-        <div class="guidelines-col guidelines-col--do">
-          <h3>Do</h3>
-          <ul class="guidelines-list">
-            <li>
-              <div>
-                <p class="guideline-title">Lead with butter yellow</p>
-                <p class="guideline-desc">It's the signature — optimistic, unexpected, memorable</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Use bolder font weights</p>
-                <p class="guideline-desc">Medium/500 for elegance, Black/900 for stats</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Mix yellow + pink thoughtfully</p>
-                <p class="guideline-desc">They complement each other beautifully</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Keep backgrounds light</p>
-                <p class="guideline-desc">Silver and soft tones, dark only for dramatic stats</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Feel fresh and optimistic</p>
-                <p class="guideline-desc">Energy without being overwhelming</p>
-              </div>
-            </li>
+        <div class="guidelines-column">
+          <h3><span class="icon-do">✓</span> Do</h3>
+          <ul class="guideline-list do-list">
+            <li class="guideline-item">Blend colors using gradients and overlapping elements</li>
+            <li class="guideline-item">Lead with elegant serif typography</li>
+            <li class="guideline-item">Use bold display fonts for stats and key moments</li>
+            <li class="guideline-item">Create breathing room with generous white space</li>
+            <li class="guideline-item">Let colors dance together across sections</li>
+            <li class="guideline-item">Keep the tone warm, intelligent, and feminine</li>
+            <li class="guideline-item">Use monospace subtly for data sources only</li>
+            <li class="guideline-item">Feel editorial and lifestyle-first</li>
           </ul>
         </div>
-        <div class="guidelines-col guidelines-col--dont">
-          <h3>Don't</h3>
-          <ul class="guidelines-list">
-            <li>
-              <div>
-                <p class="guideline-title">Make it garish</p>
-                <p class="guideline-desc">Balance yellow with silver and neutrals</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Go too light on fonts</p>
-                <p class="guideline-desc">This palette needs confident weight</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Use corporate aesthetics</p>
-                <p class="guideline-desc">No Helvetica, no navy, no stock photos</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Overdo the cherry red</p>
-                <p class="guideline-desc">It's an accent, not a primary color</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p class="guideline-title">Lose the warmth</p>
-                <p class="guideline-desc">This palette is about joy and confidence</p>
-              </div>
-            </li>
+
+        <div class="guidelines-column">
+          <h3><span class="icon-dont">✗</span> Don't</h3>
+          <ul class="guideline-list dont-list">
+            <li class="guideline-item">Use colors in isolated blocks</li>
+            <li class="guideline-item">Let data aesthetics dominate</li>
+            <li class="guideline-item">Use cold, corporate typography</li>
+            <li class="guideline-item">Overcrowd with too many elements</li>
+            <li class="guideline-item">Use pure black or pure white</li>
+            <li class="guideline-item">Make it feel "tech startup"</li>
+            <li class="guideline-item">Use trendy "girl boss" aesthetics</li>
+            <li class="guideline-item">Sacrifice warmth for minimalism</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
+  <!-- ========================================================================
        PAGE 10: CLOSING
-  ========================================== -->
-  <div class="page closing-page">
-    <div class="closing-accent closing-accent--tl"></div>
-    <div class="closing-accent closing-accent--br"></div>
+       ======================================================================== -->
+  <div class="page closing">
+    <div class="color-blob blob-1"></div>
+    <div class="color-blob blob-2"></div>
+
     <div class="closing-content">
-      <div class="closing-wordmark">
-        <span class="first">Tobi Oredein</span>
-        <span class="last">Brand System</span>
+      <h1 class="closing-headline">Let's Build<br>What's Next</h1>
+      <p class="closing-subline">Together, with warmth and wisdom</p>
+
+      <div class="closing-decoration">
+        <span style="background: var(--butter);"></span>
+        <span style="background: var(--pink);"></span>
+        <span style="background: var(--silver);"></span>
+        <span style="background: var(--cherry);"></span>
       </div>
-      <p class="closing-tagline">The future of Black women's media — where data meets culture.</p>
+
+      <p class="closing-contact">
+        <a href="mailto:hello@tobioredein.com">hello@tobioredein.com</a>
+      </p>
     </div>
-    <div class="closing-meta">
-      <span>Brand Guidelines v2.2 — Butter Yellow</span>
-      <span>© 2025 Tobi Oredein</span>
-    </div>
+
+    <p class="closing-footer">Tobi Oredein Brand Guide v2.2</p>
   </div>
 
 </body>
