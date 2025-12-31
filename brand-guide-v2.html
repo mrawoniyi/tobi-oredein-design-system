@@ -3,45 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tobi Oredein — Brand Guide v2.2</title>
+  <title>Tobi Oredein — Brand Guide v2.3</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       TOBI OREDEIN BRAND GUIDE v2.2
-       A cohesive blend of butter yellow, pink lemonade, silver & jet black
-       Colors in conversation, not isolation
+       TOBI OREDEIN BRAND GUIDE v2.3 — Butter & Rose
+       A warm, sophisticated women's lifestyle brand guide
+       Lora leads. Fraunces punctuates. Warmth permeates.
        ========================================================================== */
 
     :root {
       /* Core Palette */
-      --jet: #24221B;
-      --jet-soft: #3D3A31;
-      --silver: #E4DFD8;
-      --silver-light: #F0EDE8;
-      --cream: #FAF8F5;
-
-      /* Signature Colors */
       --butter: #F2D04E;
-      --butter-soft: #FFEFBC;
-      --butter-muted: #F5E4A3;
-      --pink: #FFB3B1;
-      --pink-soft: #FFE4E3;
-      --pink-muted: #FFCFCE;
-      --cherry: #9A0D02;
-      --cherry-soft: #C41E10;
+      --butter-light: #FBF3D4;
+      --butter-soft: #FDF8E8;
+      --ink: #1A1614;
+      --ink-soft: #3D3835;
+      --rose: #D4A5A5;
+      --rose-light: #F2E4E4;
+      --rose-soft: #F9F2F2;
+      --cream: #FAF6F1;
+      --gold: #B8860B;
+      --gold-light: #D4A84B;
+      --grey: #8A8580;
+      --grey-light: #C4C0BB;
 
-      /* Blended Gradients */
-      --gradient-warm: linear-gradient(135deg, var(--butter-soft) 0%, var(--pink-soft) 50%, var(--silver-light) 100%);
-      --gradient-butter-pink: linear-gradient(120deg, var(--butter-soft) 0%, var(--pink-soft) 100%);
-      --gradient-pink-silver: linear-gradient(120deg, var(--pink-soft) 0%, var(--silver-light) 100%);
-      --gradient-diagonal: linear-gradient(160deg, var(--butter) 0%, var(--pink) 40%, var(--silver) 100%);
-      --gradient-subtle: linear-gradient(180deg, var(--cream) 0%, var(--silver-light) 100%);
+      /* Gradients */
+      --gradient-warm: linear-gradient(135deg, var(--butter-light) 0%, var(--rose-light) 100%);
+      --gradient-sunset: linear-gradient(135deg, var(--butter) 0%, var(--rose) 100%);
+      --gradient-soft: linear-gradient(180deg, var(--cream) 0%, var(--rose-soft) 100%);
+      --gradient-butter: linear-gradient(135deg, var(--butter-soft) 0%, var(--butter-light) 100%);
+      --gradient-rose: linear-gradient(135deg, var(--rose-soft) 0%, var(--rose-light) 100%);
 
       /* Typography */
-      --font-elegant: 'Cormorant Garamond', Georgia, serif;
-      --font-display: 'Playfair Display', Georgia, serif;
+      --font-primary: 'Lora', Georgia, serif;
+      --font-display: 'Fraunces', Georgia, serif;
       --font-body: 'DM Sans', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
@@ -55,11 +53,12 @@
     html {
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
       font-family: var(--font-body);
-      color: var(--jet);
+      color: var(--ink);
       line-height: 1.6;
       background: var(--cream);
     }
@@ -79,153 +78,98 @@
     }
 
     .page-content {
-      padding: 48px 56px;
+      padding: 56px 64px;
       min-height: 297mm;
       position: relative;
       z-index: 2;
     }
 
     /* ==========================================================================
-       DECORATIVE ELEMENTS — Creating Color Blend
+       TYPOGRAPHY UTILITIES
        ========================================================================== */
 
-    /* Floating color blobs that create watercolor effect */
-    .color-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.4;
-      z-index: 0;
+    .font-lora { font-family: var(--font-primary); }
+    .font-fraunces { font-family: var(--font-display); }
+    .font-body { font-family: var(--font-body); }
+    .font-mono { font-family: var(--font-mono); }
+
+    .text-ink { color: var(--ink); }
+    .text-ink-soft { color: var(--ink-soft); }
+    .text-butter { color: var(--butter); }
+    .text-rose { color: var(--rose); }
+    .text-gold { color: var(--gold); }
+    .text-grey { color: var(--grey); }
+    .text-cream { color: var(--cream); }
+
+    /* ==========================================================================
+       DECORATIVE ELEMENTS
+       ========================================================================== */
+
+    .decor-line {
+      height: 2px;
+      background: var(--gradient-sunset);
+      border-radius: 1px;
     }
 
-    .blob-butter {
-      background: var(--butter);
-    }
-
-    .blob-pink {
-      background: var(--pink);
-    }
-
-    .blob-silver {
-      background: var(--silver);
-    }
-
-    /* Gradient accent line */
-    .gradient-line {
-      height: 3px;
-      background: var(--gradient-diagonal);
-      border-radius: 2px;
-    }
-
-    .gradient-line--thin {
-      height: 1.5px;
-    }
-
-    /* Multi-color decorative dots */
-    .color-dots {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .color-dot {
+    .decor-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
+      background: var(--butter);
     }
 
-    /* Overlapping circles decoration */
-    .overlap-circles {
-      position: relative;
-      display: inline-flex;
-    }
-
-    .overlap-circles span {
-      width: 24px;
-      height: 24px;
+    .decor-circle {
+      position: absolute;
       border-radius: 50%;
-      opacity: 0.7;
+      opacity: 0.4;
     }
 
-    .overlap-circles span:nth-child(2) {
-      margin-left: -10px;
-    }
-
-    .overlap-circles span:nth-child(3) {
-      margin-left: -10px;
+    /* Organic blob shapes */
+    .blob {
+      position: absolute;
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      filter: blur(40px);
+      opacity: 0.3;
     }
 
     /* ==========================================================================
-       TYPOGRAPHY STYLES
-       ========================================================================== */
-
-    .heading-elegant {
-      font-family: var(--font-elegant);
-      font-weight: 500;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    .heading-display {
-      font-family: var(--font-display);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .text-italic {
-      font-family: var(--font-elegant);
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    .text-mono {
-      font-family: var(--font-mono);
-      font-weight: 400;
-      font-size: 0.75rem;
-      letter-spacing: 0.02em;
-    }
-
-    /* Color text accents */
-    .text-butter { color: var(--butter); }
-    .text-pink { color: var(--pink); }
-    .text-cherry { color: var(--cherry); }
-    .text-jet { color: var(--jet); }
-
-    /* ==========================================================================
-       PAGE 1: COVER — Blended Color Atmosphere
+       PAGE 1: COVER
        ========================================================================== */
 
     .cover {
       background: var(--gradient-warm);
-      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
+      position: relative;
     }
 
-    /* Large floating blobs for color mixing */
-    .cover .blob-1 {
-      width: 400px;
-      height: 400px;
+    .cover::before {
+      content: '';
+      position: absolute;
       top: -100px;
       right: -100px;
+      width: 400px;
+      height: 400px;
+      background: var(--butter);
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.25;
     }
 
-    .cover .blob-2 {
-      width: 300px;
-      height: 300px;
-      bottom: 100px;
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
       left: -80px;
-    }
-
-    .cover .blob-3 {
-      width: 250px;
-      height: 250px;
-      bottom: -50px;
-      right: 100px;
+      width: 350px;
+      height: 350px;
+      background: var(--rose);
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.25;
     }
 
     .cover-content {
@@ -233,79 +177,77 @@
       z-index: 2;
     }
 
-    .cover-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .cover-tag-line {
-      width: 40px;
-      height: 2px;
-      background: var(--gradient-diagonal);
-    }
-
-    .cover-tag-text {
+    .cover-eyebrow {
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+      font-weight: 400;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--jet-soft);
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .cover-eyebrow::before,
+    .cover-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gradient-sunset);
     }
 
     .cover-name {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .cover-name .first {
-      font-family: var(--font-elegant);
-      font-size: 5.5rem;
-      font-weight: 500;
+      font-family: var(--font-primary);
+      font-size: 6rem;
+      font-weight: 600;
       letter-spacing: -0.03em;
-      color: var(--jet);
+      color: var(--ink);
       display: block;
-      line-height: 0.9;
+      line-height: 0.95;
     }
 
     .cover-name .last {
-      font-family: var(--font-display);
-      font-size: 5.5rem;
-      font-weight: 900;
+      font-family: var(--font-primary);
+      font-size: 6rem;
+      font-weight: 600;
       letter-spacing: -0.03em;
-      color: var(--jet);
+      color: var(--ink);
       display: block;
       line-height: 1;
     }
 
-    .cover-subtitle {
-      font-family: var(--font-elegant);
+    .cover-tagline {
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 400;
-      color: var(--jet-soft);
+      color: var(--ink-soft);
       margin-bottom: 48px;
     }
 
-    /* Multi-color decorative element */
-    .cover-decoration {
+    .cover-accent {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      margin-bottom: 48px;
+      gap: 12px;
     }
 
-    .cover-decoration span {
-      height: 3px;
+    .cover-accent span {
+      width: 40px;
+      height: 4px;
       border-radius: 2px;
     }
 
-    .cover-decoration .d1 { width: 32px; background: var(--butter); }
-    .cover-decoration .d2 { width: 48px; background: var(--pink); }
-    .cover-decoration .d3 { width: 24px; background: var(--silver); }
-    .cover-decoration .d4 { width: 16px; background: var(--cherry); }
+    .cover-accent .a1 { background: var(--butter); width: 48px; }
+    .cover-accent .a2 { background: var(--rose); width: 32px; }
+    .cover-accent .a3 { background: var(--gold); width: 20px; }
 
     .cover-footer {
       position: absolute;
@@ -317,11 +259,10 @@
 
     .cover-version {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--jet-soft);
-      opacity: 0.7;
+      color: var(--grey);
     }
 
     /* ==========================================================================
@@ -333,17 +274,15 @@
       position: relative;
     }
 
-    /* Subtle gradient wash across the page */
     .essence::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 200px;
+      height: 300px;
       background: linear-gradient(180deg, var(--butter-soft) 0%, transparent 100%);
-      opacity: 0.4;
-      z-index: 0;
+      opacity: 0.5;
     }
 
     .essence::after {
@@ -352,10 +291,9 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 150px;
-      background: linear-gradient(0deg, var(--pink-soft) 0%, transparent 100%);
-      opacity: 0.3;
-      z-index: 0;
+      height: 200px;
+      background: linear-gradient(0deg, var(--rose-soft) 0%, transparent 100%);
+      opacity: 0.4;
     }
 
     .section-header {
@@ -367,16 +305,16 @@
 
     .section-number {
       font-family: var(--font-display);
-      font-size: 0.85rem;
-      font-weight: 600;
-      width: 28px;
-      height: 28px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--gradient-butter-pink);
-      color: var(--jet);
+      background: var(--gradient-sunset);
+      color: var(--ink);
     }
 
     .section-label {
@@ -384,21 +322,23 @@
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--jet-soft);
+      color: var(--grey);
     }
 
     .essence-headline {
-      font-family: var(--font-elegant);
-      font-size: 3.2rem;
-      font-weight: 500;
-      line-height: 1.15;
-      color: var(--jet);
+      font-family: var(--font-primary);
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
       margin-bottom: 32px;
-      max-width: 500px;
+      max-width: 480px;
     }
 
-    .essence-headline .accent {
-      color: var(--cherry);
+    .essence-headline em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--gold);
     }
 
     .essence-body {
@@ -406,40 +346,46 @@
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.8;
-      color: var(--jet-soft);
-      max-width: 480px;
-      margin-bottom: 48px;
+      color: var(--ink-soft);
+      max-width: 460px;
+      margin-bottom: 40px;
     }
 
-    /* Quote block with blended background */
+    .essence-divider {
+      width: 80px;
+      margin-bottom: 40px;
+    }
+
     .essence-quote {
       position: relative;
-      padding: 40px 48px;
-      background: linear-gradient(135deg, var(--butter-soft) 0%, var(--pink-soft) 60%, var(--silver-light) 100%);
+      padding: 36px 40px;
+      background: var(--gradient-warm);
       border-radius: 16px;
-      margin-top: 32px;
+      margin-top: 24px;
     }
 
     .essence-quote::before {
       content: '"';
       position: absolute;
-      top: 16px;
-      left: 24px;
-      font-family: var(--font-display);
+      top: 20px;
+      left: 28px;
+      font-family: var(--font-primary);
       font-size: 4rem;
-      font-weight: 900;
-      color: var(--cherry);
-      opacity: 0.3;
+      font-weight: 600;
+      color: var(--butter);
+      opacity: 0.5;
       line-height: 1;
     }
 
     .essence-quote p {
-      font-family: var(--font-elegant);
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 400;
       line-height: 1.5;
-      color: var(--jet);
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
     }
 
     .essence-quote cite {
@@ -449,43 +395,19 @@
       font-style: normal;
       font-size: 0.7rem;
       letter-spacing: 0.1em;
-      color: var(--jet-soft);
-    }
-
-    /* Floating decorative elements */
-    .essence .decor-circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.15;
-    }
-
-    .essence .decor-1 {
-      width: 120px;
-      height: 120px;
-      background: var(--butter);
-      top: 80px;
-      right: 60px;
-    }
-
-    .essence .decor-2 {
-      width: 80px;
-      height: 80px;
-      background: var(--pink);
-      top: 140px;
-      right: 40px;
+      color: var(--grey);
     }
 
     /* ==========================================================================
-       PAGE 3: COLOR PALETTE — Showing Colors Together
+       PAGE 3: COLOR PALETTE
        ========================================================================== */
 
     .palette {
-      background: var(--jet);
+      background: var(--ink);
       color: var(--cream);
       position: relative;
     }
 
-    /* Gradient overlay for color mixing effect */
     .palette::before {
       content: '';
       position: absolute;
@@ -493,34 +415,32 @@
       right: 0;
       width: 50%;
       height: 100%;
-      background: linear-gradient(135deg, transparent 0%, rgba(242, 208, 78, 0.08) 30%, rgba(255, 179, 177, 0.08) 70%, transparent 100%);
-      z-index: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(242, 208, 78, 0.06) 50%, rgba(212, 165, 165, 0.06) 100%);
     }
 
     .palette .section-number {
-      background: var(--gradient-butter-pink);
-      color: var(--jet);
+      background: var(--butter);
+      color: var(--ink);
     }
 
     .palette .section-label {
-      color: var(--silver);
+      color: var(--grey-light);
     }
 
     .palette-intro {
-      font-family: var(--font-elegant);
-      font-size: 1.8rem;
-      font-weight: 400;
+      font-family: var(--font-primary);
+      font-size: 1.6rem;
+      font-weight: 500;
       line-height: 1.4;
       color: var(--cream);
       margin-bottom: 40px;
-      max-width: 450px;
+      max-width: 420px;
     }
 
-    /* Color swatches with overlapping effect */
     .palette-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
       margin-bottom: 40px;
     }
 
@@ -529,18 +449,17 @@
     }
 
     .swatch-color {
-      height: 100px;
+      height: 80px;
       border-radius: 12px;
       position: relative;
       overflow: hidden;
     }
 
-    /* Add subtle gradient overlay to each swatch */
     .swatch-color::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
     }
 
     .swatch-info {
@@ -549,95 +468,83 @@
 
     .swatch-name {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--cream);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .swatch-hex {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--silver);
+      font-size: 0.65rem;
+      color: var(--grey-light);
     }
 
-    /* Gradient combinations showcase */
     .palette-gradients {
-      margin-top: 32px;
+      margin-top: 36px;
     }
 
     .palette-gradients-label {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--silver);
+      color: var(--grey-light);
       margin-bottom: 16px;
     }
 
     .gradient-samples {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
 
     .gradient-sample {
-      flex: 1;
-      height: 60px;
+      height: 56px;
       border-radius: 10px;
       position: relative;
     }
 
     .gradient-sample span {
       position: absolute;
-      bottom: -24px;
+      bottom: -22px;
       left: 0;
       font-family: var(--font-mono);
       font-size: 0.6rem;
-      color: var(--silver);
-      opacity: 0.8;
+      color: var(--grey-light);
     }
 
-    /* Color harmony illustration */
     .color-harmony {
-      margin-top: 56px;
+      margin-top: 48px;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
     }
 
     .harmony-circles {
       display: flex;
-      position: relative;
     }
 
     .harmony-circle {
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      opacity: 0.85;
+      border: 3px solid var(--ink);
     }
 
-    .harmony-circle:nth-child(2) {
-      margin-left: -24px;
-    }
-
-    .harmony-circle:nth-child(3) {
-      margin-left: -24px;
-    }
-
-    .harmony-circle:nth-child(4) {
-      margin-left: -24px;
-    }
+    .harmony-circle:nth-child(2) { margin-left: -16px; }
+    .harmony-circle:nth-child(3) { margin-left: -16px; }
+    .harmony-circle:nth-child(4) { margin-left: -16px; }
 
     .harmony-text {
-      font-family: var(--font-elegant);
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 1.1rem;
-      color: var(--silver);
+      font-size: 1rem;
+      color: var(--grey-light);
     }
 
     /* ==========================================================================
-       PAGE 4: TYPOGRAPHY SYSTEM
+       PAGE 4: TYPOGRAPHY
        ========================================================================== */
 
     .typography {
@@ -645,16 +552,14 @@
       position: relative;
     }
 
-    /* Subtle multi-color gradient wash */
     .typography::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at 20% 20%, var(--butter-soft) 0%, transparent 40%),
-        radial-gradient(ellipse at 80% 80%, var(--pink-soft) 0%, transparent 40%);
-      opacity: 0.25;
-      z-index: 0;
+        radial-gradient(ellipse at 15% 20%, var(--butter-soft) 0%, transparent 35%),
+        radial-gradient(ellipse at 85% 80%, var(--rose-soft) 0%, transparent 35%);
+      opacity: 0.5;
     }
 
     .type-intro {
@@ -662,24 +567,24 @@
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.7;
-      color: var(--jet-soft);
+      color: var(--ink-soft);
       margin-bottom: 48px;
-      max-width: 500px;
+      max-width: 480px;
     }
 
     .type-specimens {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 36px;
     }
 
     .type-specimen {
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 32px;
+      grid-template-columns: 130px 1fr;
+      gap: 28px;
       align-items: start;
       padding-bottom: 32px;
-      border-bottom: 1px solid rgba(36, 34, 27, 0.1);
+      border-bottom: 1px solid rgba(26, 22, 20, 0.08);
     }
 
     .type-specimen:last-child {
@@ -693,49 +598,50 @@
     .type-role {
       font-family: var(--font-mono);
       font-size: 0.6rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--cherry);
-      margin-bottom: 6px;
+      color: var(--gold);
+      margin-bottom: 8px;
     }
 
     .type-font {
       font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--jet);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
       margin-bottom: 4px;
     }
 
     .type-weight {
       font-family: var(--font-mono);
       font-size: 0.65rem;
-      color: var(--jet-soft);
+      color: var(--grey);
     }
 
-    .type-sample--elegant {
-      font-family: var(--font-elegant);
-      font-size: 3rem;
-      font-weight: 500;
-      line-height: 1.1;
-      color: var(--jet);
+    .type-sample--lora {
+      font-family: var(--font-primary);
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
     }
 
-    .type-sample--elegant-italic {
-      font-family: var(--font-elegant);
+    .type-sample--lora-italic {
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 400;
-      line-height: 1.3;
-      color: var(--jet-soft);
+      line-height: 1.35;
+      color: var(--ink-soft);
     }
 
-    .type-sample--display {
+    .type-sample--fraunces {
       font-family: var(--font-display);
-      font-size: 4rem;
+      font-size: 4.5rem;
       font-weight: 900;
       line-height: 1;
-      color: var(--jet);
+      color: var(--ink);
+      letter-spacing: -0.02em;
     }
 
     .type-sample--body {
@@ -743,8 +649,8 @@
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.7;
-      color: var(--jet-soft);
-      max-width: 360px;
+      color: var(--ink-soft);
+      max-width: 340px;
     }
 
     .type-sample--mono {
@@ -752,20 +658,15 @@
       font-size: 0.8rem;
       font-weight: 400;
       line-height: 1.6;
-      color: var(--jet-soft);
+      color: var(--grey);
     }
 
-    /* Color accent on typography */
-    .type-sample .butter { color: var(--butter); }
-    .type-sample .pink { color: var(--pink); }
-    .type-sample .cherry { color: var(--cherry); }
-
     /* ==========================================================================
-       PAGE 5: THE INTERPLAY — Bold + Elegant Together
+       PAGE 5: THE INTERPLAY
        ========================================================================== */
 
     .interplay {
-      background: var(--gradient-pink-silver);
+      background: var(--gradient-soft);
       position: relative;
     }
 
@@ -777,34 +678,33 @@
       width: 40%;
       height: 100%;
       background: linear-gradient(90deg, var(--butter-soft) 0%, transparent 100%);
-      opacity: 0.5;
+      opacity: 0.4;
     }
 
     .interplay-intro {
       font-family: var(--font-body);
       font-size: 1rem;
       line-height: 1.7;
-      color: var(--jet-soft);
-      margin-bottom: 48px;
-      max-width: 460px;
+      color: var(--ink-soft);
+      margin-bottom: 40px;
+      max-width: 440px;
     }
 
     .interplay-examples {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 28px;
     }
 
     .interplay-example {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
+      background: white;
       border-radius: 16px;
-      padding: 32px;
+      padding: 32px 36px;
+      box-shadow: 0 4px 32px rgba(26, 22, 20, 0.06);
       position: relative;
       overflow: hidden;
     }
 
-    /* Gradient accent bar */
     .interplay-example::before {
       content: '';
       position: absolute;
@@ -812,7 +712,7 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background: var(--gradient-diagonal);
+      background: var(--gradient-sunset);
     }
 
     .interplay-example-label {
@@ -820,61 +720,62 @@
       font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--cherry);
+      color: var(--gold);
       margin-bottom: 16px;
     }
 
-    .stat-block {
+    .stat-display {
       display: flex;
       align-items: baseline;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .stat-number {
       font-family: var(--font-display);
-      font-size: 4.5rem;
+      font-size: 5rem;
       font-weight: 900;
       line-height: 1;
-      color: var(--jet);
+      color: var(--ink);
+      letter-spacing: -0.02em;
     }
 
     .stat-context {
-      font-family: var(--font-elegant);
-      font-size: 1.3rem;
+      font-family: var(--font-primary);
+      font-size: 1.2rem;
       font-weight: 400;
       line-height: 1.4;
-      color: var(--jet-soft);
-      max-width: 280px;
+      color: var(--ink-soft);
+      max-width: 260px;
     }
 
     .stat-source {
       margin-top: 16px;
       font-family: var(--font-mono);
       font-size: 0.65rem;
-      color: var(--jet-soft);
-      opacity: 0.7;
+      color: var(--grey);
     }
 
-    .headline-example {
+    .headline-display {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
 
     .headline-main {
-      font-family: var(--font-elegant);
-      font-size: 2.2rem;
-      font-weight: 500;
-      line-height: 1.15;
-      color: var(--jet);
+      font-family: var(--font-primary);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
     }
 
     .headline-sub {
-      font-family: var(--font-elegant);
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 400;
-      color: var(--jet-soft);
+      color: var(--ink-soft);
     }
 
     /* ==========================================================================
@@ -886,21 +787,20 @@
       position: relative;
     }
 
-    /* Multi-directional gradient */
     .components::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(135deg, var(--butter-soft) 0%, transparent 30%),
-        linear-gradient(225deg, var(--pink-soft) 0%, transparent 30%);
-      opacity: 0.3;
+        linear-gradient(135deg, var(--butter-soft) 0%, transparent 25%),
+        linear-gradient(315deg, var(--rose-soft) 0%, transparent 25%);
+      opacity: 0.4;
     }
 
     .components-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 20px;
       margin-top: 32px;
     }
 
@@ -908,22 +808,8 @@
       background: white;
       border-radius: 16px;
       padding: 28px;
-      box-shadow: 0 4px 24px rgba(36, 34, 27, 0.06);
+      box-shadow: 0 2px 20px rgba(26, 22, 20, 0.05);
       position: relative;
-      overflow: hidden;
-    }
-
-    /* Gradient corner accent */
-    .component-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 80px;
-      height: 80px;
-      background: var(--gradient-butter-pink);
-      opacity: 0.15;
-      border-radius: 0 16px 0 80px;
     }
 
     .component-label {
@@ -931,57 +817,54 @@
       font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--cherry);
-      margin-bottom: 16px;
+      color: var(--gold);
+      margin-bottom: 20px;
     }
 
     /* Quote component */
-    .quote-component {
+    .quote-card {
       grid-column: 1 / -1;
-      background: linear-gradient(135deg, var(--butter-soft) 0%, var(--pink-soft) 50%, var(--silver-light) 100%);
-    }
-
-    .quote-component::after {
-      display: none;
+      background: var(--gradient-warm);
+      padding: 32px 36px;
     }
 
     .quote-text {
-      font-family: var(--font-elegant);
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 400;
-      line-height: 1.4;
-      color: var(--jet);
-      margin-bottom: 16px;
+      line-height: 1.45;
+      color: var(--ink);
+      margin-bottom: 20px;
     }
 
     .quote-attribution {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .quote-avatar {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: var(--gradient-diagonal);
+      background: var(--gradient-sunset);
     }
 
     .quote-name {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      color: var(--jet);
+      color: var(--ink);
     }
 
     .quote-title {
       font-family: var(--font-mono);
       font-size: 0.65rem;
-      color: var(--jet-soft);
+      color: var(--grey);
     }
 
-    /* Button components */
+    /* Buttons */
     .button-samples {
       display: flex;
       flex-direction: column;
@@ -998,26 +881,27 @@
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
     }
 
     .btn--primary {
-      background: var(--jet);
+      background: var(--ink);
       color: var(--cream);
     }
 
     .btn--secondary {
       background: transparent;
-      color: var(--jet);
-      border: 2px solid var(--jet);
+      color: var(--ink);
+      border: 2px solid var(--ink);
     }
 
     .btn--accent {
-      background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 100%);
-      color: var(--jet);
+      background: var(--butter);
+      color: var(--ink);
     }
 
-    /* Tag component */
+    /* Tags */
     .tag-samples {
       display: flex;
       flex-wrap: wrap;
@@ -1026,55 +910,36 @@
 
     .tag {
       display: inline-flex;
-      padding: 6px 14px;
-      border-radius: 20px;
+      padding: 8px 16px;
+      border-radius: 24px;
       font-family: var(--font-body);
       font-size: 0.75rem;
       font-weight: 500;
     }
 
-    .tag--butter {
-      background: var(--butter-soft);
-      color: var(--jet);
-    }
-
-    .tag--pink {
-      background: var(--pink-soft);
-      color: var(--jet);
-    }
-
-    .tag--silver {
-      background: var(--silver);
-      color: var(--jet);
-    }
-
-    .tag--outline {
-      background: transparent;
-      border: 1px solid var(--jet);
-      color: var(--jet);
-    }
+    .tag--butter { background: var(--butter-light); color: var(--ink); }
+    .tag--rose { background: var(--rose-light); color: var(--ink); }
+    .tag--outline { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
 
     /* Stat card */
-    .stat-card-mini {
+    .stat-card {
       text-align: center;
-      padding: 24px;
+      padding: 32px 24px;
     }
 
     .stat-card-number {
       font-family: var(--font-display);
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 900;
-      background: var(--gradient-diagonal);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--ink);
+      letter-spacing: -0.02em;
     }
 
     .stat-card-label {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      color: var(--jet-soft);
+      color: var(--grey);
       margin-top: 8px;
     }
 
@@ -1083,7 +948,7 @@
        ========================================================================== */
 
     .social {
-      background: var(--jet);
+      background: var(--ink);
       color: var(--cream);
       position: relative;
     }
@@ -1093,21 +958,21 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at 30% 30%, rgba(242, 208, 78, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 70%, rgba(255, 179, 177, 0.1) 0%, transparent 50%);
+        radial-gradient(ellipse at 25% 25%, rgba(242, 208, 78, 0.08) 0%, transparent 45%),
+        radial-gradient(ellipse at 75% 75%, rgba(212, 165, 165, 0.08) 0%, transparent 45%);
     }
 
     .social .section-label {
-      color: var(--silver);
+      color: var(--grey-light);
     }
 
     .social-intro {
       font-family: var(--font-body);
       font-size: 1rem;
       line-height: 1.7;
-      color: var(--silver);
-      margin-bottom: 40px;
-      max-width: 460px;
+      color: var(--grey-light);
+      margin-bottom: 36px;
+      max-width: 420px;
     }
 
     .social-grid {
@@ -1131,9 +996,8 @@
       grid-row: span 2;
     }
 
-    /* Template with blended gradient background */
     .template-gradient {
-      background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 50%, var(--silver) 100%);
+      background: var(--gradient-warm);
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -1141,24 +1005,23 @@
     }
 
     .template-gradient .template-headline {
-      font-family: var(--font-elegant);
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--jet);
-      line-height: 1.2;
+      font-family: var(--font-primary);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
     }
 
     .template-gradient .template-subline {
-      font-family: var(--font-elegant);
+      font-family: var(--font-primary);
       font-style: italic;
       font-size: 0.9rem;
-      color: var(--jet-soft);
+      color: var(--ink-soft);
       margin-top: 8px;
     }
 
-    /* Template with dark background */
     .template-dark {
-      background: var(--jet-soft);
+      background: var(--ink-soft);
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -1169,36 +1032,33 @@
 
     .template-dark .stat-big {
       font-family: var(--font-display);
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 900;
-      background: var(--gradient-diagonal);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--butter);
     }
 
     .template-dark .stat-text {
       font-family: var(--font-body);
       font-size: 0.85rem;
-      color: var(--silver);
+      color: var(--grey-light);
       margin-top: 12px;
+      max-width: 140px;
     }
 
-    /* Story template */
     .template-story {
-      background: linear-gradient(180deg, var(--butter-soft) 0%, var(--pink-soft) 50%, var(--cream) 100%);
-      padding: 32px 24px;
+      background: linear-gradient(180deg, var(--butter-light) 0%, var(--rose-light) 60%, var(--cream) 100%);
+      padding: 28px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .template-story .story-quote {
-      font-family: var(--font-elegant);
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       line-height: 1.4;
-      color: var(--jet);
+      color: var(--ink);
       margin-top: auto;
       margin-bottom: auto;
     }
@@ -1206,24 +1066,24 @@
     .template-story .story-footer {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .template-story .story-logo {
       width: 24px;
       height: 24px;
-      background: var(--jet);
+      background: var(--ink);
       border-radius: 4px;
     }
 
     .template-story .story-handle {
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      color: var(--jet-soft);
+      color: var(--ink-soft);
     }
 
     /* ==========================================================================
-       PAGE 8: PHOTOGRAPHY DIRECTION
+       PAGE 8: PHOTOGRAPHY
        ========================================================================== */
 
     .photography {
@@ -1231,14 +1091,14 @@
       position: relative;
     }
 
-    .photography::before {
+    .photography::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       height: 40%;
-      background: linear-gradient(0deg, var(--pink-soft) 0%, transparent 100%);
+      background: linear-gradient(0deg, var(--rose-soft) 0%, transparent 100%);
       opacity: 0.3;
     }
 
@@ -1246,9 +1106,9 @@
       font-family: var(--font-body);
       font-size: 1rem;
       line-height: 1.7;
-      color: var(--jet-soft);
-      margin-bottom: 40px;
-      max-width: 460px;
+      color: var(--ink-soft);
+      margin-bottom: 36px;
+      max-width: 440px;
     }
 
     .photo-grid {
@@ -1263,14 +1123,7 @@
       border-radius: 12px;
       position: relative;
       overflow: hidden;
-    }
-
-    .photo-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 0;
       background: var(--gradient-warm);
-      opacity: 0.7;
     }
 
     .photo-placeholder::after {
@@ -1282,8 +1135,7 @@
       justify-content: center;
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      color: var(--jet-soft);
+      color: var(--grey);
     }
 
     .photo-principles {
@@ -1294,14 +1146,14 @@
 
     .principle {
       display: flex;
-      gap: 16px;
+      gap: 14px;
     }
 
     .principle-icon {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--gradient-butter-pink);
+      background: var(--gradient-sunset);
       flex-shrink: 0;
     }
 
@@ -1309,7 +1161,7 @@
       font-family: var(--font-body);
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--jet);
+      color: var(--ink);
       margin-bottom: 4px;
     }
 
@@ -1317,7 +1169,7 @@
       font-family: var(--font-body);
       font-size: 0.8rem;
       line-height: 1.5;
-      color: var(--jet-soft);
+      color: var(--grey);
     }
 
     /* ==========================================================================
@@ -1325,7 +1177,7 @@
        ========================================================================== */
 
     .guidelines {
-      background: var(--silver-light);
+      background: var(--rose-soft);
       position: relative;
     }
 
@@ -1337,62 +1189,64 @@
       right: 0;
       height: 50%;
       background: linear-gradient(180deg, var(--butter-soft) 0%, transparent 100%);
-      opacity: 0.25;
+      opacity: 0.4;
     }
 
     .guidelines-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      gap: 40px;
       margin-top: 32px;
     }
 
     .guidelines-column h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-family: var(--font-primary);
+      font-size: 1.4rem;
+      font-weight: 600;
       margin-bottom: 24px;
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .guidelines-column h3 .icon-do {
+    .icon-do {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 100%);
+      background: var(--butter);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--jet);
+      color: var(--ink);
       font-size: 1rem;
+      font-weight: 700;
     }
 
-    .guidelines-column h3 .icon-dont {
+    .icon-dont {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: var(--cherry);
+      background: var(--rose);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: var(--ink);
       font-size: 1rem;
+      font-weight: 700;
     }
 
     .guideline-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
 
     .guideline-item {
       font-family: var(--font-body);
       font-size: 0.9rem;
       line-height: 1.5;
-      color: var(--jet);
+      color: var(--ink);
       padding-left: 20px;
       position: relative;
     }
@@ -1404,6 +1258,7 @@
       top: 8px;
       width: 8px;
       height: 2px;
+      border-radius: 1px;
     }
 
     .do-list .guideline-item::before {
@@ -1411,7 +1266,7 @@
     }
 
     .dont-list .guideline-item::before {
-      background: var(--cherry);
+      background: var(--rose);
     }
 
     /* ==========================================================================
@@ -1428,23 +1283,30 @@
       position: relative;
     }
 
-    /* Floating decorative blobs */
-    .closing .blob-1 {
+    .closing::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: -60px;
       width: 300px;
       height: 300px;
-      top: 50px;
-      left: -80px;
       background: var(--butter);
-      opacity: 0.3;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.25;
     }
 
-    .closing .blob-2 {
-      width: 250px;
-      height: 250px;
-      bottom: 80px;
+    .closing::after {
+      content: '';
+      position: absolute;
+      bottom: 60px;
       right: -60px;
-      background: var(--pink);
-      opacity: 0.3;
+      width: 280px;
+      height: 280px;
+      background: var(--rose);
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.25;
     }
 
     .closing-content {
@@ -1453,32 +1315,31 @@
     }
 
     .closing-headline {
-      font-family: var(--font-elegant);
-      font-size: 3.5rem;
-      font-weight: 500;
+      font-family: var(--font-primary);
+      font-size: 3.2rem;
+      font-weight: 600;
       line-height: 1.15;
-      color: var(--jet);
+      color: var(--ink);
       margin-bottom: 16px;
     }
 
     .closing-subline {
-      font-family: var(--font-elegant);
+      font-family: var(--font-primary);
       font-style: italic;
-      font-size: 1.4rem;
-      color: var(--jet-soft);
+      font-size: 1.3rem;
+      color: var(--ink-soft);
       margin-bottom: 48px;
     }
 
-    /* Multi-color decorative element */
-    .closing-decoration {
+    .closing-accent {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 48px;
     }
 
-    .closing-decoration span {
+    .closing-accent span {
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -1486,13 +1347,13 @@
 
     .closing-contact {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: var(--jet-soft);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-soft);
     }
 
     .closing-contact a {
-      color: var(--cherry);
+      color: var(--gold);
       text-decoration: none;
     }
 
@@ -1503,8 +1364,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--jet-soft);
-      opacity: 0.6;
+      color: var(--grey);
     }
 
     /* ==========================================================================
@@ -1522,11 +1382,6 @@
         page-break-after: always;
         page-break-inside: avoid;
       }
-
-      .color-blob {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-      }
     }
 
     @page {
@@ -1541,36 +1396,25 @@
        PAGE 1: COVER
        ======================================================================== -->
   <div class="page cover">
-    <!-- Floating color blobs for watercolor effect -->
-    <div class="color-blob blob-butter blob-1"></div>
-    <div class="color-blob blob-pink blob-2"></div>
-    <div class="color-blob blob-silver blob-3"></div>
-
     <div class="cover-content">
-      <div class="cover-tag">
-        <span class="cover-tag-line"></span>
-        <span class="cover-tag-text">Brand Identity System</span>
-        <span class="cover-tag-line"></span>
-      </div>
+      <div class="cover-eyebrow">Brand Identity System</div>
 
       <div class="cover-name">
         <span class="first">Tobi</span>
         <span class="last">Oredein</span>
       </div>
 
-      <p class="cover-subtitle">The future of Black women's media</p>
+      <p class="cover-tagline">The future of Black women's media</p>
 
-      <!-- Multi-color decorative bars -->
-      <div class="cover-decoration">
-        <span class="d1"></span>
-        <span class="d2"></span>
-        <span class="d3"></span>
-        <span class="d4"></span>
+      <div class="cover-accent">
+        <span class="a1"></span>
+        <span class="a2"></span>
+        <span class="a3"></span>
       </div>
     </div>
 
     <div class="cover-footer">
-      <p class="cover-version">Version 2.2 — Butter & Rose</p>
+      <p class="cover-version">Version 2.3 — Butter & Rose</p>
     </div>
   </div>
 
@@ -1578,9 +1422,6 @@
        PAGE 2: BRAND ESSENCE
        ======================================================================== -->
   <div class="page essence">
-    <div class="decor-circle decor-1"></div>
-    <div class="decor-circle decor-2"></div>
-
     <div class="page-content">
       <div class="section-header">
         <span class="section-number">01</span>
@@ -1588,17 +1429,17 @@
       </div>
 
       <h1 class="essence-headline">
-        Building the future of <span class="accent">Black women's</span> media
+        Building the future of <em>Black women's</em> media
       </h1>
 
       <p class="essence-body">
-        This brand represents a trusted guide — wisdom walking into the room, not disruption for disruption's sake. It bridges the tension between tech precision and cultural warmth, data rigor and community heart.
+        This brand represents a trusted guide — wisdom walking into the room. It bridges the tension between data precision and cultural warmth, rigorous insights and community heart.
       </p>
 
-      <div class="gradient-line" style="width: 120px; margin-bottom: 32px;"></div>
+      <div class="decor-line essence-divider"></div>
 
       <p class="essence-body">
-        The visual language feels editorial and sophisticated — a lifestyle publication with the backbone of intelligent data. Modern and bold, yet warm and inviting. Future-forward, but never cold.
+        The visual language feels editorial and sophisticated — a lifestyle publication with the backbone of intelligent data. Warm and inviting, yet unmistakably forward-thinking.
       </p>
 
       <div class="essence-quote">
@@ -1619,7 +1460,7 @@
       </div>
 
       <p class="palette-intro">
-        Colors that dance together — butter yellow brings warmth, pink lemonade adds softness, and silver grounds the palette in sophistication.
+        Butter brings unexpected sunshine. Rose adds mature femininity. Together, they create warmth that invites you in.
       </p>
 
       <div class="palette-grid">
@@ -1631,53 +1472,64 @@
           </div>
         </div>
         <div class="color-swatch">
-          <div class="swatch-color" style="background: var(--pink);"></div>
+          <div class="swatch-color" style="background: var(--rose);"></div>
           <div class="swatch-info">
-            <p class="swatch-name">Pink Lemonade</p>
-            <p class="swatch-hex">#FFB3B1</p>
+            <p class="swatch-name">Dusty Rose</p>
+            <p class="swatch-hex">#D4A5A5</p>
           </div>
         </div>
         <div class="color-swatch">
-          <div class="swatch-color" style="background: var(--silver);"></div>
+          <div class="swatch-color" style="background: var(--ink);"></div>
           <div class="swatch-info">
-            <p class="swatch-name">Silver Stone</p>
-            <p class="swatch-hex">#E4DFD8</p>
+            <p class="swatch-name">Warm Black</p>
+            <p class="swatch-hex">#1A1614</p>
           </div>
         </div>
         <div class="color-swatch">
-          <div class="swatch-color" style="background: var(--jet);"></div>
+          <div class="swatch-color" style="background: var(--cream);"></div>
           <div class="swatch-info">
-            <p class="swatch-name">Jet Black</p>
-            <p class="swatch-hex">#24221B</p>
+            <p class="swatch-name">Warm Cream</p>
+            <p class="swatch-hex">#FAF6F1</p>
           </div>
         </div>
         <div class="color-swatch">
-          <div class="swatch-color" style="background: var(--cherry);"></div>
-          <div class="swatch-info">
-            <p class="swatch-name">Cherry Cola</p>
-            <p class="swatch-hex">#9A0D02</p>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="swatch-color" style="background: var(--butter-soft);"></div>
+          <div class="swatch-color" style="background: var(--butter-light);"></div>
           <div class="swatch-info">
             <p class="swatch-name">Butter Light</p>
-            <p class="swatch-hex">#FFEFBC</p>
+            <p class="swatch-hex">#FBF3D4</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--rose-light);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Rose Light</p>
+            <p class="swatch-hex">#F2E4E4</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--gold);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Burnished Gold</p>
+            <p class="swatch-hex">#B8860B</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: var(--grey);"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Warm Grey</p>
+            <p class="swatch-hex">#8A8580</p>
           </div>
         </div>
       </div>
 
       <div class="palette-gradients">
-        <p class="palette-gradients-label">Gradient Combinations</p>
+        <p class="palette-gradients-label">Gradient Blends</p>
         <div class="gradient-samples">
-          <div class="gradient-sample" style="background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 100%);">
-            <span>Butter → Pink</span>
+          <div class="gradient-sample" style="background: var(--gradient-warm);">
+            <span>Butter → Rose (Warm)</span>
           </div>
-          <div class="gradient-sample" style="background: linear-gradient(135deg, var(--pink) 0%, var(--silver) 100%);">
-            <span>Pink → Silver</span>
-          </div>
-          <div class="gradient-sample" style="background: linear-gradient(135deg, var(--butter) 0%, var(--pink) 50%, var(--silver) 100%);">
-            <span>Full Blend</span>
+          <div class="gradient-sample" style="background: var(--gradient-sunset);">
+            <span>Sunset (Bold)</span>
           </div>
         </div>
       </div>
@@ -1685,17 +1537,17 @@
       <div class="color-harmony">
         <div class="harmony-circles">
           <div class="harmony-circle" style="background: var(--butter);"></div>
-          <div class="harmony-circle" style="background: var(--pink);"></div>
-          <div class="harmony-circle" style="background: var(--silver);"></div>
-          <div class="harmony-circle" style="background: var(--cherry);"></div>
+          <div class="harmony-circle" style="background: var(--rose);"></div>
+          <div class="harmony-circle" style="background: var(--gold);"></div>
+          <div class="harmony-circle" style="background: var(--cream);"></div>
         </div>
-        <p class="harmony-text">Colors in conversation, not isolation</p>
+        <p class="harmony-text">Colors in warm conversation</p>
       </div>
     </div>
   </div>
 
   <!-- ========================================================================
-       PAGE 4: TYPOGRAPHY SYSTEM
+       PAGE 4: TYPOGRAPHY
        ======================================================================== -->
   <div class="page typography">
     <div class="page-content">
@@ -1705,17 +1557,17 @@
       </div>
 
       <p class="type-intro">
-        The typography creates a dialogue between elegant femininity and bold presence. Cormorant Garamond leads with sophistication; Playfair Display punctuates with power.
+        Lora leads with warm sophistication. Fraunces punctuates with bold personality. Together they create a voice that's friendly, intelligent, and distinctly feminine.
       </p>
 
       <div class="type-specimens">
         <div class="type-specimen">
           <div class="type-meta">
             <p class="type-role">Primary Voice</p>
-            <p class="type-font">Cormorant Garamond</p>
-            <p class="type-weight">Medium 500</p>
+            <p class="type-font">Lora</p>
+            <p class="type-weight">SemiBold 600</p>
           </div>
-          <div class="type-sample type-sample--elegant">
+          <div class="type-sample type-sample--lora">
             The Future of Media
           </div>
         </div>
@@ -1723,10 +1575,10 @@
         <div class="type-specimen">
           <div class="type-meta">
             <p class="type-role">Elegant Accent</p>
-            <p class="type-font">Cormorant Garamond</p>
+            <p class="type-font">Lora</p>
             <p class="type-weight">Italic 400</p>
           </div>
-          <div class="type-sample type-sample--elegant-italic">
+          <div class="type-sample type-sample--lora-italic">
             "Building what comes next, with warmth and wisdom"
           </div>
         </div>
@@ -1734,10 +1586,10 @@
         <div class="type-specimen">
           <div class="type-meta">
             <p class="type-role">Bold Moments</p>
-            <p class="type-font">Playfair Display</p>
+            <p class="type-font">Fraunces</p>
             <p class="type-weight">Black 900</p>
           </div>
-          <div class="type-sample type-sample--display">
+          <div class="type-sample type-sample--fraunces">
             87%
           </div>
         </div>
@@ -1749,13 +1601,13 @@
             <p class="type-weight">Medium 500</p>
           </div>
           <div class="type-sample type-sample--body">
-            Clear, readable, and modern. Perfect for longer passages that inform and engage the reader with substance and style.
+            Clear, readable, and modern. Perfect for longer passages that inform and engage the reader with substance and warmth.
           </div>
         </div>
 
         <div class="type-specimen">
           <div class="type-meta">
-            <p class="type-role">Data & Sources</p>
+            <p class="type-role">Data Sources</p>
             <p class="type-font">JetBrains Mono</p>
             <p class="type-weight">Regular 400</p>
           </div>
@@ -1778,13 +1630,13 @@
       </div>
 
       <p class="interplay-intro">
-        Bold and elegant working in harmony. The elegant serif sets the tone; bold moments provide punctuation. Data appears with confidence but never dominates.
+        Lora sets the tone — warm, wise, welcoming. Fraunces punctuates with bold moments. Data appears with confidence but never overwhelms the warmth.
       </p>
 
       <div class="interplay-examples">
         <div class="interplay-example">
           <p class="interplay-example-label">Stat with Context</p>
-          <div class="stat-block">
+          <div class="stat-display">
             <span class="stat-number">87%</span>
             <p class="stat-context">of Black women say representation in media directly impacts their sense of belonging</p>
           </div>
@@ -1793,18 +1645,18 @@
 
         <div class="interplay-example">
           <p class="interplay-example-label">Editorial Headline</p>
-          <div class="headline-example">
+          <div class="headline-display">
             <h2 class="headline-main">The Conversation That Changes Everything</h2>
             <p class="headline-sub">How community shapes the future of media</p>
           </div>
         </div>
 
         <div class="interplay-example">
-          <p class="interplay-example-label">Statement</p>
-          <div class="headline-example">
-            <h2 class="headline-main" style="font-style: italic; font-weight: 400;">
+          <p class="interplay-example-label">Pull Quote</p>
+          <div class="headline-display">
+            <p class="headline-main" style="font-style: italic; font-weight: 400; font-size: 1.7rem;">
               "We're not just reporting on culture — we're building the infrastructure for it."
-            </h2>
+            </p>
           </div>
         </div>
       </div>
@@ -1823,7 +1675,7 @@
 
       <div class="components-grid">
         <!-- Quote Component -->
-        <div class="component-card quote-component">
+        <div class="component-card quote-card">
           <p class="component-label">Pull Quote</p>
           <p class="quote-text">"The future belongs to those who see possibility where others see barriers."</p>
           <div class="quote-attribution">
@@ -1839,9 +1691,9 @@
         <div class="component-card">
           <p class="component-label">Buttons</p>
           <div class="button-samples">
-            <a href="#" class="btn btn--primary">Primary Action</a>
-            <a href="#" class="btn btn--secondary">Secondary</a>
-            <a href="#" class="btn btn--accent">Accent</a>
+            <button class="btn btn--primary">Primary Action</button>
+            <button class="btn btn--secondary">Secondary</button>
+            <button class="btn btn--accent">Accent</button>
           </div>
         </div>
 
@@ -1850,21 +1702,21 @@
           <p class="component-label">Tags</p>
           <div class="tag-samples">
             <span class="tag tag--butter">Community</span>
-            <span class="tag tag--pink">Lifestyle</span>
-            <span class="tag tag--silver">Data</span>
+            <span class="tag tag--rose">Lifestyle</span>
             <span class="tag tag--outline">Media</span>
+            <span class="tag tag--butter">Data</span>
           </div>
         </div>
 
         <!-- Stat Card -->
-        <div class="component-card stat-card-mini">
+        <div class="component-card stat-card">
           <p class="component-label">Stat Card</p>
           <p class="stat-card-number">2.8M</p>
           <p class="stat-card-label">Monthly Reach</p>
         </div>
 
         <!-- Another Stat -->
-        <div class="component-card stat-card-mini">
+        <div class="component-card stat-card">
           <p class="component-label">Stat Card</p>
           <p class="stat-card-number">94%</p>
           <p class="stat-card-label">Engagement Rate</p>
@@ -1884,11 +1736,11 @@
       </div>
 
       <p class="social-intro">
-        Social content uses the full color palette in flowing gradients. Colors blend naturally, creating a cohesive and recognizable visual identity across platforms.
+        Social content uses warm gradients and Lora's friendly voice. Fraunces appears for stat callouts. The feeling is always inviting, never cold.
       </p>
 
       <div class="social-grid">
-        <!-- Square post with gradient -->
+        <!-- Square post -->
         <div class="social-template social-template--square template-gradient">
           <p class="template-headline">The Future Is Being Built Right Now</p>
           <p class="template-subline">And we're the ones building it</p>
@@ -1904,7 +1756,7 @@
           </div>
         </div>
 
-        <!-- Dark stat post -->
+        <!-- Dark stat -->
         <div class="social-template social-template--square template-dark">
           <p class="stat-big">73%</p>
           <p class="stat-text">feel underrepresented in mainstream media</p>
@@ -1914,7 +1766,7 @@
   </div>
 
   <!-- ========================================================================
-       PAGE 8: PHOTOGRAPHY DIRECTION
+       PAGE 8: PHOTOGRAPHY
        ======================================================================== -->
   <div class="page photography">
     <div class="page-content">
@@ -1924,7 +1776,7 @@
       </div>
 
       <p class="photo-intro">
-        Photography should feel warm, natural, and editorial. Rich environments with natural lighting. Real moments, not staged perfection. The colors of the palette should echo naturally in imagery.
+        Photography should feel warm, natural, and editorial. Rich environments with natural lighting. Real moments, authentic connection. Colors that echo the palette naturally.
       </p>
 
       <div class="photo-grid">
@@ -1938,7 +1790,7 @@
           <div class="principle-icon"></div>
           <div class="principle-content">
             <h4>Natural Warmth</h4>
-            <p>Warm color temperatures, golden hour tones, and natural skin tones celebrated authentically.</p>
+            <p>Golden hour tones, warm color temperatures, natural skin tones celebrated authentically.</p>
           </div>
         </div>
 
@@ -1962,7 +1814,7 @@
           <div class="principle-icon"></div>
           <div class="principle-content">
             <h4>Color Harmony</h4>
-            <p>Environments that echo the palette — warm woods, soft blush tones, butter yellows appearing naturally.</p>
+            <p>Environments that echo butter and rose — warm woods, soft textiles, natural light.</p>
           </div>
         </div>
       </div>
@@ -1983,14 +1835,14 @@
         <div class="guidelines-column">
           <h3><span class="icon-do">✓</span> Do</h3>
           <ul class="guideline-list do-list">
-            <li class="guideline-item">Blend colors using gradients and overlapping elements</li>
-            <li class="guideline-item">Lead with elegant serif typography</li>
-            <li class="guideline-item">Use bold display fonts for stats and key moments</li>
-            <li class="guideline-item">Create breathing room with generous white space</li>
-            <li class="guideline-item">Let colors dance together across sections</li>
-            <li class="guideline-item">Keep the tone warm, intelligent, and feminine</li>
-            <li class="guideline-item">Use monospace subtly for data sources only</li>
-            <li class="guideline-item">Feel editorial and lifestyle-first</li>
+            <li class="guideline-item">Lead with Lora for warm sophistication</li>
+            <li class="guideline-item">Use Fraunces only for bold stat moments</li>
+            <li class="guideline-item">Blend colors through gradients</li>
+            <li class="guideline-item">Create generous breathing room</li>
+            <li class="guideline-item">Keep the tone warm and inviting</li>
+            <li class="guideline-item">Let butter yellow add unexpected energy</li>
+            <li class="guideline-item">Use dusty rose for mature femininity</li>
+            <li class="guideline-item">Feel editorial, lifestyle-first</li>
           </ul>
         </div>
 
@@ -1999,11 +1851,11 @@
           <ul class="guideline-list dont-list">
             <li class="guideline-item">Use colors in isolated blocks</li>
             <li class="guideline-item">Let data aesthetics dominate</li>
-            <li class="guideline-item">Use cold, corporate typography</li>
+            <li class="guideline-item">Make it feel cold or corporate</li>
             <li class="guideline-item">Overcrowd with too many elements</li>
             <li class="guideline-item">Use pure black or pure white</li>
-            <li class="guideline-item">Make it feel "tech startup"</li>
-            <li class="guideline-item">Use trendy "girl boss" aesthetics</li>
+            <li class="guideline-item">Make it feel like a tech startup</li>
+            <li class="guideline-item">Use "girl boss" or bubblegum pink</li>
             <li class="guideline-item">Sacrifice warmth for minimalism</li>
           </ul>
         </div>
@@ -2015,18 +1867,14 @@
        PAGE 10: CLOSING
        ======================================================================== -->
   <div class="page closing">
-    <div class="color-blob blob-1"></div>
-    <div class="color-blob blob-2"></div>
-
     <div class="closing-content">
       <h1 class="closing-headline">Let's Build<br>What's Next</h1>
       <p class="closing-subline">Together, with warmth and wisdom</p>
 
-      <div class="closing-decoration">
+      <div class="closing-accent">
         <span style="background: var(--butter);"></span>
-        <span style="background: var(--pink);"></span>
-        <span style="background: var(--silver);"></span>
-        <span style="background: var(--cherry);"></span>
+        <span style="background: var(--rose);"></span>
+        <span style="background: var(--gold);"></span>
       </div>
 
       <p class="closing-contact">
@@ -2034,7 +1882,7 @@
       </p>
     </div>
 
-    <p class="closing-footer">Tobi Oredein Brand Guide v2.2</p>
+    <p class="closing-footer">Tobi Oredein Brand Guide v2.3</p>
   </div>
 
 </body>
