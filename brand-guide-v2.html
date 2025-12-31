@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tobi Oredein — Brand Guide v2.3</title>
+  <title>Tobi Oredein — Brand Guide v2.4</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       TOBI OREDEIN BRAND GUIDE v2.3 — Butter & Rose
+       TOBI OREDEIN BRAND GUIDE v2.4 — Butter & Rose
        A warm, sophisticated women's lifestyle brand guide
-       Lora leads. Fraunces punctuates. Warmth permeates.
+       DM Sans leads. Lora accents. Fraunces punctuates.
        ========================================================================== */
 
     :root {
@@ -38,9 +38,9 @@
       --gradient-rose: linear-gradient(135deg, var(--rose-soft) 0%, var(--rose-light) 100%);
 
       /* Typography */
-      --font-primary: 'Lora', Georgia, serif;
+      --font-primary: 'DM Sans', -apple-system, sans-serif;
+      --font-elegant: 'Lora', Georgia, serif;
       --font-display: 'Fraunces', Georgia, serif;
-      --font-body: 'DM Sans', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
 
@@ -88,9 +88,9 @@
        TYPOGRAPHY UTILITIES
        ========================================================================== */
 
-    .font-lora { font-family: var(--font-primary); }
+    .font-primary { font-family: var(--font-primary); }
+    .font-elegant { font-family: var(--font-elegant); }
     .font-fraunces { font-family: var(--font-display); }
-    .font-body { font-family: var(--font-body); }
     .font-mono { font-family: var(--font-mono); }
 
     .text-ink { color: var(--ink); }
@@ -224,7 +224,7 @@
     }
 
     .cover-tagline {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1.3rem;
       font-weight: 400;
@@ -369,7 +369,7 @@
       position: absolute;
       top: 20px;
       left: 28px;
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-size: 4rem;
       font-weight: 600;
       color: var(--butter);
@@ -378,7 +378,7 @@
     }
 
     .essence-quote p {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1.4rem;
       font-weight: 400;
@@ -537,7 +537,7 @@
     .harmony-circle:nth-child(4) { margin-left: -16px; }
 
     .harmony-text {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1rem;
       color: var(--grey-light);
@@ -618,7 +618,7 @@
       color: var(--grey);
     }
 
-    .type-sample--lora {
+    .type-sample--primary {
       font-family: var(--font-primary);
       font-size: 2.8rem;
       font-weight: 600;
@@ -626,8 +626,8 @@
       color: var(--ink);
     }
 
-    .type-sample--lora-italic {
-      font-family: var(--font-primary);
+    .type-sample--elegant {
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1.8rem;
       font-weight: 400;
@@ -645,9 +645,9 @@
     }
 
     .type-sample--body {
-      font-family: var(--font-body);
+      font-family: var(--font-primary);
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.7;
       color: var(--ink-soft);
       max-width: 340px;
@@ -741,7 +741,7 @@
     }
 
     .stat-context {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-size: 1.2rem;
       font-weight: 400;
       line-height: 1.4;
@@ -771,7 +771,7 @@
     }
 
     .headline-sub {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1.15rem;
       font-weight: 400;
@@ -829,7 +829,7 @@
     }
 
     .quote-text {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1.5rem;
       font-weight: 400;
@@ -1005,7 +1005,7 @@
     }
 
     .template-gradient .template-headline {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-size: 1.3rem;
       font-weight: 600;
       color: var(--ink);
@@ -1013,7 +1013,7 @@
     }
 
     .template-gradient .template-subline {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 0.9rem;
       color: var(--ink-soft);
@@ -1054,7 +1054,7 @@
     }
 
     .template-story .story-quote {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1.3rem;
       line-height: 1.4;
@@ -1315,7 +1315,7 @@
     }
 
     .closing-headline {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-size: 3.2rem;
       font-weight: 600;
       line-height: 1.15;
@@ -1324,7 +1324,7 @@
     }
 
     .closing-subline {
-      font-family: var(--font-primary);
+      font-family: var(--font-elegant);
       font-style: italic;
       font-size: 1.3rem;
       color: var(--ink-soft);
@@ -1414,7 +1414,7 @@
     </div>
 
     <div class="cover-footer">
-      <p class="cover-version">Version 2.3 — Butter & Rose</p>
+      <p class="cover-version">Version 2.4 — Butter & Rose</p>
     </div>
   </div>
 
@@ -1557,17 +1557,17 @@
       </div>
 
       <p class="type-intro">
-        Lora leads with warm sophistication. Fraunces punctuates with bold personality. Together they create a voice that's friendly, intelligent, and distinctly feminine.
+        DM Sans leads with clear confidence. Lora adds elegant warmth in quotes. Fraunces punctuates with bold personality. Together they create a voice that's modern, intelligent, and distinctly approachable.
       </p>
 
       <div class="type-specimens">
         <div class="type-specimen">
           <div class="type-meta">
             <p class="type-role">Primary Voice</p>
-            <p class="type-font">Lora</p>
+            <p class="type-font">DM Sans</p>
             <p class="type-weight">SemiBold 600</p>
           </div>
-          <div class="type-sample type-sample--lora">
+          <div class="type-sample type-sample--primary">
             The Future of Media
           </div>
         </div>
@@ -1578,7 +1578,7 @@
             <p class="type-font">Lora</p>
             <p class="type-weight">Italic 400</p>
           </div>
-          <div class="type-sample type-sample--lora-italic">
+          <div class="type-sample type-sample--elegant">
             "Building what comes next, with warmth and wisdom"
           </div>
         </div>
@@ -1598,7 +1598,7 @@
           <div class="type-meta">
             <p class="type-role">Body Text</p>
             <p class="type-font">DM Sans</p>
-            <p class="type-weight">Medium 500</p>
+            <p class="type-weight">Regular 400</p>
           </div>
           <div class="type-sample type-sample--body">
             Clear, readable, and modern. Perfect for longer passages that inform and engage the reader with substance and warmth.
@@ -1630,7 +1630,7 @@
       </div>
 
       <p class="interplay-intro">
-        Lora sets the tone — warm, wise, welcoming. Fraunces punctuates with bold moments. Data appears with confidence but never overwhelms the warmth.
+        DM Sans sets the tone — clear, confident, modern. Lora adds elegant moments in quotes. Fraunces punctuates with bold stats. Data appears with confidence but never overwhelms the warmth.
       </p>
 
       <div class="interplay-examples">
@@ -1736,7 +1736,7 @@
       </div>
 
       <p class="social-intro">
-        Social content uses warm gradients and Lora's friendly voice. Fraunces appears for stat callouts. The feeling is always inviting, never cold.
+        Social content uses warm gradients and Lora's elegant voice for editorial moments. DM Sans leads headlines. Fraunces appears for stat callouts. The feeling is always inviting, never cold.
       </p>
 
       <div class="social-grid">
@@ -1835,13 +1835,13 @@
         <div class="guidelines-column">
           <h3><span class="icon-do">✓</span> Do</h3>
           <ul class="guideline-list do-list">
-            <li class="guideline-item">Lead with Lora for warm sophistication</li>
+            <li class="guideline-item">Lead with DM Sans for clear confidence</li>
+            <li class="guideline-item">Use Lora for elegant quotes and accents</li>
             <li class="guideline-item">Use Fraunces only for bold stat moments</li>
             <li class="guideline-item">Blend colors through gradients</li>
             <li class="guideline-item">Create generous breathing room</li>
             <li class="guideline-item">Keep the tone warm and inviting</li>
             <li class="guideline-item">Let butter yellow add unexpected energy</li>
-            <li class="guideline-item">Use dusty rose for mature femininity</li>
             <li class="guideline-item">Feel editorial, lifestyle-first</li>
           </ul>
         </div>
@@ -1882,7 +1882,7 @@
       </p>
     </div>
 
-    <p class="closing-footer">Tobi Oredein Brand Guide v2.3</p>
+    <p class="closing-footer">Tobi Oredein Brand Guide v2.4</p>
   </div>
 
 </body>
