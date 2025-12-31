@@ -1,1946 +1,1806 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tobi Oredein — Design System</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* ══════════════════════════════════════════════════════════════════════
-           DESIGN TOKENS
-           ══════════════════════════════════════════════════════════════════════ */
-        :root {
-            /* Colors */
-            --black: #1A1614;
-            --off-white: #FAF6F1;
-            --terracotta: #C4654A;
-            --olive: #5C5C3D;
-            --gold: #C9A962;
-            --blush: #E8D4D0;
-            --grey: #8A8580;
-
-            /* Typography */
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-elegant: 'Cormorant Garamond', Georgia, serif;
-            --font-body: 'DM Sans', -apple-system, sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-
-            /* Spacing Scale */
-            --space-xs: 4px;
-            --space-sm: 8px;
-            --space-md: 16px;
-            --space-lg: 24px;
-            --space-xl: 32px;
-            --space-2xl: 48px;
-            --space-3xl: 64px;
-            --space-4xl: 96px;
-            --space-5xl: 128px;
-
-            /* Transitions */
-            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-            /* Shadows */
-            --shadow-sm: 0 2px 8px rgba(26, 22, 20, 0.08);
-            --shadow-md: 0 4px 24px rgba(26, 22, 20, 0.12);
-            --shadow-lg: 0 12px 48px rgba(26, 22, 20, 0.16);
-            --shadow-glow: 0 0 40px rgba(201, 169, 98, 0.3);
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           BASE & RESET
-           ══════════════════════════════════════════════════════════════════════ */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--off-white);
-            color: var(--black);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        /* Subtle grain overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 10000;
-        }
-
-        ::selection {
-            background: var(--terracotta);
-            color: var(--off-white);
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           NAVIGATION
-           ══════════════════════════════════════════════════════════════════════ */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: var(--space-lg) var(--space-2xl);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.4s var(--ease-out);
-        }
-
-        .nav.scrolled {
-            background: rgba(26, 22, 20, 0.95);
-            backdrop-filter: blur(20px);
-            padding: var(--space-md) var(--space-2xl);
-        }
-
-        .nav-logo {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 1.25rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--off-white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-logo span {
-            font-family: var(--font-elegant);
-            font-weight: 300;
-            font-style: italic;
-            text-transform: none;
-            letter-spacing: 0.02em;
-            color: var(--terracotta);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: var(--space-xl);
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--grey);
-            text-decoration: none;
-            padding: var(--space-sm) 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: width 0.4s var(--ease-out);
-        }
-
-        .nav-links a:hover {
-            color: var(--off-white);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--gold);
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           HERO SECTION
-           ══════════════════════════════════════════════════════════════════════ */
-        .hero {
-            min-height: 100vh;
-            background: var(--black);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: var(--space-4xl) var(--space-2xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Metallic gradient background */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201, 169, 98, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 40% at 100% 100%, rgba(196, 101, 74, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse 40% 60% at 0% 50%, rgba(92, 92, 61, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-        }
-
-        .hero-label {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: var(--space-2xl);
-            opacity: 0;
-            animation: fadeUp 0.8s var(--ease-out) 0.2s forwards;
-        }
-
-        .hero-title {
-            margin-bottom: var(--space-lg);
-            opacity: 0;
-            animation: fadeUp 0.8s var(--ease-out) 0.4s forwards;
-        }
-
-        .hero-title .first {
-            display: block;
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: clamp(4rem, 15vw, 10rem);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--off-white);
-            line-height: 0.9;
-        }
-
-        .hero-title .last {
-            display: block;
-            font-family: var(--font-elegant);
-            font-weight: 300;
-            font-style: italic;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            letter-spacing: 0.05em;
-            color: var(--terracotta);
-            margin-top: -0.1em;
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-body);
-            font-size: 1.125rem;
-            color: var(--grey);
-            max-width: 500px;
-            margin: var(--space-2xl) auto 0;
-            opacity: 0;
-            animation: fadeUp 0.8s var(--ease-out) 0.6s forwards;
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: var(--space-2xl);
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-sm);
-            color: var(--grey);
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeUp 0.8s var(--ease-out) 1s forwards;
-        }
-
-        .hero-scroll::after {
-            content: '';
-            width: 1px;
-            height: 40px;
-            background: linear-gradient(to bottom, var(--gold), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
-            50% { opacity: 1; transform: scaleY(1); }
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           SECTION STYLES
-           ══════════════════════════════════════════════════════════════════════ */
-        .section {
-            padding: var(--space-5xl) var(--space-2xl);
-            position: relative;
-        }
-
-        .section--dark {
-            background: var(--black);
-            color: var(--off-white);
-        }
-
-        .section--light {
-            background: var(--off-white);
-            color: var(--black);
-        }
-
-        .section--blush {
-            background: var(--blush);
-            color: var(--black);
-        }
-
-        .section-header {
-            max-width: 1200px;
-            margin: 0 auto var(--space-4xl);
-        }
-
-        .section-number {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            color: var(--gold);
-            margin-bottom: var(--space-md);
-        }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            letter-spacing: 0.02em;
-            margin-bottom: var(--space-md);
-        }
-
-        .section--dark .section-title {
-            color: var(--off-white);
-        }
-
-        .section-subtitle {
-            font-family: var(--font-elegant);
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--grey);
-            max-width: 600px;
-        }
-
-        .section--dark .section-subtitle {
-            color: var(--grey);
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           COLOR PALETTE SECTION
-           ══════════════════════════════════════════════════════════════════════ */
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .color-card {
-            background: var(--off-white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s var(--ease-out);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .color-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .color-card::before {
-            content: 'Click to copy';
-            position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .color-card:hover::before {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .color-card.copied::before {
-            content: 'Copied!';
-            color: var(--gold);
-        }
-
-        .color-swatch {
-            height: 180px;
-            display: flex;
-            align-items: flex-end;
-            padding: var(--space-lg);
-            position: relative;
-        }
-
-        .color-swatch--black { background: var(--black); }
-        .color-swatch--off-white { background: var(--off-white); border: 1px solid rgba(0,0,0,0.08); }
-        .color-swatch--terracotta { background: var(--terracotta); }
-        .color-swatch--olive { background: var(--olive); }
-        .color-swatch--gold { background: var(--gold); }
-        .color-swatch--blush { background: var(--blush); }
-        .color-swatch--grey { background: var(--grey); }
-
-        .color-info {
-            padding: var(--space-lg);
-        }
-
-        .color-name {
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 1.25rem;
-            color: var(--black);
-            margin-bottom: var(--space-sm);
-        }
-
-        .color-values {
-            display: flex;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-md);
-        }
-
-        .color-value {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--grey);
-        }
-
-        .color-value span {
-            display: block;
-            font-size: 0.625rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--grey);
-            opacity: 0.6;
-            margin-bottom: 2px;
-        }
-
-        .color-usage {
-            font-size: 0.875rem;
-            color: var(--grey);
-            line-height: 1.5;
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           TYPOGRAPHY SECTION
-           ══════════════════════════════════════════════════════════════════════ */
-        .type-specimen {
-            margin-bottom: var(--space-4xl);
-            padding-bottom: var(--space-4xl);
-            border-bottom: 1px solid rgba(138, 133, 128, 0.2);
-        }
-
-        .type-specimen:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .type-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: var(--space-2xl);
-            flex-wrap: wrap;
-            gap: var(--space-lg);
-        }
-
-        .type-meta {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-xs);
-        }
-
-        .type-name {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .type-family {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--grey);
-            letter-spacing: 0.05em;
-        }
-
-        .type-copy-btn {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            background: transparent;
-            border: 1px solid var(--grey);
-            color: var(--grey);
-            padding: var(--space-sm) var(--space-md);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .type-copy-btn:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        .type-copy-btn.copied {
-            border-color: var(--terracotta);
-            background: var(--terracotta);
-            color: var(--off-white);
-        }
-
-        .type-alphabet {
-            font-size: 2.5rem;
-            letter-spacing: 0.05em;
-            margin-bottom: var(--space-xl);
-            line-height: 1.4;
-            word-break: break-all;
-        }
-
-        .type-alphabet--display {
-            font-family: var(--font-display);
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .type-alphabet--elegant {
-            font-family: var(--font-elegant);
-            font-weight: 300;
-            font-style: italic;
-        }
-
-        .type-alphabet--body {
-            font-family: var(--font-body);
-            font-weight: 400;
-        }
-
-        .type-alphabet--mono {
-            font-family: var(--font-mono);
-            font-weight: 400;
-            font-size: 1.5rem;
-        }
-
-        .type-scale {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .type-scale-item {
-            display: flex;
-            align-items: baseline;
-            gap: var(--space-xl);
-        }
-
-        .type-scale-size {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--grey);
-            min-width: 60px;
-        }
-
-        .type-scale-sample--display {
-            font-family: var(--font-display);
-            font-weight: 900;
-        }
-
-        .type-scale-sample--elegant {
-            font-family: var(--font-elegant);
-            font-weight: 300;
-            font-style: italic;
-        }
-
-        .type-scale-sample--body {
-            font-family: var(--font-body);
-        }
-
-        .type-scale-sample--mono {
-            font-family: var(--font-mono);
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           COMPONENTS SECTION
-           ══════════════════════════════════════════════════════════════════════ */
-        .component-group {
-            margin-bottom: var(--space-4xl);
-        }
-
-        .component-group-title {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--terracotta);
-            margin-bottom: var(--space-xl);
-        }
-
-        /* Buttons */
-        .button-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-lg);
-            align-items: center;
-        }
-
-        .btn {
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
-            padding: var(--space-md) var(--space-xl);
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn--primary {
-            background: var(--terracotta);
-            color: var(--off-white);
-        }
-
-        .btn--primary:hover {
-            background: #B55A42;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(196, 101, 74, 0.3);
-        }
-
-        .btn--secondary {
-            background: var(--olive);
-            color: var(--off-white);
-        }
-
-        .btn--secondary:hover {
-            background: #4D4D33;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(92, 92, 61, 0.3);
-        }
-
-        .btn--ghost {
-            background: transparent;
-            border: 1px solid var(--black);
-            color: var(--black);
-        }
-
-        .btn--ghost:hover {
-            background: var(--black);
-            color: var(--off-white);
-        }
-
-        .btn--gold {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        .btn--gold:hover {
-            background: #D4B872;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .btn--large {
-            padding: var(--space-lg) var(--space-2xl);
-            font-size: 1rem;
-        }
-
-        .btn--small {
-            padding: var(--space-sm) var(--space-md);
-            font-size: 0.75rem;
-        }
-
-        /* Cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-        }
-
-        .card {
-            padding: var(--space-xl);
-            border-radius: 8px;
-            transition: all 0.4s var(--ease-out);
-        }
-
-        .card--light {
-            background: var(--off-white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .card--light:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card--dark {
-            background: var(--black);
-            color: var(--off-white);
-        }
-
-        .card--dark:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(0,0,0,0.4);
-        }
-
-        .card-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--terracotta);
-            margin-bottom: var(--space-sm);
-        }
-
-        .card-title {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin-bottom: var(--space-md);
-        }
-
-        .card-text {
-            font-size: 0.9375rem;
-            color: var(--grey);
-            line-height: 1.7;
-        }
-
-        .card--dark .card-text {
-            color: var(--grey);
-        }
-
-        /* Quote Block */
-        .quote-block {
-            background: linear-gradient(135deg, var(--black) 0%, #2A2420 100%);
-            padding: var(--space-3xl);
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quote-block::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-family: var(--font-display);
-            font-size: 200px;
-            color: var(--terracotta);
-            opacity: 0.1;
-            line-height: 1;
-        }
-
-        .quote-text {
-            font-family: var(--font-elegant);
-            font-size: 1.75rem;
-            font-style: italic;
-            color: var(--off-white);
-            line-height: 1.5;
-            position: relative;
-            z-index: 1;
-            margin-bottom: var(--space-xl);
-        }
-
-        .quote-author {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
-
-        /* Data Display */
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .data-card {
-            background: var(--off-white);
-            padding: var(--space-xl);
-            border-radius: 8px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .data-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--terracotta), var(--gold));
-        }
-
-        .data-value {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 3rem;
-            color: var(--black);
-            line-height: 1;
-            margin-bottom: var(--space-sm);
-        }
-
-        .data-label {
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--grey);
-        }
-
-        .data-change {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--olive);
-            margin-top: var(--space-sm);
-        }
-
-        /* Tags */
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-        }
-
-        .tag {
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
-            letter-spacing: 0.05em;
-            padding: var(--space-xs) var(--space-md);
-            border-radius: 100px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .tag--terracotta {
-            background: rgba(196, 101, 74, 0.15);
-            color: var(--terracotta);
-        }
-
-        .tag--terracotta:hover {
-            background: var(--terracotta);
-            color: var(--off-white);
-        }
-
-        .tag--olive {
-            background: rgba(92, 92, 61, 0.15);
-            color: var(--olive);
-        }
-
-        .tag--olive:hover {
-            background: var(--olive);
-            color: var(--off-white);
-        }
-
-        .tag--gold {
-            background: rgba(201, 169, 98, 0.15);
-            color: #9A7F4A;
-        }
-
-        .tag--gold:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        /* Form Inputs */
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-            max-width: 400px;
-        }
-
-        .form-label {
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--grey);
-        }
-
-        .form-input {
-            font-family: var(--font-body);
-            font-size: 1rem;
-            padding: var(--space-md);
-            border: 1px solid rgba(138, 133, 128, 0.3);
-            background: var(--off-white);
-            color: var(--black);
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terracotta);
-            box-shadow: 0 0 0 3px rgba(196, 101, 74, 0.1);
-        }
-
-        .form-input::placeholder {
-            color: var(--grey);
-            opacity: 0.6;
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           SPACING SECTION
-           ══════════════════════════════════════════════════════════════════════ */
-        .spacing-scale {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-lg);
-        }
-
-        .spacing-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-xl);
-        }
-
-        .spacing-label {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--grey);
-            min-width: 100px;
-        }
-
-        .spacing-bar {
-            height: 24px;
-            background: linear-gradient(90deg, var(--terracotta), var(--gold));
-            border-radius: 4px;
-            position: relative;
-        }
-
-        .spacing-value {
-            position: absolute;
-            right: -50px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            color: var(--grey);
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           LIVE EXAMPLES SECTION
-           ══════════════════════════════════════════════════════════════════════ */
-        .examples-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-        }
-
-        /* Social Post Mockup */
-        .social-mockup {
-            background: var(--black);
-            border-radius: 12px;
-            overflow: hidden;
-            aspect-ratio: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: var(--space-xl);
-            position: relative;
-        }
-
-        .social-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(ellipse at 30% 20%, rgba(196, 101, 74, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(92, 92, 61, 0.2) 0%, transparent 40%);
-        }
-
-        .social-mockup-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .social-mockup-headline {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--off-white);
-            line-height: 1.1;
-            margin-bottom: var(--space-sm);
-        }
-
-        .social-mockup-subline {
-            font-family: var(--font-elegant);
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--terracotta);
-        }
-
-        /* Quote Card Example */
-        .quote-card-example {
-            background: linear-gradient(145deg, var(--blush) 0%, #DCC5C0 100%);
-            border-radius: 12px;
-            padding: var(--space-2xl);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 350px;
-        }
-
-        .quote-card-text {
-            font-family: var(--font-elegant);
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--black);
-            line-height: 1.5;
-            margin-bottom: var(--space-lg);
-        }
-
-        .quote-card-attribution {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.875rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--olive);
-        }
-
-        /* Data Viz Card */
-        .data-viz-card {
-            background: var(--off-white);
-            border-radius: 12px;
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-md);
-        }
-
-        .data-viz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: var(--space-xl);
-        }
-
-        .data-viz-title {
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 1.125rem;
-            color: var(--black);
-        }
-
-        .data-viz-period {
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--grey);
-        }
-
-        .data-viz-chart {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            height: 120px;
-            gap: var(--space-sm);
-            padding: var(--space-md) 0;
-            border-bottom: 1px solid rgba(138, 133, 128, 0.2);
-        }
-
-        .data-viz-bar {
-            flex: 1;
-            background: linear-gradient(to top, var(--terracotta), var(--gold));
-            border-radius: 4px 4px 0 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .data-viz-bar:hover {
-            filter: brightness(1.1);
-            transform: scaleY(1.05);
-            transform-origin: bottom;
-        }
-
-        .data-viz-footer {
-            display: flex;
-            justify-content: space-between;
-            margin-top: var(--space-lg);
-        }
-
-        .data-viz-stat {
-            text-align: center;
-        }
-
-        .data-viz-stat-value {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--black);
-        }
-
-        .data-viz-stat-label {
-            font-family: var(--font-mono);
-            font-size: 0.5625rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--grey);
-        }
-
-        /* Headline Combo */
-        .headline-combo {
-            background: var(--olive);
-            border-radius: 12px;
-            padding: var(--space-3xl);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 350px;
-        }
-
-        .headline-combo-main {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--off-white);
-            line-height: 1.1;
-            margin-bottom: var(--space-md);
-        }
-
-        .headline-combo-sub {
-            font-family: var(--font-elegant);
-            font-size: 1.375rem;
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           TOAST NOTIFICATION
-           ══════════════════════════════════════════════════════════════════════ */
-        .toast-container {
-            position: fixed;
-            bottom: var(--space-xl);
-            right: var(--space-xl);
-            z-index: 10001;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-
-        .toast {
-            background: var(--black);
-            color: var(--off-white);
-            padding: var(--space-md) var(--space-xl);
-            border-radius: 8px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            transform: translateX(120%);
-            opacity: 0;
-            animation: toastIn 0.4s var(--ease-out) forwards;
-        }
-
-        .toast.hiding {
-            animation: toastOut 0.3s var(--ease-in-out) forwards;
-        }
-
-        .toast::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--gold);
-            border-radius: 50%;
-        }
-
-        @keyframes toastIn {
-            from {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes toastOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           FOOTER
-           ══════════════════════════════════════════════════════════════════════ */
-        .footer {
-            background: var(--black);
-            padding: var(--space-3xl) var(--space-2xl);
-            text-align: center;
-        }
-
-        .footer-brand {
-            margin-bottom: var(--space-xl);
-        }
-
-        .footer-brand .first {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--off-white);
-        }
-
-        .footer-brand .last {
-            font-family: var(--font-elegant);
-            font-weight: 300;
-            font-style: italic;
-            font-size: 1rem;
-            letter-spacing: 0.05em;
-            color: var(--terracotta);
-            margin-left: var(--space-sm);
-        }
-
-        .footer-text {
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
-            letter-spacing: 0.1em;
-            color: var(--grey);
-        }
-
-        /* ══════════════════════════════════════════════════════════════════════
-           RESPONSIVE
-           ══════════════════════════════════════════════════════════════════════ */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .section {
-                padding: var(--space-4xl) var(--space-lg);
-            }
-
-            .hero {
-                padding: var(--space-3xl) var(--space-lg);
-            }
-
-            .type-alphabet {
-                font-size: 1.5rem;
-            }
-
-            .type-scale-item {
-                flex-direction: column;
-                gap: var(--space-xs);
-            }
-
-            .examples-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tobi Oredein — Design System v2.4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       TOBI OREDEIN DESIGN SYSTEM v2.4 — Butter & Rose
+       Interactive Reference
+       ========================================================================== */
+
+    :root {
+      /* Core Palette */
+      --butter: #F2D04E;
+      --butter-light: #FFEFBC;
+      --butter-soft: #FDF8E8;
+      --ink: #1A1614;
+      --ink-soft: #3D3835;
+      --rose: #D4A5A5;
+      --rose-light: #F2E4E4;
+      --rose-soft: #F9F2F2;
+      --cream: #FAF6F1;
+      --gold: #B8860B;
+      --gold-light: #D4A84B;
+      --grey: #8A8580;
+      --grey-light: #C4C0BB;
+      --white: #FFFFFF;
+
+      /* Gradients */
+      --gradient-warm: linear-gradient(135deg, var(--butter-light) 0%, var(--rose-light) 100%);
+      --gradient-sunset: linear-gradient(135deg, var(--butter) 0%, var(--rose) 100%);
+      --gradient-soft: linear-gradient(180deg, var(--cream) 0%, var(--rose-soft) 100%);
+
+      /* Typography */
+      --font-primary: 'DM Sans', -apple-system, sans-serif;
+      --font-elegant: 'Lora', Georgia, serif;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+
+      /* Borders */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(26, 22, 20, 0.06);
+      --shadow-md: 0 4px 16px rgba(26, 22, 20, 0.08);
+      --shadow-lg: 0 8px 32px rgba(26, 22, 20, 0.12);
+      --shadow-glow-butter: 0 4px 24px rgba(242, 208, 78, 0.3);
+      --shadow-glow-rose: 0 4px 24px rgba(212, 165, 165, 0.3);
+
+      /* Transitions */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: 150ms var(--ease-out);
+      --transition-base: 300ms var(--ease-out);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       TOAST NOTIFICATION
+       ========================================================================== */
+
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--ink);
+      color: var(--cream);
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 400;
+      z-index: 1000;
+      opacity: 0;
+      transition: transform 0.4s var(--ease-out), opacity 0.4s var(--ease-out);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .toast::before {
+      content: '';
+      margin-right: 10px;
+      color: var(--butter);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 246, 241, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(26, 22, 20, 0.06);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-primary);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-sunset);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .nav {
+      display: flex;
+      gap: var(--space-xs);
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--ink);
+      background: var(--butter-light);
+    }
+
+    .nav-link.active {
+      color: var(--ink);
+      background: var(--butter);
+    }
+
+    /* ==========================================================================
+       HERO
+       ========================================================================== */
+
+    .hero {
+      padding: 160px var(--space-xl) 100px;
+      background: var(--gradient-warm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--butter) 0%, transparent 70%);
+      opacity: 0.3;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--rose) 0%, transparent 70%);
+      opacity: 0.2;
+    }
+
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-title {
+      font-family: var(--font-primary);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: var(--space-lg);
+      max-width: 800px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-elegant);
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-soft);
+      max-width: 600px;
+    }
+
+    .hero-version {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: var(--space-2xl);
+      padding: 10px 20px;
+      background: var(--white);
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-version-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--butter);
+      border-radius: 50%;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT
+       ========================================================================== */
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--space-4xl) var(--space-xl);
+    }
+
+    .section {
+      margin-bottom: var(--space-4xl);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-title {
+      font-family: var(--font-primary);
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .section-description {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--ink-soft);
+      margin-top: var(--space-md);
+      max-width: 600px;
+    }
+
+    /* ==========================================================================
+       COLORS SECTION
+       ========================================================================== */
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .color-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .color-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .color-card:active {
+      transform: translateY(-2px);
+    }
+
+    .color-preview {
+      height: 120px;
+      position: relative;
+    }
+
+    .color-preview::after {
+      content: 'Click to copy';
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 4px 8px;
+      background: rgba(255,255,255,0.9);
+      border-radius: var(--radius-sm);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: var(--transition-fast);
+    }
+
+    .color-card:hover .color-preview::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .color-info {
+      padding: var(--space-md);
+    }
+
+    .color-name {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .color-values {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .color-hex {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--grey);
+    }
+
+    .color-var {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-soft);
+      background: var(--cream);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Gradient cards */
+    .gradient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+
+    .gradient-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .gradient-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gradient-preview {
+      height: 100px;
+    }
+
+    .gradient-info {
+      padding: var(--space-md);
+    }
+
+    .gradient-name {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .gradient-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--grey);
+      background: var(--cream);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      word-break: break-all;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY SECTION
+       ========================================================================== */
+
+    .type-specimens {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3xl);
+    }
+
+    .type-specimen {
+      padding: var(--space-2xl);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .type-specimen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--cream);
+    }
+
+    .type-specimen-name {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .type-specimen-role {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--grey);
+      margin-top: 4px;
+    }
+
+    .type-specimen-copy {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-soft);
+      background: var(--cream);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      border: none;
+    }
+
+    .type-specimen-copy:hover {
+      background: var(--butter-light);
+    }
+
+    .type-sample {
+      margin-bottom: var(--space-lg);
+    }
+
+    .type-sample:last-child {
+      margin-bottom: 0;
+    }
+
+    .type-sample-text {
+      margin-bottom: 8px;
+    }
+
+    .type-sample-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--grey);
+    }
+
+    /* DM Sans - Primary Voice */
+    .type-dm-display {
+      font-family: var(--font-primary);
+      font-size: 3.5rem;
+      font-weight: 600;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .type-dm-heading {
+      font-family: var(--font-primary);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    /* Lora - Elegant Accent */
+    .type-lora-quote {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--ink-soft);
+    }
+
+    .type-lora-tagline {
+      font-family: var(--font-elegant);
+      font-size: 1.25rem;
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--ink-soft);
+    }
+
+    /* Fraunces */
+    .type-fraunces-stat {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .type-fraunces-accent {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--butter);
+    }
+
+    /* DM Sans */
+    .type-dm-body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      max-width: 65ch;
+    }
+
+    .type-dm-label {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* JetBrains Mono */
+    .type-mono-code {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .type-mono-caption {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ==========================================================================
+       SPACING SECTION
+       ========================================================================== */
+
+    .spacing-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      padding: var(--space-md);
+      background: var(--white);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .spacing-item:hover {
+      background: var(--butter-soft);
+    }
+
+    .spacing-visual {
+      width: 200px;
+      display: flex;
+      align-items: center;
+    }
+
+    .spacing-bar {
+      height: 24px;
+      background: var(--gradient-sunset);
+      border-radius: var(--radius-sm);
+      transition: var(--transition-base);
+    }
+
+    .spacing-item:hover .spacing-bar {
+      box-shadow: var(--shadow-glow-butter);
+    }
+
+    .spacing-info {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+
+    .spacing-name {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      min-width: 80px;
+    }
+
+    .spacing-value {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--grey);
+    }
+
+    .spacing-var {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-soft);
+      background: var(--cream);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ==========================================================================
+       COMPONENTS SECTION
+       ========================================================================== */
+
+    .component-group {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .component-group-title {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--butter);
+      display: inline-block;
+    }
+
+    .component-showcase {
+      padding: var(--space-2xl);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .component-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .component-row:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover {
+      background: var(--ink-soft);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+    }
+
+    .btn-secondary:hover {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .btn-accent {
+      background: var(--butter);
+      color: var(--ink);
+    }
+
+    .btn-accent:hover {
+      background: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-butter);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      padding: 14px 20px;
+    }
+
+    .btn-ghost:hover {
+      background: var(--butter-light);
+    }
+
+    .btn-rose {
+      background: var(--rose);
+      color: var(--ink);
+    }
+
+    .btn-rose:hover {
+      background: var(--rose-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-rose);
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+    }
+
+    .tag-butter {
+      background: var(--butter-light);
+      color: var(--ink);
+    }
+
+    .tag-rose {
+      background: var(--rose-light);
+      color: var(--ink);
+    }
+
+    .tag-ink {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .tag-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--grey-light);
+    }
+
+    /* Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-base);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-image {
+      height: 160px;
+      background: var(--gradient-warm);
+      position: relative;
+    }
+
+    .card-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(transparent, rgba(26,22,20,0.1));
+    }
+
+    .card-body {
+      padding: var(--space-lg);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: var(--font-primary);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    /* Stat Card */
+    .stat-card {
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      text-align: center;
+      transition: var(--transition-base);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--butter);
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+
+    .stat-label {
+      font-family: var(--font-elegant);
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: var(--space-md);
+    }
+
+    .stat-source {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--grey);
+    }
+
+    /* Quote Block */
+    .quote-block {
+      background: var(--gradient-warm);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl) var(--space-3xl);
+      position: relative;
+    }
+
+    .quote-mark {
+      font-family: var(--font-display);
+      font-size: 6rem;
+      font-weight: 900;
+      color: var(--butter);
+      line-height: 0.5;
+      opacity: 0.5;
+      position: absolute;
+      top: 32px;
+      left: 32px;
+    }
+
+    .quote-text {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-author {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .quote-role {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--grey);
+    }
+
+    /* Form Inputs */
+    .form-group {
+      margin-bottom: var(--space-lg);
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      max-width: 400px;
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1.5px solid var(--grey-light);
+      border-radius: var(--radius-md);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus {
+      border-color: var(--butter);
+      box-shadow: 0 0 0 3px var(--butter-light);
+    }
+
+    .form-input::placeholder {
+      color: var(--grey);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* ==========================================================================
+       CODE BLOCKS
+       ========================================================================== */
+
+    .code-block {
+      background: var(--ink);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .code-block code {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--cream);
+      line-height: 1.7;
+    }
+
+    .code-block .comment {
+      color: var(--grey);
+    }
+
+    .code-block .property {
+      color: var(--rose);
+    }
+
+    .code-block .value {
+      color: var(--butter);
+    }
+
+    .code-copy {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px 12px;
+      background: var(--ink-soft);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--grey-light);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .code-copy:hover {
+      background: var(--grey);
+      color: var(--cream);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+
+    .footer {
+      background: var(--ink);
+      padding: var(--space-3xl) var(--space-xl);
+      margin-top: var(--space-4xl);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: var(--font-primary);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+    }
+
+    .footer-version {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--grey);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE
+       ========================================================================== */
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: 0 var(--space-md);
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 120px var(--space-md) 60px;
+      }
+
+      main {
+        padding: var(--space-2xl) var(--space-md);
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .type-lora-display {
+        font-size: 2.5rem;
+      }
+
+      .type-fraunces-stat {
+        font-size: 3.5rem;
+      }
+
+      .spacing-visual {
+        width: 120px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+      }
+    }
+
+    /* ==========================================================================
+       ANIMATIONS
+       ========================================================================== */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeUp 0.6s var(--ease-out) forwards;
+    }
+
+    .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="#" class="nav-logo">Tobi <span>Oredein</span></a>
-        <ul class="nav-links">
-            <li><a href="#colors" class="active">Colors</a></li>
-            <li><a href="#typography">Typography</a></li>
-            <li><a href="#components">Components</a></li>
-            <li><a href="#spacing">Spacing</a></li>
-            <li><a href="#examples">Examples</a></li>
-        </ul>
-    </nav>
+  <!-- Toast -->
+  <div class="toast" id="toast">Copied to clipboard</div>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-label">Design System</div>
-            <h1 class="hero-title">
-                <span class="first">Tobi</span>
-                <span class="last">Oredein</span>
-            </h1>
-            <p class="hero-subtitle">A complete visual language for the future of Black women's media — rigorous, different, and unmistakably forward-thinking.</p>
-        </div>
-        <div class="hero-scroll">Scroll to explore</div>
-    </section>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">T</span>
+        Design System
+      </a>
+      <nav class="nav">
+        <a href="#colors" class="nav-link">Colors</a>
+        <a href="#typography" class="nav-link">Typography</a>
+        <a href="#spacing" class="nav-link">Spacing</a>
+        <a href="#components" class="nav-link">Components</a>
+      </nav>
+    </div>
+  </header>
 
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow animate-fade-up">Design System</p>
+      <h1 class="hero-title animate-fade-up animate-delay-1">Tobi Oredein</h1>
+      <p class="hero-subtitle animate-fade-up animate-delay-2">Butter & Rose — A warm, sophisticated design language for the future of Black women's media.</p>
+      <div class="hero-version animate-fade-up animate-delay-3">
+        <span class="hero-version-dot"></span>
+        Version 2.4
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
     <!-- Colors Section -->
-    <section id="colors" class="section section--light">
-        <div class="section-header">
-            <div class="section-number">01</div>
-            <h2 class="section-title">Color Palette</h2>
-            <p class="section-subtitle">Warm, unexpected earth tones that command attention while maintaining sophistication.</p>
-        </div>
-        <div class="section-content">
-            <div class="color-grid">
-                <!-- Deep Black -->
-                <div class="color-card" data-color="#1A1614" data-name="Deep Black">
-                    <div class="color-swatch color-swatch--black"></div>
-                    <div class="color-info">
-                        <div class="color-name">Deep Black</div>
-                        <div class="color-values">
-                            <div class="color-value">
-                                <span>Hex</span>
-                                #1A1614
-                            </div>
-                            <div class="color-value">
-                                <span>RGB</span>
-                                26, 22, 20
-                            </div>
-                        </div>
-                        <div class="color-usage">Primary backgrounds, text on light surfaces, creating depth and contrast.</div>
-                    </div>
-                </div>
+    <section class="section" id="colors">
+      <div class="section-header">
+        <p class="section-eyebrow">01</p>
+        <h2 class="section-title">Colors</h2>
+        <p class="section-description">A warm palette of butter yellows, dusty roses, and rich neutrals. Click any swatch to copy its CSS variable.</p>
+      </div>
 
-                <!-- Warm Off-white -->
-                <div class="color-card" data-color="#FAF6F1" data-name="Warm Off-white">
-                    <div class="color-swatch color-swatch--off-white"></div>
-                    <div class="color-info">
-                        <div class="color-name">Warm Off-white</div>
-                        <div class="color-values">
-                            <div class="color-value">
-                                <span>Hex</span>
-                                #FAF6F1
-                            </div>
-                            <div class="color-value">
-                                <span>RGB</span>
-                                250, 246, 241
-                            </div>
-                        </div>
-                        <div class="color-usage">Light backgrounds, text on dark surfaces, creating warmth and breathing room.</div>
-                    </div>
-                </div>
-
-                <!-- Terracotta -->
-                <div class="color-card" data-color="#C4654A" data-name="Terracotta">
-                    <div class="color-swatch color-swatch--terracotta"></div>
-                    <div class="color-info">
-                        <div class="color-name">Terracotta</div>
-                        <div class="color-values">
-                            <div class="color-value">
-                                <span>Hex</span>
-                                #C4654A
-                            </div>
-                            <div class="color-value">
-                                <span>RGB</span>
-                                196, 101, 74
-                            </div>
-                        </div>
-                        <div class="color-usage">Signature accent for headlines, CTAs, emphasis. The unexpected earth.</div>
-                    </div>
-                </div>
-
-                <!-- Deep Olive -->
-                <div class="color-card" data-color="#5C5C3D" data-name="Deep Olive">
-                    <div class="color-swatch color-swatch--olive"></div>
-                    <div class="color-info">
-                        <div class="color-name">Deep Olive</div>
-                        <div class="color-values">
-                            <div class="color-value">
-                                <span>Hex</span>
-                                #5C5C3D
-                            </div>
-                            <div class="color-value">
-                                <span>RGB</span>
-                                92, 92, 61
-                            </div>
-                        </div>
-                        <div class="color-usage">Secondary accent, sophisticated warmth, alternative backgrounds.</div>
-                    </div>
-                </div>
-
-                <!-- Warm Gold -->
-                <div class="color-card" data-color="#C9A962" data-name="Warm Gold">
-                    <div class="color-swatch color-swatch--gold"></div>
-                    <div class="color-info">
-                        <div class="color-name">Warm Gold</div>
-                        <div class="color-values">
-                            <div class="color-value">
-                                <span>Hex</span>
-                                #C9A962
-                            </div>
-                            <div class="color-value">
-                                <span>RGB</span>
-                                201, 169, 98
-                            </div>
-                        </div>
-                        <div class="color-usage">Premium moments, metallic accents, highlights, hover states.</div>
-                    </div>
-                </div>
-
-                <!-- Blush -->
-                <div class="color-card" data-color="#E8D4D0" data-name="Blush">
-                    <div class="color-swatch color-swatch--blush"></div>
-                    <div class="color-info">
-                        <div class="color-name">Blush</div>
-                        <div class="color-values">
-                            <div class="color-value">
-                                <span>Hex</span>
-                                #E8D4D0
-                            </div>
-                            <div class="color-value">
-                                <span>RGB</span>
-                                232, 212, 208
-                            </div>
-                        </div>
-                        <div class="color-usage">Soft accent, backgrounds for quotes, gentle highlights.</div>
-                    </div>
-                </div>
-
-                <!-- Warm Grey -->
-                <div class="color-card" data-color="#8A8580" data-name="Warm Grey">
-                    <div class="color-swatch color-swatch--grey"></div>
-                    <div class="color-info">
-                        <div class="color-name">Warm Grey</div>
-                        <div class="color-values">
-                            <div class="color-value">
-                                <span>Hex</span>
-                                #8A8580
-                            </div>
-                            <div class="color-value">
-                                <span>RGB</span>
-                                138, 133, 128
-                            </div>
-                        </div>
-                        <div class="color-usage">Captions, secondary text, breathing room, subtle borders.</div>
-                    </div>
-                </div>
+      <div class="color-grid">
+        <div class="color-card" data-copy="var(--butter)" data-name="Butter">
+          <div class="color-preview" style="background: var(--butter);"></div>
+          <div class="color-info">
+            <p class="color-name">Butter</p>
+            <div class="color-values">
+              <span class="color-hex">#F2D04E</span>
+              <span class="color-var">--butter</span>
             </div>
+          </div>
         </div>
+
+        <div class="color-card" data-copy="var(--butter-light)" data-name="Butter Light">
+          <div class="color-preview" style="background: var(--butter-light);"></div>
+          <div class="color-info">
+            <p class="color-name">Butter Light</p>
+            <div class="color-values">
+              <span class="color-hex">#FFEFBC</span>
+              <span class="color-var">--butter-light</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card" data-copy="var(--butter-soft)" data-name="Butter Soft">
+          <div class="color-preview" style="background: var(--butter-soft);"></div>
+          <div class="color-info">
+            <p class="color-name">Butter Soft</p>
+            <div class="color-values">
+              <span class="color-hex">#FDF8E8</span>
+              <span class="color-var">--butter-soft</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card" data-copy="var(--rose)" data-name="Rose">
+          <div class="color-preview" style="background: var(--rose);"></div>
+          <div class="color-info">
+            <p class="color-name">Rose</p>
+            <div class="color-values">
+              <span class="color-hex">#D4A5A5</span>
+              <span class="color-var">--rose</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card" data-copy="var(--rose-light)" data-name="Rose Light">
+          <div class="color-preview" style="background: var(--rose-light);"></div>
+          <div class="color-info">
+            <p class="color-name">Rose Light</p>
+            <div class="color-values">
+              <span class="color-hex">#F2E4E4</span>
+              <span class="color-var">--rose-light</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card" data-copy="var(--ink)" data-name="Ink">
+          <div class="color-preview" style="background: var(--ink);"></div>
+          <div class="color-info">
+            <p class="color-name">Ink</p>
+            <div class="color-values">
+              <span class="color-hex">#1A1614</span>
+              <span class="color-var">--ink</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card" data-copy="var(--cream)" data-name="Cream">
+          <div class="color-preview" style="background: var(--cream); border: 1px solid var(--grey-light);"></div>
+          <div class="color-info">
+            <p class="color-name">Cream</p>
+            <div class="color-values">
+              <span class="color-hex">#FAF6F1</span>
+              <span class="color-var">--cream</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card" data-copy="var(--gold)" data-name="Gold">
+          <div class="color-preview" style="background: var(--gold);"></div>
+          <div class="color-info">
+            <p class="color-name">Gold</p>
+            <div class="color-values">
+              <span class="color-hex">#B8860B</span>
+              <span class="color-var">--gold</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card" data-copy="var(--grey)" data-name="Grey">
+          <div class="color-preview" style="background: var(--grey);"></div>
+          <div class="color-info">
+            <p class="color-name">Grey</p>
+            <div class="color-values">
+              <span class="color-hex">#8A8580</span>
+              <span class="color-var">--grey</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gradient-grid">
+        <div class="gradient-card" data-copy="linear-gradient(135deg, var(--butter-light) 0%, var(--rose-light) 100%)" data-name="Warm Gradient">
+          <div class="gradient-preview" style="background: var(--gradient-warm);"></div>
+          <div class="gradient-info">
+            <p class="gradient-name">Warm Gradient</p>
+            <p class="gradient-code">linear-gradient(135deg, var(--butter-light), var(--rose-light))</p>
+          </div>
+        </div>
+
+        <div class="gradient-card" data-copy="linear-gradient(135deg, var(--butter) 0%, var(--rose) 100%)" data-name="Sunset Gradient">
+          <div class="gradient-preview" style="background: var(--gradient-sunset);"></div>
+          <div class="gradient-info">
+            <p class="gradient-name">Sunset Gradient</p>
+            <p class="gradient-code">linear-gradient(135deg, var(--butter), var(--rose))</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Typography Section -->
-    <section id="typography" class="section section--dark">
-        <div class="section-header">
-            <div class="section-number">02</div>
-            <h2 class="section-title">Typography</h2>
-            <p class="section-subtitle">Bold contrast — heavy/light pairings that create visual drama and command attention.</p>
+    <section class="section" id="typography">
+      <div class="section-header">
+        <p class="section-eyebrow">02</p>
+        <h2 class="section-title">Typography</h2>
+        <p class="section-description">DM Sans leads with clear confidence. Lora adds elegant warmth for quotes. Fraunces punctuates bold moments.</p>
+      </div>
+
+      <div class="type-specimens">
+        <!-- DM Sans - Primary Voice -->
+        <div class="type-specimen">
+          <div class="type-specimen-header">
+            <div>
+              <p class="type-specimen-name">DM Sans</p>
+              <p class="type-specimen-role">Primary Voice — Headlines, UI Text, Statements</p>
+            </div>
+            <button class="type-specimen-copy" data-copy="font-family: 'DM Sans', -apple-system, sans-serif;">Copy CSS</button>
+          </div>
+
+          <div class="type-sample">
+            <p class="type-sample-text type-dm-display">THE FUTURE OF MEDIA</p>
+            <p class="type-sample-meta">Display — DM Sans SemiBold 600, -0.07em, CAPS</p>
+          </div>
+
+          <div class="type-sample">
+            <p class="type-sample-text type-dm-heading">BUILDING WHAT COMES NEXT</p>
+            <p class="type-sample-meta">Heading — DM Sans SemiBold 600, -0.07em, CAPS</p>
+          </div>
         </div>
-        <div class="section-content">
-            <!-- Display Font -->
-            <div class="type-specimen">
-                <div class="type-header">
-                    <div class="type-meta">
-                        <div class="type-name">Display</div>
-                        <div class="type-family">Playfair Display · 900 Black</div>
-                    </div>
-                    <button class="type-copy-btn" data-css="font-family: 'Playfair Display', Georgia, serif; font-weight: 900;">Copy CSS</button>
-                </div>
-                <div class="type-alphabet type-alphabet--display">
-                    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                    abcdefghijklmnopqrstuvwxyz<br>
-                    0123456789
-                </div>
-                <div class="type-scale">
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">96px</span>
-                        <span class="type-scale-sample type-scale-sample--display" style="font-size: 96px; line-height: 1;">BOLD</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">64px</span>
-                        <span class="type-scale-sample type-scale-sample--display" style="font-size: 64px; line-height: 1;">HEADLINES</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">48px</span>
-                        <span class="type-scale-sample type-scale-sample--display" style="font-size: 48px; line-height: 1;">Section Titles</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">32px</span>
-                        <span class="type-scale-sample type-scale-sample--display" style="font-size: 32px; line-height: 1;">Card Headers</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Elegant Font -->
-            <div class="type-specimen">
-                <div class="type-header">
-                    <div class="type-meta">
-                        <div class="type-name">Elegant</div>
-                        <div class="type-family">Cormorant Garamond · 300 Light Italic</div>
-                    </div>
-                    <button class="type-copy-btn" data-css="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-style: italic;">Copy CSS</button>
-                </div>
-                <div class="type-alphabet type-alphabet--elegant">
-                    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                    abcdefghijklmnopqrstuvwxyz<br>
-                    0123456789
-                </div>
-                <div class="type-scale">
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">48px</span>
-                        <span class="type-scale-sample type-scale-sample--elegant" style="font-size: 48px; line-height: 1.2;">Sublines & Quotes</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">32px</span>
-                        <span class="type-scale-sample type-scale-sample--elegant" style="font-size: 32px; line-height: 1.2;">Elegant Emphasis</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">24px</span>
-                        <span class="type-scale-sample type-scale-sample--elegant" style="font-size: 24px; line-height: 1.2;">Personal touches that add warmth</span>
-                    </div>
-                </div>
+        <!-- Lora - Elegant Accent -->
+        <div class="type-specimen">
+          <div class="type-specimen-header">
+            <div>
+              <p class="type-specimen-name">Lora</p>
+              <p class="type-specimen-role">Elegant Accent — Pull Quotes, Editorial Moments</p>
             </div>
+            <button class="type-specimen-copy" data-copy="font-family: 'Lora', Georgia, serif;">Copy CSS</button>
+          </div>
 
-            <!-- Body Font -->
-            <div class="type-specimen">
-                <div class="type-header">
-                    <div class="type-meta">
-                        <div class="type-name">Body</div>
-                        <div class="type-family">DM Sans · 400 Regular / 500 Medium</div>
-                    </div>
-                    <button class="type-copy-btn" data-css="font-family: 'DM Sans', -apple-system, sans-serif; font-weight: 400;">Copy CSS</button>
-                </div>
-                <div class="type-alphabet type-alphabet--body">
-                    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                    abcdefghijklmnopqrstuvwxyz<br>
-                    0123456789
-                </div>
-                <div class="type-scale">
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">18px</span>
-                        <span class="type-scale-sample type-scale-sample--body" style="font-size: 18px;">Large body text for introductions and key paragraphs.</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">16px</span>
-                        <span class="type-scale-sample type-scale-sample--body" style="font-size: 16px;">Standard body text. Clean, readable, professional.</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">14px</span>
-                        <span class="type-scale-sample type-scale-sample--body" style="font-size: 14px;">Secondary text, captions, supporting information.</span>
-                    </div>
-                </div>
-            </div>
+          <div class="type-sample">
+            <p class="type-sample-text type-lora-quote">"We're not just telling stories. We're building the infrastructure for a new kind of media company."</p>
+            <p class="type-sample-meta">Quote — Lora Italic 400, 24px</p>
+          </div>
 
-            <!-- Mono Font -->
-            <div class="type-specimen">
-                <div class="type-header">
-                    <div class="type-meta">
-                        <div class="type-name">Mono</div>
-                        <div class="type-family">JetBrains Mono · 400 Regular</div>
-                    </div>
-                    <button class="type-copy-btn" data-css="font-family: 'JetBrains Mono', monospace; font-weight: 400;">Copy CSS</button>
-                </div>
-                <div class="type-alphabet type-alphabet--mono">
-                    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                    abcdefghijklmnopqrstuvwxyz<br>
-                    0123456789 !@#$%^&*()
-                </div>
-                <div class="type-scale">
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">14px</span>
-                        <span class="type-scale-sample type-scale-sample--mono" style="font-size: 14px;">DATA_METRICS: 2.4M+ READERS</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">12px</span>
-                        <span class="type-scale-sample type-scale-sample--mono" style="font-size: 12px;">Section labels, technical data, timestamps</span>
-                    </div>
-                    <div class="type-scale-item">
-                        <span class="type-scale-size">10px</span>
-                        <span class="type-scale-sample type-scale-sample--mono" style="font-size: 10px;">MICRO LABELS · METADATA · BADGES</span>
-                    </div>
-                </div>
-            </div>
+          <div class="type-sample">
+            <p class="type-sample-text type-lora-tagline">Butter & Rose — A warm, sophisticated design language.</p>
+            <p class="type-sample-meta">Tagline — Lora Medium Italic 500, 20px</p>
+          </div>
         </div>
-    </section>
 
-    <!-- Components Section -->
-    <section id="components" class="section section--light">
-        <div class="section-header">
-            <div class="section-number">03</div>
-            <h2 class="section-title">Components</h2>
-            <p class="section-subtitle">Building blocks designed for impact — each element commands attention.</p>
+        <!-- Fraunces -->
+        <div class="type-specimen">
+          <div class="type-specimen-header">
+            <div>
+              <p class="type-specimen-name">Fraunces</p>
+              <p class="type-specimen-role">Bold Moments — Stats, Numbers, Emphasis</p>
+            </div>
+            <button class="type-specimen-copy" data-copy="font-family: 'Fraunces', Georgia, serif;">Copy CSS</button>
+          </div>
+
+          <div class="type-sample">
+            <p class="type-sample-text type-fraunces-stat">87%</p>
+            <p class="type-sample-meta">Stat — Fraunces Black 900, 80px</p>
+          </div>
+
+          <div class="type-sample">
+            <p class="type-sample-text type-fraunces-accent">Representation Matters</p>
+            <p class="type-sample-meta">Accent — Fraunces ExtraBold 800, 40px</p>
+          </div>
         </div>
-        <div class="section-content">
-            <!-- Buttons -->
-            <div class="component-group">
-                <h3 class="component-group-title">Buttons</h3>
-                <div class="button-grid">
-                    <button class="btn btn--primary">Primary Action</button>
-                    <button class="btn btn--secondary">Secondary</button>
-                    <button class="btn btn--ghost">Ghost Button</button>
-                    <button class="btn btn--gold">Premium</button>
-                    <button class="btn btn--primary btn--large">Large Button</button>
-                    <button class="btn btn--primary btn--small">Small</button>
-                </div>
-            </div>
 
-            <!-- Cards -->
-            <div class="component-group">
-                <h3 class="component-group-title">Cards</h3>
-                <div class="card-grid">
-                    <div class="card card--light">
-                        <div class="card-eyebrow">Insight</div>
-                        <h4 class="card-title">The Future of Media</h4>
-                        <p class="card-text">Building at the intersection of data, culture, and community means rethinking what's possible.</p>
-                    </div>
-                    <div class="card card--dark">
-                        <div class="card-eyebrow">Strategy</div>
-                        <h4 class="card-title">Community First</h4>
-                        <p class="card-text">When you truly understand your audience, you can build something that serves them deeply.</p>
-                    </div>
-                </div>
+        <!-- DM Sans - Body -->
+        <div class="type-specimen">
+          <div class="type-specimen-header">
+            <div>
+              <p class="type-specimen-name">DM Sans</p>
+              <p class="type-specimen-role">Body Text — Readable, Clean, Modern</p>
             </div>
+            <button class="type-specimen-copy" data-copy="font-family: 'DM Sans', -apple-system, sans-serif;">Copy CSS</button>
+          </div>
 
-            <!-- Quote Block -->
-            <div class="component-group">
-                <h3 class="component-group-title">Quote Block</h3>
-                <div class="quote-block">
-                    <p class="quote-text">The brands that win are the ones willing to be different, not just better. They create new categories rather than competing in existing ones.</p>
-                    <div class="quote-author">Tobi Oredein</div>
-                </div>
-            </div>
+          <div class="type-sample">
+            <p class="type-sample-text type-dm-body">Black Ballad exists at the intersection of media, data, community, and technology. We're building something that's never existed before — a women's lifestyle brand with the data infrastructure of a tech company and the community depth of a movement.</p>
+            <p class="type-sample-meta">Body — DM Sans Regular 400, 16px, 1.7 line-height</p>
+          </div>
 
-            <!-- Data Display -->
-            <div class="component-group">
-                <h3 class="component-group-title">Data Display</h3>
-                <div class="data-grid">
-                    <div class="data-card">
-                        <div class="data-value">2.4M</div>
-                        <div class="data-label">Monthly Readers</div>
-                        <div class="data-change">↑ 23% YoY</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="data-value">87%</div>
-                        <div class="data-label">Engagement Rate</div>
-                        <div class="data-change">↑ 12% QoQ</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="data-value">156K</div>
-                        <div class="data-label">Community Members</div>
-                        <div class="data-change">↑ 45% YoY</div>
-                    </div>
-                    <div class="data-card">
-                        <div class="data-value">£3.2M</div>
-                        <div class="data-label">Partner Revenue</div>
-                        <div class="data-change">↑ 67% YoY</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tags -->
-            <div class="component-group">
-                <h3 class="component-group-title">Tags & Badges</h3>
-                <div class="tag-group">
-                    <span class="tag tag--terracotta">Featured</span>
-                    <span class="tag tag--terracotta">Breaking</span>
-                    <span class="tag tag--olive">Culture</span>
-                    <span class="tag tag--olive">Business</span>
-                    <span class="tag tag--gold">Premium</span>
-                    <span class="tag tag--gold">Exclusive</span>
-                </div>
-            </div>
-
-            <!-- Form Inputs -->
-            <div class="component-group">
-                <h3 class="component-group-title">Form Inputs</h3>
-                <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" placeholder="hello@example.com">
-                </div>
-            </div>
+          <div class="type-sample">
+            <p class="type-sample-text type-dm-label">Featured Stories</p>
+            <p class="type-sample-meta">Label — DM Sans SemiBold 600, 14px, uppercase</p>
+          </div>
         </div>
+
+        <!-- JetBrains Mono -->
+        <div class="type-specimen">
+          <div class="type-specimen-header">
+            <div>
+              <p class="type-specimen-name">JetBrains Mono</p>
+              <p class="type-specimen-role">Data & Code — Sources, Technical Details</p>
+            </div>
+            <button class="type-specimen-copy" data-copy="font-family: 'JetBrains Mono', monospace;">Copy CSS</button>
+          </div>
+
+          <div class="type-sample">
+            <p class="type-sample-text type-mono-code">--color-butter: #F2D04E;<br>--color-rose: #D4A5A5;</p>
+            <p class="type-sample-meta">Code — JetBrains Mono Regular 400, 14px</p>
+          </div>
+
+          <div class="type-sample">
+            <p class="type-sample-text type-mono-caption">Source: BB Index 2024</p>
+            <p class="type-sample-meta">Caption — JetBrains Mono Regular 400, 12px, uppercase</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Spacing Section -->
-    <section id="spacing" class="section section--blush">
-        <div class="section-header">
-            <div class="section-number">04</div>
-            <h2 class="section-title">Spacing Scale</h2>
-            <p class="section-subtitle">Consistent spacing creates rhythm and breathing room within strategic maximalism.</p>
+    <section class="section" id="spacing">
+      <div class="section-header">
+        <p class="section-eyebrow">03</p>
+        <h2 class="section-title">Spacing</h2>
+        <p class="section-description">Consistent spacing creates rhythm and breathing room. Click to copy the CSS variable.</p>
+      </div>
+
+      <div class="spacing-grid">
+        <div class="spacing-item" data-copy="var(--space-xs)" data-name="XS">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 4px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">XS</span>
+            <span class="spacing-value">4px</span>
+            <span class="spacing-var">--space-xs</span>
+          </div>
         </div>
-        <div class="section-content">
-            <div class="spacing-scale">
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-xs</span>
-                    <div class="spacing-bar" style="width: 4px;"><span class="spacing-value">4px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-sm</span>
-                    <div class="spacing-bar" style="width: 8px;"><span class="spacing-value">8px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-md</span>
-                    <div class="spacing-bar" style="width: 16px;"><span class="spacing-value">16px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-lg</span>
-                    <div class="spacing-bar" style="width: 24px;"><span class="spacing-value">24px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-xl</span>
-                    <div class="spacing-bar" style="width: 32px;"><span class="spacing-value">32px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-2xl</span>
-                    <div class="spacing-bar" style="width: 48px;"><span class="spacing-value">48px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-3xl</span>
-                    <div class="spacing-bar" style="width: 64px;"><span class="spacing-value">64px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-4xl</span>
-                    <div class="spacing-bar" style="width: 96px;"><span class="spacing-value">96px</span></div>
-                </div>
-                <div class="spacing-item">
-                    <span class="spacing-label">--space-5xl</span>
-                    <div class="spacing-bar" style="width: 128px;"><span class="spacing-value">128px</span></div>
-                </div>
-            </div>
+
+        <div class="spacing-item" data-copy="var(--space-sm)" data-name="SM">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 8px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">SM</span>
+            <span class="spacing-value">8px</span>
+            <span class="spacing-var">--space-sm</span>
+          </div>
         </div>
+
+        <div class="spacing-item" data-copy="var(--space-md)" data-name="MD">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 16px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">MD</span>
+            <span class="spacing-value">16px</span>
+            <span class="spacing-var">--space-md</span>
+          </div>
+        </div>
+
+        <div class="spacing-item" data-copy="var(--space-lg)" data-name="LG">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 24px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">LG</span>
+            <span class="spacing-value">24px</span>
+            <span class="spacing-var">--space-lg</span>
+          </div>
+        </div>
+
+        <div class="spacing-item" data-copy="var(--space-xl)" data-name="XL">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 32px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">XL</span>
+            <span class="spacing-value">32px</span>
+            <span class="spacing-var">--space-xl</span>
+          </div>
+        </div>
+
+        <div class="spacing-item" data-copy="var(--space-2xl)" data-name="2XL">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 48px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">2XL</span>
+            <span class="spacing-value">48px</span>
+            <span class="spacing-var">--space-2xl</span>
+          </div>
+        </div>
+
+        <div class="spacing-item" data-copy="var(--space-3xl)" data-name="3XL">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 64px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">3XL</span>
+            <span class="spacing-value">64px</span>
+            <span class="spacing-var">--space-3xl</span>
+          </div>
+        </div>
+
+        <div class="spacing-item" data-copy="var(--space-4xl)" data-name="4XL">
+          <div class="spacing-visual">
+            <div class="spacing-bar" style="width: 96px;"></div>
+          </div>
+          <div class="spacing-info">
+            <span class="spacing-name">4XL</span>
+            <span class="spacing-value">96px</span>
+            <span class="spacing-var">--space-4xl</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Examples Section -->
-    <section id="examples" class="section section--dark">
-        <div class="section-header">
-            <div class="section-number">05</div>
-            <h2 class="section-title">Live Examples</h2>
-            <p class="section-subtitle">The system in action — components working together harmoniously.</p>
+    <!-- Components Section -->
+    <section class="section" id="components">
+      <div class="section-header">
+        <p class="section-eyebrow">04</p>
+        <h2 class="section-title">Components</h2>
+        <p class="section-description">Building blocks designed with warmth and intention. Each component reflects the Butter & Rose aesthetic.</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="component-group">
+        <h3 class="component-group-title">Buttons</h3>
+        <div class="component-showcase">
+          <div class="component-row">
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-accent">Accent</button>
+            <button class="btn btn-rose">Rose</button>
+            <button class="btn btn-ghost">Ghost</button>
+          </div>
         </div>
-        <div class="section-content">
-            <div class="examples-grid">
-                <!-- Social Post -->
-                <div class="social-mockup">
-                    <div class="social-mockup-content">
-                        <h3 class="social-mockup-headline">The Future Is Being Built</h3>
-                        <p class="social-mockup-subline">by those willing to see it differently</p>
-                    </div>
-                </div>
+      </div>
 
-                <!-- Quote Card -->
-                <div class="quote-card-example">
-                    <p class="quote-card-text">"Success isn't about being the loudest voice in the room — it's about being the one people remember long after they've left."</p>
-                    <div class="quote-card-attribution">— Tobi Oredein</div>
-                </div>
+      <!-- Tags -->
+      <div class="component-group">
+        <h3 class="component-group-title">Tags & Badges</h3>
+        <div class="component-showcase">
+          <div class="component-row">
+            <span class="tag tag-butter">Featured</span>
+            <span class="tag tag-rose">Community</span>
+            <span class="tag tag-ink">New</span>
+            <span class="tag tag-outline">Archive</span>
+          </div>
+        </div>
+      </div>
 
-                <!-- Data Viz -->
-                <div class="data-viz-card">
-                    <div class="data-viz-header">
-                        <h4 class="data-viz-title">Audience Growth</h4>
-                        <span class="data-viz-period">Jan — Dec 2024</span>
-                    </div>
-                    <div class="data-viz-chart">
-                        <div class="data-viz-bar" style="height: 30%;"></div>
-                        <div class="data-viz-bar" style="height: 45%;"></div>
-                        <div class="data-viz-bar" style="height: 38%;"></div>
-                        <div class="data-viz-bar" style="height: 55%;"></div>
-                        <div class="data-viz-bar" style="height: 62%;"></div>
-                        <div class="data-viz-bar" style="height: 70%;"></div>
-                        <div class="data-viz-bar" style="height: 68%;"></div>
-                        <div class="data-viz-bar" style="height: 85%;"></div>
-                        <div class="data-viz-bar" style="height: 78%;"></div>
-                        <div class="data-viz-bar" style="height: 92%;"></div>
-                        <div class="data-viz-bar" style="height: 88%;"></div>
-                        <div class="data-viz-bar" style="height: 100%;"></div>
-                    </div>
-                    <div class="data-viz-footer">
-                        <div class="data-viz-stat">
-                            <div class="data-viz-stat-value">2.4M</div>
-                            <div class="data-viz-stat-label">Total Reach</div>
-                        </div>
-                        <div class="data-viz-stat">
-                            <div class="data-viz-stat-value">+156%</div>
-                            <div class="data-viz-stat-label">YoY Growth</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Headline Combo -->
-                <div class="headline-combo">
-                    <h3 class="headline-combo-main">Media, Data, Community</h3>
-                    <p class="headline-combo-sub">where innovation meets intention</p>
-                </div>
+      <!-- Cards -->
+      <div class="component-group">
+        <h3 class="component-group-title">Cards</h3>
+        <div class="component-showcase">
+          <div class="cards-grid">
+            <div class="card">
+              <div class="card-image"></div>
+              <div class="card-body">
+                <p class="card-eyebrow">Culture</p>
+                <h4 class="card-title">The Evolution of Black British Media</h4>
+                <p class="card-description">Exploring how digital platforms are reshaping storytelling for Black women in the UK.</p>
+              </div>
             </div>
+
+            <div class="stat-card">
+              <p class="stat-number">2.3M</p>
+              <p class="stat-label">Black women in the UK</p>
+              <p class="stat-source">Source: ONS Census 2021</p>
+            </div>
+
+            <div class="card">
+              <div class="card-image" style="background: var(--gradient-sunset);"></div>
+              <div class="card-body">
+                <p class="card-eyebrow">Data</p>
+                <h4 class="card-title">BB Index: Beauty Edition</h4>
+                <p class="card-description">What Black British women really think about the beauty industry.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Quote Block -->
+      <div class="component-group">
+        <h3 class="component-group-title">Quote Block</h3>
+        <div class="component-showcase">
+          <div class="quote-block">
+            <span class="quote-mark">"</span>
+            <p class="quote-text">We're building the infrastructure for a new kind of media company — one that centers Black women not as an afterthought, but as the foundation.</p>
+            <p class="quote-author">Tobi Oredein</p>
+            <p class="quote-role">Founder & CEO, Black Ballad</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Inputs -->
+      <div class="component-group">
+        <h3 class="component-group-title">Form Inputs</h3>
+        <div class="component-showcase">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="hello@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input form-textarea" placeholder="Write your message here..."></textarea>
+          </div>
+          <button class="btn btn-primary">Send Message</button>
+        </div>
+      </div>
+
+      <!-- Code Block -->
+      <div class="component-group">
+        <h3 class="component-group-title">Code Block</h3>
+        <div class="code-block">
+          <button class="code-copy" data-copy=":root {
+  --butter: #F2D04E;
+  --rose: #D4A5A5;
+  --ink: #1A1614;
+  --cream: #FAF6F1;
+}">Copy</button>
+          <code><span class="comment">/* Butter & Rose Palette */</span>
+<span class="property">:root</span> {
+  <span class="property">--butter</span>: <span class="value">#F2D04E</span>;
+  <span class="property">--rose</span>: <span class="value">#D4A5A5</span>;
+  <span class="property">--ink</span>: <span class="value">#1A1614</span>;
+  <span class="property">--cream</span>: <span class="value">#FAF6F1</span>;
+}</code>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-brand">
-            <span class="first">Tobi</span>
-            <span class="last">Oredein</span>
-        </div>
-        <p class="footer-text">Design System v1.0 · 2024</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Tobi Oredein Design System</p>
+      <p class="footer-version">Version 2.4 — Butter & Rose</p>
+    </div>
+  </footer>
 
-    <!-- Toast Container -->
-    <div class="toast-container" id="toastContainer"></div>
+  <script>
+    // Toast functionality
+    const toast = document.getElementById('toast');
+    let toastTimeout;
 
-    <script>
-        // ══════════════════════════════════════════════════════════════════════
-        // Navigation scroll effect
-        // ══════════════════════════════════════════════════════════════════════
-        const nav = document.querySelector('.nav');
-        const navLinks = document.querySelectorAll('.nav-links a');
-        const sections = document.querySelectorAll('section[id]');
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
 
-        window.addEventListener('scroll', () => {
-            // Nav background
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
 
-            // Active section
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
+    // Copy to clipboard
+    async function copyToClipboard(text, name) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast(`Copied ${name}`);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+    }
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
+    // Color cards
+    document.querySelectorAll('.color-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const value = card.dataset.copy;
+        const name = card.dataset.name;
+        copyToClipboard(value, name);
+      });
+    });
 
-        // ══════════════════════════════════════════════════════════════════════
-        // Toast notification system
-        // ══════════════════════════════════════════════════════════════════════
-        function showToast(message) {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            container.appendChild(toast);
+    // Gradient cards
+    document.querySelectorAll('.gradient-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const value = card.dataset.copy;
+        const name = card.dataset.name;
+        copyToClipboard(value, name);
+      });
+    });
 
-            setTimeout(() => {
-                toast.classList.add('hiding');
-                setTimeout(() => toast.remove(), 300);
-            }, 2000);
+    // Spacing items
+    document.querySelectorAll('.spacing-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const value = item.dataset.copy;
+        const name = item.dataset.name;
+        copyToClipboard(value, name);
+      });
+    });
+
+    // Type specimen copy buttons
+    document.querySelectorAll('.type-specimen-copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = btn.dataset.copy;
+        copyToClipboard(value, 'font-family');
+      });
+    });
+
+    // Code copy button
+    document.querySelectorAll('.code-copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = btn.dataset.copy;
+        copyToClipboard(value, 'code');
+      });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function updateActiveNav() {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
         }
+      });
 
-        // ══════════════════════════════════════════════════════════════════════
-        // Copy to clipboard functionality
-        // ══════════════════════════════════════════════════════════════════════
-        // Color cards
-        document.querySelectorAll('.color-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const color = card.dataset.color;
-                const name = card.dataset.name;
-                navigator.clipboard.writeText(color);
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
 
-                card.classList.add('copied');
-                setTimeout(() => card.classList.remove('copied'), 1500);
-
-                showToast(`${name} (${color}) copied!`);
-            });
-        });
-
-        // Typography CSS buttons
-        document.querySelectorAll('.type-copy-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const css = btn.dataset.css;
-                navigator.clipboard.writeText(css);
-
-                btn.classList.add('copied');
-                btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btn.textContent = 'Copy CSS';
-                }, 1500);
-
-                showToast('CSS copied to clipboard!');
-            });
-        });
-
-        // ══════════════════════════════════════════════════════════════════════
-        // Smooth scroll for navigation
-        // ══════════════════════════════════════════════════════════════════════
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const target = document.querySelector(targetId);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+  </script>
 </body>
 </html>
